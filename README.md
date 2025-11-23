@@ -1,3 +1,6 @@
+PluggableAuthContrib
+--------------------
+
 PluggableAuth brings together all the different ways of identifying and authenticating users to Foswiki. 
 Foswiki itself has a way of plugging in different schemes for mapping users and groups. However, it only allows one specific
 implementation to be plugged in, not many. Nor does Foswiki have a central database to store these entities.
