@@ -1,0 +1,51 @@
+Foswiki::Contrib::CacheContrib,>=0,perl,Required.
+Foswiki::Contrib::JQCodeInputContrib,>=1.0,perl,Required
+Foswiki::Contrib::JQPasswordGeneratorContrib,>=0,perl,Required
+Foswiki::Contrib::JsonRpcContrib,>=2.21,perl,Required
+Foswiki::Plugins::DBIPlugin,>=0,perl,Required
+Foswiki::Plugins::GridLayoutPlugin,>=1.0,perl,Required
+Foswiki::Plugins::QRCodePlugin,>=1.0,perl,Required
+Foswiki::Plugins::ImageGeneratorPlugin,>=1.0,perl,Required
+Foswiki::Plugins::TopicTitlePlugin,>=1.0,perl,Required
+
+Authen::OATH,>=2.0,cpan,Required
+Bytes::Random::Secure,>=0.20,cpan,Required
+Convert::Base32,>=0,cpan,Required
+Crypt::PasswdMD5,>=1.40,cpan,Required
+Crypt::PBKDF2,>=0.161520,cpan,Required
+Digest::MD5,>=2.55_01,cpan,Required
+Email::Valid,>1.0,cpan,Required
+Encode,>=3.06,cpan,Required
+File::Temp,>=0.2309,cpan,Required
+Image::Magick,>=7,cpan,Optional
+JSON,>=4.02,cpan,Required
+LWP::UserAgent,>0,cpan,Required
+MIME::Base64,>=3.15,cpan,Required
+Net::CIDR,>=0.20,cpan,Required
+Text::Unidecode,>=1.30,cpan,Required
+URI,>=5.17,cpan,Required
+URI::Escape,>=0,cpan,Required
+
+Crypt::Argon2,>=0.007,cpan,Optional
+Digest::SHA,>=6.02,cpan,Optional
+Crypt::Eksblowfish::Bcrypt,>=0.009,cpan,Optional
+
+Crypt::JWT,>=0.035,cpan,Optional for OpenID based providers
+GSSAPI,>=0.28,cpan,Optional for Kerberos
+
+Authen::SASL,>=2.16,cpan,Optional for LDAP
+Net::LDAP,>=0.66,cpan,Optional for LDAP
+Net::LDAP::Constant,>=0.23,cpan,Optional for LDAP
+Net::LDAP::Control::Paged,>=0.05,cpan,Optional for LDAP
+Net::LDAP::Extension::SetPassword,>=0.06,cpan,Optional for LDAP
+URI::ldap,>=1.76,cpan,Optional for LDAP
+
+Net::SAML2,>=0.32,cpan,Optional for SAML
+Net::SAML2::XML::Sig,>=0.32,cpan,Optional for SAML
+Crypt::OpenSSL::Verify,>=0.28,cpan,Optional for SAML and ClientCert
+
+Net::Twitter,>=4.0,cpan,Optional for Twitter
+
+Crypt::OpenSSL::X509,>=1,cpan,Optional for ClientCert
+
+Pod::Coverage,>=0,cpan,Optional if you like to run the unit tests

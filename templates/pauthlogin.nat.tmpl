@@ -1,0 +1,50 @@
+%TMPL:INCLUDE{"pauthlogin"}%
+
+%TMPL:DEF{"message"}%%BEGINGRID{border="1" gutter="0"}%
+%IF{
+  "'%PROVIDERINFO{
+    showvisible="on" 
+    %IF{"'%URLPARAM{"pauth_provider"}%'='internal'" 
+      then="showinternal=\"on\""
+    }% showallowed="on" 
+    format="1" 
+  }%'=''"
+  then="$percntTMPL:P{\"login::default\"}$percnt"
+  else="$percntTMPL:P{\"login::extended\"}$percnt"
+}%
+%ENDGRID%%TMPL:END%
+
+%TMPL:DEF{"login::default"}%%BEGINCOL{"12"}%
+<div class="foswikiFormSteps natLoginContainer" style="display:block">
+%TMPL:P{"login"}%
+</div>%TMPL:END%
+
+%TMPL:DEF{"login::extended"}%%BEGINCOL{"6"}%
+<div class="foswikiFormSteps natLoginContainer">
+%TMPL:P{"login"}%
+</div>
+%BEGINCOL{"6"}%
+%TMPL:P{"login::provider"}%%TMPL:END%
+
+%TMPL:DEF{"login::resetpassword"}%<div>[[%SYSTEMWEB%.ResetPassword][%MAKETEXT{"Did you forget your password?"}%]]</div>%TMPL:END%
+
+%TMPL:DEF{"login::registration"}%<div>[[%SYSTEMWEB%.UserRegistration][%MAKETEXT{"Do you want to become a registered user?"}%]]</div>%TMPL:END%
+
+%TMPL:DEF{"login::provider"}%%PROVIDERINFO{
+  showvisible="on"
+  showallowed="on"
+  header="<div class='foswikiPageForm pauthProviders'><h3>%MAKETEXT{"Or, sign in with:"}%</h3>"
+  format="<a href='%SCRIPTURLPATH{"login"}%/%WEB%/%TOPIC%?foswiki_origin=%FOSWIKI_ORIGIN%&pauth_provider=$id' class='pauthProviderLink <nop>$id'>$name</a>"
+  separator="$n"
+  footer="</div>"
+}%%ADDTOZONE{
+  "head"
+  id="PAUTHCSS"
+  text="<link rel='stylesheet' media='all' href='%PUBURLPATH%/%SYSTEMWEB%/PluggableAuthContrib/pauth.css'>"
+}%%TMPL:END%
+
+%TMPL:DEF{"seealso"}%<div class='foswikiFormStep natLoginSeeAlso'>
+%TMPL:P{context="passwords_modifyable" else="login::resetpassword"}%%{}%
+%TMPL:P{context="registration_enabled" then="login::registration"}%%{}%
+</div>%TMPL:END%
+

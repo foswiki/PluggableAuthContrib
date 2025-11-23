@@ -1,0 +1,860 @@
+# Foswiki translation for Deutsch
+msgid ""
+msgstr ""
+"Project-Id-Version: Foswiki $Id\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Michael Daum <foswiki@michaeldaumconsulting.com>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"distribution-master/de/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: data/System/PluggableAuthResetPasswordTemplate.txt:22
+#: data/System/PluggableAuthResetPasswordTemplate.txt:6
+msgid "%1 - New password for %2"
+msgstr "%1 - Neues Passwort für %2"
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:6
+msgid "%1 - Security Alert for %2"
+msgstr "%1 - Sicherheitswarnung für %2"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:29
+#: data/System/PluggableAuthAddAccountTemplate.txt:6
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:23
+msgid "%1 - User Registration for %2"
+msgstr "%1 - Benutzer-Registrierung für %2"
+
+#: data/System/PluggableAuthUsers.txt:98
+msgid "%GETTOPICTITLE%"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:187
+#: data/System/PluggableAuthUsers.txt:213
+#: data/System/PluggableAuthUsers.txt:314
+#: data/System/PluggableAuthUsers.txt:355
+#: data/System/PluggableAuthUsers.txt:413
+#: data/System/PluggableAuthUsers.txt:435 templates/twofactorbase.tmpl:106
+msgid "Abort"
+msgstr "Abbrechen"
+
+#: lib/Foswiki/PluggableAuth.pm:1047 lib/Foswiki/PluggableAuth.pm:1271
+#: lib/Foswiki/PluggableAuth.pm:1326 lib/Foswiki/PluggableAuth.pm:1388
+#: lib/Foswiki/PluggableAuth.pm:1496 lib/Foswiki/PluggableAuth.pm:1587
+#: lib/Foswiki/PluggableAuth.pm:743 lib/Foswiki/PluggableAuth.pm:757
+#: lib/Foswiki/PluggableAuth.pm:791 lib/Foswiki/PluggableAuth.pm:847
+#: lib/Foswiki/PluggableAuth.pm:887 lib/Foswiki/PluggableAuth.pm:990
+msgid "Access to API denied"
+msgstr "Zugriff auf API verweigert"
+
+#: data/System/PluggableAuthUsers.txt:395
+msgid "Account enabled"
+msgstr "Benutzerkonto aktiv"
+
+#: templates/twofactorbase.tmpl:156
+msgid "Activate"
+msgstr "Aktivieren"
+
+#: data/System/PluggableAuthUsers.txt:228
+msgid "Activate User(s)"
+msgstr "Benutzer aktivieren"
+
+#: data/System/PluggableAuthUsers.txt:146
+msgid "Activate user"
+msgstr "Benutzer aktivieren"
+
+#: data/System/PluggableAuthUsers.txt:229
+msgid "Activating ..."
+msgstr "Aktiviere ..."
+
+#: data/System/PluggableAuthUsers.txt:278
+msgid "Add Group"
+msgstr "Gruppe hinzufügen"
+
+#: data/System/PluggableAuthUsers.txt:152
+msgid "Add User"
+msgstr "Benutzer hinzufügen"
+
+#: data/System/PluggableAuthUsers.txt:140
+msgid "Add group"
+msgstr "Gruppe hinzufügen"
+
+#: data/System/PluggableAuthUsers.txt:139
+msgid "Add user"
+msgstr "Benutzer hinzufügen"
+
+#: data/System/PluggableAuthUsers.txt:153
+#: data/System/PluggableAuthUsers.txt:279
+msgid "Adding ..."
+msgstr "Füge hinzu ..."
+
+#: data/System/PluggableAuthUsers.txt:56
+msgid "Admins"
+msgstr "Administratoren"
+
+#: templates/twofactorbase.tmpl:147
+msgid ""
+"After scanning the image or entering the code, the authentication "
+"application is ready to generate six-digit codes. Enter the code below to "
+"activate the two-factor authentication for your account."
+msgstr ""
+"Nach dem Scannen des Bildes oder der Eingabe des Codes ist die "
+"Authentifizierungs-Anwendung bereit, sechsstellige Codes zu erzeugen. Geben "
+"Sie den Code unten ein, um die Zwei-Faktor-Authentifizierung für Ihr Konto "
+"zu aktivieren."
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:12
+#: data/System/PluggableAuthAddAccountTemplate.txt:35
+msgid "An account has been created for you."
+msgstr "Es wurde ein Benutzerkonto für Sie eingerichtet."
+
+#: data/System/PluggableAuthUsers.txt:233
+msgid "Are you sure that you want to activate <b>%quant(%1,user,users)</b>?"
+msgstr ""
+"Sind Sie sicher, dass Sie <b>%quant(%1,Benutzer,Benutzer)</b> aktivieren "
+"wollen?"
+
+#: data/System/PluggableAuthUsers.txt:246
+msgid "Are you sure that you want to deactivate <b>%quant(%1,user,users)</b>?"
+msgstr ""
+"Sind Sie sicher, dass Sie <b>%quant(%1,Benutzer,Benutzer)</b> deaktivieren "
+"wollen?"
+
+#: templates/twofactorbase.tmpl:56
+msgid "Are you sure that you want to deactivate two-factor authentication?"
+msgstr ""
+"Sind Sie sicher, dass Sie die Zwei-Faktor-Authentifizierung deaktivieren "
+"wollen?"
+
+#: data/System/PluggableAuthUsers.txt:258
+msgid "Are you sure that you want to delete <b>%1</b>?"
+msgstr "Sind Sie sicher, dass Sie <b>%1</b> löschen wollen?"
+
+#: data/System/PluggableAuthUsers.txt:220
+msgid "Are you sure that you want to delete <b>%quant(%1,user,users)</b>?"
+msgstr ""
+"Sind Sie sicher, dass Sie <b>%quant(%1,Benutzer,Benutzer)</b> löschen wollen?"
+
+#: data/System/PluggableAuthUsers.txt:270
+msgid ""
+"Are you sure that you want to reset the password of <b>%quant(%1,user,"
+"users)</b>?"
+msgstr ""
+"Sind Sie sicher, dass Sie das Passwort von <b>%quant(%1,Benutzer,Benutzer)</"
+"b> zurücksetzen wollen?"
+
+#: data/System/PluggableAuthMailBaseTemplate.txt:46
+msgid "Best Regards, %1Your Wiki Team."
+msgstr "Mit besten Grüßen, %1Ihr Wiki-Team."
+
+#: data/System/PluggableAuthMailBaseTemplate.txt:43
+msgid "Best Regards, Your Wiki Team."
+msgstr "Mit besten Grüßen, Ihr Wiki-Team."
+
+#: lib/Foswiki/PluggableAuth.pm:1229
+msgid "Cannot change email"
+msgstr "Die E-Mail kann nicht geändert werden."
+
+#: lib/Foswiki/PluggableAuth.pm:1146
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:254
+msgid "Cannot change password"
+msgstr "Das Passwort kann nicht geändert werden."
+
+#: lib/Foswiki/PluggableAuth.pm:860
+msgid "Cannot delete group"
+msgstr "Die Gruppe kann nicht gelöschen werden"
+
+#: lib/Foswiki/PluggableAuth.pm:1294
+msgid "Cannot delete user"
+msgstr "Der Benutzer kann nicht gelöschen werden"
+
+#: lib/Foswiki/PluggableAuth.pm:1164
+msgid "Cannot notify user via email. Not changing the password"
+msgstr ""
+"Der Benutzer kann nicht per E-Mail benachrichtigt werden. Das Passwort wird "
+"nicht geändert."
+
+#: data/System/PluggableAuthUsers.txt:142
+msgid "Change Groups"
+msgstr "Gruppen ändern"
+
+#: data/System/PluggableAuthUsers.txt:143
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: data/System/PluggableAuthUsers.txt:190
+msgid "Change password of %1"
+msgstr "Passwort von %1 ändern"
+
+#: data/System/PluggableAuthUsers.txt:191
+msgid "Changing ..."
+msgstr "Ändere ..."
+
+#: templates/twofactorbase.tmpl:151
+msgid "Code"
+msgstr "Code"
+
+#: templates/twofactorbase.tmpl:115
+msgid "Configure authentication application"
+msgstr "Authentifizierungs-Applikation konfigurieren"
+
+#: lib/Foswiki/PluggableAuth.pm:1156
+msgid "Confirmed password required"
+msgstr "Bestätigungs-Password erforderlich"
+
+#: data/System/PluggableAuthUsers.txt:241
+msgid "Deactivate User(s)"
+msgstr "Benutzer deaktivieren"
+
+#: data/System/PluggableAuthUsers.txt:147
+msgid "Deactivate user"
+msgstr "Benutzer deaktivieren"
+
+#: data/System/PluggableAuthUsers.txt:242
+msgid "Deactivating ..."
+msgstr "Deaktiviere ..."
+
+#: data/System/PluggableAuthMailBaseTemplate.txt:42
+#: data/System/PluggableAuthMailBaseTemplate.txt:45
+msgid "Dear %1"
+msgstr "Lieber %1"
+
+#: data/System/PluggableAuthUsers.txt:254
+msgid "Delete Group"
+msgstr "Gruppe löschen"
+
+#: data/System/PluggableAuthUsers.txt:216
+msgid "Delete User(s)"
+msgstr "Benutzer löschen"
+
+#: data/System/PluggableAuthUsers.txt:145
+msgid "Delete user"
+msgstr "Benutzer löschen"
+
+#: data/System/PluggableAuthUsers.txt:217
+#: data/System/PluggableAuthUsers.txt:255
+msgid "Deleting ..."
+msgstr "Lösche ..."
+
+#: data/System/PluggableAuthUserEditTemplate.txt:10
+msgid "Details"
+msgstr "Details"
+
+#: templates/pauthlogin.nat.tmpl:40
+msgid "Did you forget your password?"
+msgstr "Haben Sie Ihr Passwort vergessen?"
+
+#: templates/twofactorbase.tmpl:50
+msgid "Disable two-factor authentication"
+msgstr "Zwei-Faktor-Authentifizierung deaktivieren"
+
+#: data/System/PluggableAuthUserEditTemplate.txt:15
+#: data/System/PluggableAuthUsers.txt:122
+#: data/System/PluggableAuthUsers.txt:123
+#: data/System/PluggableAuthUsers.txt:127
+#: data/System/PluggableAuthUsers.txt:375
+msgid "Display Name"
+msgstr "Anzeige-Name"
+
+#: templates/pauthlogin.nat.tmpl:42
+msgid "Do you want to become a registered user?"
+msgstr "Möchten Sie ein registrierter Benutzer werden?"
+
+#: data/System/PluggableAuthUsers.txt:317
+msgid "Edit Group"
+msgstr "Gruppen bearbeiten"
+
+#: data/System/PluggableAuthUsers.txt:358
+msgid "Edit User"
+msgstr "Benutzer bearbeiten"
+
+#: data/System/PluggableAuthUsers.txt:439
+msgid "Editable groups"
+msgstr "Veränderbare Gruppen"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:18
+#: data/System/PluggableAuthAddAccountTemplate.txt:41
+#: data/System/PluggableAuthUsers.txt:128
+#: data/System/PluggableAuthUsers.txt:166
+#: data/System/PluggableAuthUsers.txt:381
+msgid "Email"
+msgstr "E-Mail"
+
+#: lib/Foswiki/PluggableAuth.pm:1246
+msgid "Email has been changed"
+msgstr "E-Mail wurde geändert"
+
+#: lib/Foswiki/PluggableAuth.pm:762
+msgid "Email parameter missing"
+msgstr "E-Mail Parameter fehlt"
+
+#: lib/Foswiki/PluggableAuth.pm:1243
+msgid "Email required"
+msgstr "E-Mail erforderlich"
+
+#: lib/Foswiki/PluggableAuth.pm:1249
+msgid "Email was not changed"
+msgstr "E-Mail wurde nicht geändert"
+
+#: data/System/PluggableAuthUsers.txt:131
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#. ($error)
+#: lib/Foswiki/PluggableAuth.pm:2338
+msgid "Error during updateUser(): %1"
+msgstr "Fehler während updateUser(): %1"
+
+#. ($error)
+#: lib/Foswiki/PluggableAuth.pm:1549
+msgid "Error updating group: %1"
+msgstr "Fehler bei der Aktualisierung der Gruppe: %1"
+
+#. ($error)
+#: lib/Foswiki/PluggableAuth.pm:1633
+msgid "Error updating user: %1"
+msgstr "Fehler bie der Aktualisierung des Benutzers: %1"
+
+#: templates/twofactorlogin.tmpl:6
+msgid "Error, access code does not match."
+msgstr "Fehker. Zugriffs-Code stimmt nicht überein"
+
+#: data/System/PluggableAuthUsers.txt:43 data/System/PluggableAuthUsers.txt:98
+msgid "Everyone"
+msgstr "Alle"
+
+#: data/System/PluggableAuthUsers.txt:455
+msgid "External groups"
+msgstr "Externe Gruppen"
+
+#. ("$@")
+#: lib/Foswiki/PluggableAuth.pm:1833
+msgid "Failed loading auth provider: %1"
+msgstr "Provider konnte nicht geladen werden: %1"
+
+#: lib/Foswiki/PluggableAuth.pm:1089
+msgid "Failed to create user"
+msgstr "Benutzer konnte nicht angelegt werden"
+
+#: data/System/PluggableAuthUsers.txt:124
+#: data/System/PluggableAuthUsers.txt:157
+#: data/System/PluggableAuthUsers.txt:366
+msgid "First Name"
+msgstr "Vorname"
+
+#: lib/Foswiki/PluggableAuth.pm:1061
+msgid "FirstName required"
+msgstr "Vorname erforderlich"
+
+#: data/System/PluggableAuthUsers.txt:178
+#: data/System/PluggableAuthUsers.txt:198
+msgid "Generate Password"
+msgstr "Passwort generieren"
+
+#: lib/Foswiki/PluggableAuth.pm:803
+msgid "Group already exists"
+msgstr "Gruppe existiert bereits"
+
+#: lib/Foswiki/Users/PluggableUserMapping.pm:480
+msgid "Group does not exist and create not permitted"
+msgstr "Gruppe existiert nicht und Anlegen ist nicht gestattet"
+
+#: data/System/PluggableAuthUsers.txt:294
+#: data/System/PluggableAuthUsers.txt:337
+msgid "Group enabled"
+msgstr "Gruppe aktiv"
+
+#: lib/Foswiki/PluggableAuth.pm:864
+msgid "Group has been deleted"
+msgstr "Gruppe wurde gelöscht"
+
+#: lib/Foswiki/PluggableAuth.pm:1552
+msgid "Group has been updated"
+msgstr "Gruppe wurde aktualisiert"
+
+#: data/System/PluggableAuthUsers.txt:25
+msgid "Groups"
+msgstr "Gruppen"
+
+#: data/System/PluggableAuthUsers.txt:422
+msgid "Groups of %1"
+msgstr "Gruppen von %1"
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:13
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:31
+msgid "If not, then your password possibly is being compromised."
+msgstr "Wenn nicht, dann wurde Ihr Passwort möglicherweise kompromittiert."
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:13
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:30
+msgid "If this was you, you don't need to do anything."
+msgstr "Wenn Sie das waren, brauchen Sie nichts zu tun."
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:23
+#: data/System/PluggableAuthAddAccountTemplate.txt:48
+#: data/System/PluggableAuthResetPasswordTemplate.txt:16
+#: data/System/PluggableAuthResetPasswordTemplate.txt:34
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:17
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:37
+msgid "If you have any questions, please contact %1."
+msgstr "Wenn Sie Fragen haben, wenden Sie sich bitte an %1."
+
+#: data/System/PluggableAuthUsers.txt:132
+#: data/System/PluggableAuthUsers.txt:378
+msgid "Initials"
+msgstr "Initialen"
+
+#: templates/twofactorbase.tmpl:82
+msgid "Install a two-factor application on your phone"
+msgstr "Zwei-Faktor-Applikation auf Ihrem Telefon installieren"
+
+#: lib/Foswiki/PluggableAuth.pm:722
+msgid "Invalid API invocation"
+msgstr "Ungültiger API-Aufruf"
+
+#: lib/Foswiki/LoginManager/PluggableLogin.pm:487
+msgid "Invalid access code"
+msgstr "Ungültiger Zugangscode"
+
+#: lib/Foswiki/PluggableAuth.pm:481
+msgid "Invalid email address"
+msgstr "Ungültige E-Mail-Adresse"
+
+#: lib/Foswiki/PluggableAuth.pm:1160
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:257
+msgid "Invalid password"
+msgstr "Ungültiges Passwort"
+
+#: lib/Foswiki/PluggableAuth.pm:1071
+msgid "Invalid wikiName"
+msgstr "Ungültiger WikiName"
+
+#: data/System/PluggableAuthUsers.txt:126
+#: data/System/PluggableAuthUsers.txt:163
+#: data/System/PluggableAuthUsers.txt:372
+msgid "Last Name"
+msgstr "Nachname"
+
+#: lib/Foswiki/PluggableAuth.pm:1062
+msgid "LastName required"
+msgstr "Nachname erforderlich"
+
+#: data/System/PluggableAuthUsers.txt:130
+msgid "Login Date"
+msgstr "Login-Datum"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:16
+#: data/System/PluggableAuthAddAccountTemplate.txt:39
+#: data/System/PluggableAuthUsers.txt:121
+#: data/System/PluggableAuthUsers.txt:172
+#: data/System/PluggableAuthUsers.txt:387
+msgid "Login Name"
+msgstr "Login-Name"
+
+#: lib/Foswiki/PluggableAuth.pm:1060
+msgid "LoginName required"
+msgstr "Login-Name erforderlich"
+
+#: templates/twofactorbase.tmpl:105
+msgid "Logout"
+msgstr "Abmelden"
+
+#: data/System/PluggableAuthUsers.txt:299
+#: data/System/PluggableAuthUsers.txt:341
+msgid "Members"
+msgstr "Mitglieder"
+
+#: lib/Foswiki/PluggableAuth.pm:1467
+msgid "Membership has been updated"
+msgstr "Mitgliedschaft wurde aktualisiert"
+
+#: data/System/PluggableAuthUsers.txt:125
+#: data/System/PluggableAuthUsers.txt:160
+#: data/System/PluggableAuthUsers.txt:369
+msgid "Middle Name"
+msgstr "Mittelname"
+
+#: data/System/PluggableAuthUsers.txt:141
+msgid "Modify"
+msgstr "Bearbeiten"
+
+#: data/System/PluggableAuthUsers.txt:286
+#: data/System/PluggableAuthUsers.txt:329
+msgid "Name"
+msgstr "Name"
+
+#: data/System/PluggableAuthUsers.txt:196
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: data/System/PluggableAuthUsers.txt:399
+msgid "New password required"
+msgstr "Neues Passwort erforderlich"
+
+#: templates/twofactorbase.tmpl:108 templates/twofactorbase.tmpl:136
+msgid "Next"
+msgstr "Weiter"
+
+#: lib/Foswiki/PluggableAuth.pm:1500 lib/Foswiki/PluggableAuth.pm:852
+msgid "No gid parameter"
+msgstr "Kein gid Parameter"
+
+#: lib/Foswiki/PluggableAuth.pm:2081
+msgid "No group name specified"
+msgstr "Kein Gruppen-Name angegeben"
+
+#: lib/Foswiki/PluggableAuth.pm:1819
+msgid "No id trying to get a provider"
+msgstr "Kein ID, um einen Provider zu finden"
+
+#: lib/Foswiki/PluggableAuth.pm:891
+msgid "No pid defined"
+msgstr "Kein pid definiert"
+
+#: lib/Foswiki/PluggableAuth.pm:1006
+msgid "No two-factor authentication enabled"
+msgstr "Keine Zwei-Faktor-Authentifizierung aktiviert"
+
+#: lib/Foswiki/PluggableAuth.pm:1276 lib/Foswiki/PluggableAuth.pm:1331
+#: lib/Foswiki/PluggableAuth.pm:1392 lib/Foswiki/PluggableAuth.pm:1591
+msgid "No uid parameter"
+msgstr "Kein uid Parameter"
+
+#: lib/Foswiki/PluggableAuth.pm:796
+msgid "No wikiName parameter"
+msgstr "Kein wikiName Parameter"
+
+#: data/System/PluggableAuthUsers.txt:225
+#: data/System/PluggableAuthUsers.txt:238
+#: data/System/PluggableAuthUsers.txt:251
+#: data/System/PluggableAuthUsers.txt:263
+#: data/System/PluggableAuthUsers.txt:275 templates/twofactorbase.tmpl:59
+msgid "No, thanks"
+msgstr "Nein, danke"
+
+#. ($mid)
+#: lib/Foswiki/PluggableAuth.pm:685
+msgid "Not adding myself as a member: %1"
+msgstr "Füge mich selbst nicht als Mitglied hinzu: %1"
+
+#: data/System/PluggableAuthUsers.txt:182
+msgid "Notify user about new account"
+msgstr "Benutzer über neues Konto informieren"
+
+#: data/System/PluggableAuthUsers.txt:207
+msgid "Notify user about new password"
+msgstr "Benutzer über neues Passwort informieren"
+
+#: lib/Foswiki/PluggableAuth.pm:751
+msgid "OK"
+msgstr "OK"
+
+#: lib/Foswiki/PluggableAuth.pm:1170
+msgid "Old password required"
+msgstr "Altes Passwort erforderlich"
+
+#: data/System/PluggableAuthUsers.txt:289
+#: data/System/PluggableAuthUsers.txt:332
+#: data/System/PluggableAuthUsers.txt:390
+msgid "Options"
+msgstr "Optionen"
+
+#: templates/twofactorbase.tmpl:124
+msgid "Or enter this code into your authentication application."
+msgstr "Oder geben Sie den Code in Ihre Authentifizierungs-App ein."
+
+#: templates/pauthlogin.nat.tmpl:47
+msgid "Or, sign in with:"
+msgstr "Oder anmelden mit:"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:17
+#: data/System/PluggableAuthAddAccountTemplate.txt:40
+#: data/System/PluggableAuthUsers.txt:176
+msgid "Password"
+msgstr "Passwort"
+
+#: lib/Foswiki/PluggableAuth.pm:1182
+msgid "Password has been changed"
+msgstr "Ihr Passwort aktualisiert"
+
+#: lib/Foswiki/PluggableAuth.pm:1152 lib/Foswiki/PluggableAuth.pm:1236
+msgid "Password required"
+msgstr "Passwort erforderlich"
+
+#: lib/Foswiki/PluggableAuth.pm:1185
+msgid "Password was not changed"
+msgstr "Passwort wurde nicht aktualisiert"
+
+#: lib/Foswiki/PluggableAuth.pm:1157
+msgid "Passwords don't match"
+msgstr "Passwörter stimmen nicht überein"
+
+#: lib/Foswiki/PluggableAuth.pm:1172 lib/Foswiki/PluggableAuth.pm:1238
+msgid "Permission denied"
+msgstr "Genehmigung verweigert"
+
+#: data/System/PluggableAuthUsers.txt:119
+msgid "Picture"
+msgstr "Bild"
+
+#: templates/twofactorbase.tmpl:20
+msgid "Please [[%1][log in]] first."
+msgstr "Bitte zuerst [[%1][einloggen]]."
+
+#: templates/twofactorlogin.tmpl:5
+msgid "Please enter your access code"
+msgstr "Bitte Ihren Zugriffs-Code eingeben"
+
+#: templates/twofactorbase.tmpl:46
+msgid ""
+"Please note that a valid two-factor authentication is mandatory for your "
+"user account."
+msgstr ""
+"Bitte beachten Sie, dass eine Zwei-Faktor-Authentifizierung für Ihren "
+"Benutzer-Account obligatorisch ist."
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:15
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:34
+msgid "Please sign in to your account and change your password immediately: %1"
+msgstr ""
+"Bitte melden Sie sich bei Ihrem Konto an und ändern Sie Ihr Passwort sofort: "
+"%1"
+
+#: lib/Foswiki/PluggableAuth.pm:1531 lib/Foswiki/PluggableAuth.pm:1619
+msgid "Please specify the attribute(s) to change"
+msgstr "Bitte geben Sie die Attribute an, die geändert werden sollen"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:21
+#: data/System/PluggableAuthAddAccountTemplate.txt:45
+#: data/System/PluggableAuthResetPasswordTemplate.txt:14
+#: data/System/PluggableAuthResetPasswordTemplate.txt:31
+msgid ""
+"Please visit %1 to change your password to something more memorable for you."
+msgstr ""
+"Bitte besuchen Sie %1, um Ihr Passwort in etwas zu ändern, das Sie sich "
+"besser merken können."
+
+#: data/System/PluggableAuthUsers.txt:9
+msgid "Pluggable Authentication is not enabled."
+msgstr "Pluggable-Authentifizierung is inaktiv"
+
+#: templates/twofactorbase.tmpl:135 templates/twofactorbase.tmpl:155
+msgid "Previous"
+msgstr "Zurück"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:19
+#: data/System/PluggableAuthAddAccountTemplate.txt:42
+msgid "Profile Page"
+msgstr "Profilseite"
+
+#: data/System/PluggableAuthUsers.txt:120
+msgid "Provider"
+msgstr "Provider"
+
+#: lib/Foswiki/PluggableAuth.pm:897
+msgid "Provider has been deleted"
+msgstr "Provider wurde gelöscht"
+
+#: data/System/PluggableAuthUsers.txt:129
+msgid "Registration Date"
+msgstr "Registrierungs-Datum"
+
+#: data/System/PluggableAuthUsers.txt:144
+#: data/System/PluggableAuthUsers.txt:266
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+#: data/System/PluggableAuthUsers.txt:267
+msgid "Resetting ..."
+msgstr "Setze zurück ..."
+
+#: data/System/PluggableAuthUsers.txt:201
+msgid "Retype new password"
+msgstr "Neues Passwort wiederholen"
+
+#: data/System/PluggableAuthUsers.txt:186
+#: data/System/PluggableAuthUsers.txt:212
+#: data/System/PluggableAuthUsers.txt:313
+#: data/System/PluggableAuthUsers.txt:354
+#: data/System/PluggableAuthUsers.txt:412
+#: data/System/PluggableAuthUsers.txt:434
+msgid "Save"
+msgstr "Speichern"
+
+#: data/System/PluggableAuthUsers.txt:318
+#: data/System/PluggableAuthUsers.txt:359
+#: data/System/PluggableAuthUsers.txt:423
+msgid "Saving ..."
+msgstr "Speichere ..."
+
+#: templates/twofactorbase.tmpl:118
+msgid ""
+"Scan this image with the two-factor authentication application on your phone."
+msgstr ""
+"Scannen Sie dieses Bild mit der Anwendung zur Zwei-Faktor-Authentifizierung "
+"auf Ihrem Telefon."
+
+#: data/System/PluggableAuthUsers.txt:418
+msgid "See also"
+msgstr "Siehe auch"
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:13
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:29
+msgid ""
+"Somebody tried to sign in to your account but failed to verify the second "
+"factor repeatedly."
+msgstr ""
+"Jemand hat versucht, sich bei Ihrem Konto anzumelden, konnte aber den "
+"zweiten Faktor wiederholt nicht verifizieren."
+
+#: lib/Foswiki/PluggableAuth.pm:2023
+msgid "Sorry, access denied. No source for a wikiName."
+msgstr "Zugriff leider verweigert. Keine Quelle für einen WikiNamen."
+
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:136
+msgid "Sorry, account is disabled"
+msgstr "Leider ist das Konto deaktiviert."
+
+#: lib/Foswiki/PluggableAuth/Provider/Topic.pm:497
+msgid "Sorry, account is disabled (3)"
+msgstr "Leider ist das Konto deaktiviert."
+
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:121
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:124
+msgid "Sorry, account not found"
+msgstr "Leider wurder das Konto nicht gefunden."
+
+#: data/System/PluggableAuthUserEditTemplate.txt:39
+msgid "Text"
+msgstr "Text"
+
+#: data/System/PluggableAuthUsers.txt:283
+#: data/System/PluggableAuthUsers.txt:326
+msgid "Title"
+msgstr "Titel"
+
+#: lib/Foswiki/PluggableAuth/TwoFactorAuth.pm:235
+msgid "Too many failures"
+msgstr "Zu viele Fehlschläge"
+
+#: templates/twofactorbase.tmpl:64 templates/twofactorlogin.tmpl:3
+msgid "Two-factor authentication"
+msgstr "Zwei-Faktor-Authentifizierung"
+
+#: data/System/PluggableAuthUsers.txt:405
+msgid "Two-factor authentication enabled"
+msgstr "Zwei-Faktor-Authentifizierung aktiv"
+
+#: templates/twofactorbase.tmpl:143
+msgid "Two-step authentication has been activated."
+msgstr "Zwei-Faktor-Authentifizierung wurde aktiviert."
+
+#: templates/twofactorbase.tmpl:54
+msgid "Two-step authentication has been deactivated."
+msgstr "Zwei-Faktor-Authentifizierung wurde deaktiviert."
+
+#. ($event)
+#: lib/Foswiki/PluggableAuth.pm:515
+msgid "Unknown event %1"
+msgstr "Unbekanntes Ereignis %1"
+
+#: lib/Foswiki/PluggableAuth.pm:1502 lib/Foswiki/PluggableAuth.pm:1511
+#: lib/Foswiki/PluggableAuth.pm:859
+msgid "Unknown group"
+msgstr "Unbekannte Gruppe"
+
+#: lib/Foswiki/PluggableAuth.pm:1826 lib/Foswiki/PluggableAuth.pm:2000
+#: lib/Foswiki/PluggableAuth.pm:2076 lib/Foswiki/PluggableAuth.pm:634
+#: lib/Foswiki/PluggableAuth.pm:894
+msgid "Unknown provider"
+msgstr "Unbekannter Provider"
+
+#: lib/Foswiki/LoginManager/PluggableLogin.pm:478
+#: lib/Foswiki/PluggableAuth.pm:1005 lib/Foswiki/PluggableAuth.pm:1140
+#: lib/Foswiki/PluggableAuth.pm:1222 lib/Foswiki/PluggableAuth.pm:1293
+#: lib/Foswiki/PluggableAuth.pm:1342 lib/Foswiki/PluggableAuth.pm:1400
+#: lib/Foswiki/PluggableAuth.pm:1599
+msgid "Unknown user"
+msgstr "Unbekannter Benutzer"
+
+#: templates/twofactorbase.tmpl:83
+msgid ""
+"Use an application on your phone to get two-factor authentication codes when "
+"prompted."
+msgstr ""
+"Verwenden Sie eine Anwendung auf Ihrem Telefon, um Codes für die Zwei-Faktor-"
+"Authentifizierung zu erhalten, wenn Sie dazu aufgefordert werden."
+
+#. ($cuid)
+#: lib/Foswiki/Users/PluggableUserMapping.pm:523
+msgid "User %1 not in group, cannot be removed"
+msgstr "%1 ist nicht in der Gruppe und kann deshalb nicht entfernt werden"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:14
+#: data/System/PluggableAuthAddAccountTemplate.txt:37
+msgid "User account information"
+msgstr "Informationen zum Benutzerkonto"
+
+#: lib/Foswiki/PluggableAuth.pm:1073
+msgid "User already exists"
+msgstr "Benutzer existiert bereits"
+
+#: lib/Foswiki/PluggableAuth.pm:1101
+msgid "User has been added"
+msgstr "Benutzer wurde hinzugefügt"
+
+#: lib/Foswiki/PluggableAuth.pm:1300
+msgid "User has been deleted"
+msgstr "Benutzer wurde gelöscht"
+
+#: lib/Foswiki/PluggableAuth.pm:1351
+msgid "User has been disabled"
+msgstr "Benutzer wurde deaktiviert"
+
+#: lib/Foswiki/PluggableAuth.pm:1351
+msgid "User has been enabled"
+msgstr "Benutzer wurde aktiviert"
+
+#: lib/Foswiki/PluggableAuth.pm:1648
+msgid "User has been updated"
+msgstr "Benutzer wurde aktualisiert"
+
+#: templates/twofactorbase.tmpl:146
+msgid "Verify installation"
+msgstr "Installation verifizieren"
+
+#: templates/twofactorbase.tmpl:85
+msgid "We recommend %1."
+msgstr "Wir empfehlen %1."
+
+#: data/System/PluggableAuthUsers.txt:169
+#: data/System/PluggableAuthUsers.txt:384
+msgid "WikiName"
+msgstr "WikiName"
+
+#: data/System/PluggableAuthUsers.txt:237
+msgid "Yes, activate"
+msgstr "Ja, aktivieren"
+
+#: data/System/PluggableAuthUsers.txt:250 templates/twofactorbase.tmpl:58
+msgid "Yes, deactivate"
+msgstr "Ja, deaktivieren"
+
+#: data/System/PluggableAuthUsers.txt:224
+#: data/System/PluggableAuthUsers.txt:262
+msgid "Yes, delete"
+msgstr "Ja, löschen"
+
+#: data/System/PluggableAuthUsers.txt:274
+msgid "Yes, reset"
+msgstr "Ja, zurücksetzen"
+
+#: templates/twofactorbase.tmpl:27
+msgid "Your account already has got two-factor authentication."
+msgstr "Ihr Konto verfügt bereits über eine Zwei-Faktor-Authentifizierung."
+
+#: data/System/PluggableAuthResetPasswordTemplate.txt:12
+#: data/System/PluggableAuthResetPasswordTemplate.txt:28
+msgid "Your password has been changed to %1."
+msgstr "Ihr Passwort wurde auf %1 gesetzt."

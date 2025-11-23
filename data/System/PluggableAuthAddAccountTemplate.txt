@@ -1,0 +1,52 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1705602715" format="1.1" reprev="1" version="1"}%
+%META:TOPICPARENT{name="PluggableAuthContrib"}%
+%{ WARNING: Please do not modify this template. Create a skin overlay instead. }%
+%TMPL:INCLUDE{"PluggableAuthMailBase"}%
+
+%TMPL:DEF{"pauth::mail::header::subject"}%Subject: %MAKETEXT{"[_1] - User Registration for [_2]" args="%WIKITOOLNAME%, %DISPLAYNAME%"}%%TMPL:END%
+
+%{ text body}%
+%TMPL:DEF{"pauth::mail::body::text"}%
+%TMPL:P{"pauth::mail::greeting::text"}%
+
+%MAKETEXT{"An account has been created for you."}% 
+
+%MAKETEXT{"User account information"}%:
+
+   * %MAKETEXT{"Login Name"}%: %LOGINNAME%
+   * %MAKETEXT{"Password"}%: %PASSWORD%
+   * %MAKETEXT{"Email"}%: %EMAILADDRESS%
+   * %MAKETEXT{"Profile Page"}%: %SCRIPTURL{"view" topic="%USERSWEB%.%WIKINAME%"}%
+
+%MAKETEXT{"Please visit [_1] to change your password to something more memorable for you." args="%TMPL:P{"pauth::mail::changepassword"}%"}%
+
+%MAKETEXT{"If you have any questions, please contact [_1]." args="%WIKIWEBMASTER%"}%
+
+%TMPL:P{"pauth::mail::closing::text"}%
+%TMPL:END%
+
+%{ html body }%
+%TMPL:DEF{"pauth::mail::title::html"}%<h3>%MAKETEXT{"[_1] - User Registration for [_2]" args="%WIKITOOLNAME%, %DISPLAYNAME%"}%</h3>%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::body::html"}%
+%TMPL:P{"pauth::mail::title::html"}%
+%TMPL:P{"pauth::mail::greeting::html"}%
+<p>
+%MAKETEXT{"An account has been created for you."}% 
+</p>
+%MAKETEXT{"User account information"}%:
+<ul>
+  <li> %MAKETEXT{"Login Name"}%: %LOGINNAME% </li>
+  <li> %MAKETEXT{"Password"}%: %PASSWORD% </li>
+  <li> %MAKETEXT{"Email"}%: %EMAILADDRESS% </li>
+  <li> %MAKETEXT{"Profile Page"}%: <a href='%SCRIPTURL{"view" topic="%USERSWEB%.%WIKINAME%"}%'>%SCRIPTURL{"view" topic="%USERSWEB%.%WIKINAME%"}%</a> </li>
+</ul>
+<p>
+%MAKETEXT{"Please visit [_1] to change your password to something more memorable for you." args="<a href='%TMPL:P{"pauth::mail::changepassword"}%'>%TMPL:P{"pauth::mail::changepassword"}%</a>"}%
+</p>
+<p>
+%MAKETEXT{"If you have any questions, please contact [_1]." args="%WIKIWEBMASTER%"}%
+</p>
+%TMPL:P{"pauth::mail::closing::html"}%
+%TMPL:END%
+

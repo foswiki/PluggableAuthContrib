@@ -1,0 +1,49 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1705602596" format="1.1" reprev="1" version="1"}%
+%META:TOPICPARENT{name="PluggableAuthContrib"}%
+%{ WARNING: Please do not modify this template. Create a skin overlay instead. }%
+
+%TMPL:DEF{"pauth::mail"}%%TMPL:P{"pauth::mail::init"}%%TMPL:P{"pauth::mail::header"}%%TMPL:P{"pauth::mail::body"}%%TMPL:END%
+
+%{ header definitions }%
+%TMPL:DEF{"pauth::mail::header"}%
+%TMPL:P{"pauth::mail::header::from"}%
+%TMPL:P{"pauth::mail::header::to"}%
+%TMPL:P{"pauth::mail::header::subject"}%
+%TMPL:P{"pauth::mail::header::misc"}%
+%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::header::from"}%From: %WIKIAGENTNAME% <%WIKIAGENTEMAIL%>%TMPL:END%
+%TMPL:DEF{"pauth::mail::header::to"}%To: %FIRSTLASTNAME% <%EMAILADDRESS%>%TMPL:END%
+%TMPL:DEF{"pauth::mail::header::subject"}%Subject: undefined %TMPL:END%
+%TMPL:DEF{"pauth::mail::header::misc"}%Auto-Submitted: auto-generated
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=_=0i0k0i0w0s0o0fXuOi0E0A"
+%TMPL:END%
+
+%{ body definitions }%
+%TMPL:DEF{"pauth::mail::body"}%%TMPL:P{"pauth::mail::body::text::header"}%
+%TMPL:P{"pauth::mail::body::text"}%
+%TMPL:P{"pauth::mail::body::html::header"}%
+%TMPL:P{"pauth::mail::body::html"}%%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::body::text::header"}%
+This is a multi-part message in MIME format.
+--=_=0i0k0i0w0s0o0fXuOi0E0A
+Content-Type: text/plain; charset=%CHARSET%
+Content-Transfer-Encoding: 8bit
+%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::body::html::header"}%
+--=_=0i0k0i0w0s0o0fXuOi0E0A
+Content-Type: text/html; charset=%CHARSET%
+Content-Transfer-Encoding: 8bit
+%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::greeting::text"}%%MAKETEXT{"Dear [_1]" args="%FIRSTNAME%"}%,%TMPL:END%
+%TMPL:DEF{"pauth::mail::closing::text"}%%MAKETEXT{"Best Regards, Your Wiki Team."}%%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::greeting::html"}%<b>%MAKETEXT{"Dear [_1]" args="%FIRSTNAME%"}%,</b>%TMPL:END%
+%TMPL:DEF{"pauth::mail::closing::html"}%<p>%MAKETEXT{"Best Regards, [_1]Your Wiki Team." arg1="<br />"}%</p>%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::changepassword"}%%SCRIPTURL{"view" topic="%SYSTEMWEB%.ChangePassword"}%%TMPL:END%
+

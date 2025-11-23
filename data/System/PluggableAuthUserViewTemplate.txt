@@ -1,0 +1,21 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1593359556" format="1.1" reprev="1" version="1"}%
+%META:TOPICPARENT{name="PluggableAuthContrib"}%
+%TMPL:INCLUDE{"UserView"}%
+
+%TMPL:DEF{"userinfo::title"}%<h1>
+  <span itemprop='name'>[[%TOPIC%]]</span>
+  %IF{"'%TMPL:P{"titleextra"}%'!=''" 
+    then="<span class='foswikiTopicExtra foswikiGrayText foswikiNormal'>($percntTMPL:P{\"titleextra\"}$percnt)</span>"
+    else="<!-- -->"
+  }%
+  <span itemprop='description' class='foswikiTopicSummary'>%FORMFIELD{"Profession"}%</span>
+</h1>%TMPL:END%
+
+%TMPL:DEF{"userinfo::photo"}%<div class='foswikiUserInfoPhoto'>
+%IMAGE{
+   "%USERINFO{"%TOPIC%" format="$picture"}%"
+   type="plain"
+   align="left"
+   size="%TMPL:P{"userinfo::photo::size"}%"
+}%</div>%TMPL:END%
+

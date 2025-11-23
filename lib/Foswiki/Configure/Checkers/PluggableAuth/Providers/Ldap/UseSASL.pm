@@ -1,0 +1,53 @@
+# Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
+#
+# PluggableAuthContrib is Copyright (C) 2021-2025 Michael Daum http://michaeldaumconsulting.com
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details, published at
+# http://www.gnu.org/copyleft/gpl.html
+
+package Foswiki::Configure::Checkers::PluggableAuth::Providers::Ldap::UseSASL;
+
+=begin TML
+
+---+ package Foswiki::Configure::Checkers::PluggableAuth::Providers::Ldap::UseSASL
+
+TODO
+
+=cut
+
+# check availability of a cpan module
+
+use strict;
+use warnings;
+
+use Foswiki::Configure::Checker ();
+our @ISA = ('Foswiki::Configure::Checker');
+
+sub check_current_value {
+  my ($this, $reporter) = @_;
+
+  return unless $this->{item}->getRawValue();
+
+  my %mod = (
+    name => 'Authen::SASL',
+    usage => "",
+    minimumVersion => 0
+  );
+
+  Foswiki::Configure::Dependency::checkPerlModules(\%mod);
+  if (!$mod{ok}) {
+    $reporter->ERROR($mod{check_result});
+  } else {
+    $reporter->NOTE($mod{check_result});
+  }
+}
+
+1;

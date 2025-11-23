@@ -1,0 +1,42 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1695809536" format="1.1" reprev="5" version="5"}%
+%META:TOPICPARENT{name="PluggableAuthContrib"}%
+%TMPL:INCLUDE{"edit"}%
+
+%TMPL:DEF{"formdefinition"}%%SYSTEMWEB%.PluggableAuthUserForm%TMPL:END%
+%TMPL:DEF{"formfields"}%%TMPL:P{"detailstab"}%%TMPL:END%
+%TMPL:DEF{"detailstab::exclude"}%^(Email)$%TMPL:END%
+%TMPL:DEF{"topicmeta"}%%TMPL:END%
+
+%TMPL:DEF{"detailstab"}%%TAB{"%MAKETEXT{"Details"}%"}%
+%RENDERFOREDIT{
+   form="%TMPL:P{"formdefinition"}%"
+   type="table"
+   exclude="%TMPL:P{"detailstab::exclude"}%"
+   TopicTitle_title="%TRANSLATE{"Display Name"}%"
+   FirstName_default="%USERINFO{"%TOPIC%" format="$firstName"}%"
+   MiddleName_default="%USERINFO{"%TOPIC%" format="$middleName"}%"
+   LastName_default="%USERINFO{"%TOPIC%" format="$lastName"}%"
+   Initials_default="%USERINFO{"%TOPIC%" format="$initials"}%"
+   TopicTitle_default="%USERINFO{"%TOPIC%" format="$displayName"}%"
+}%
+%ENDTAB%%TMPL:END%
+
+%TMPL:DEF{"firsttab"}%%IF{
+  "$'URLPARAM{action}'!='form'" 
+  then="$percntTMPL:P{\"firsttab::impl\"}$percnt"
+  else="$percntTMPL:P{\"hiddentextarea\"}$percnt"
+}%%TMPL:END%
+
+%TMPL:DEF{"hiddentextarea"}%<textarea class='natedit foswikiHidden' data-hidden='true' data-show-toolbar='false' name="text" id="topic"></textarea>%TMPL:END%
+
+%TMPL:DEF{"topictitle"}%%TOPICTITLE{
+  default="%FORMFIELD{"TopicTitle" 
+              alttext="%USERINFO{"%BASETOPIC%" format="$displayName"}%" 
+              default="%USERINFO{"%BASETOPIC%" format="$displayName"}%"
+            }%"
+}%%TMPL:END%
+
+%TMPL:DEF{"firsttab::impl"}%%TAB{"%TRANSLATE{"Text"}%"}%
+%TMPL:P{"topicmeta"}%%{}%
+%TMPL:P{"textarea"}%%{}%
+%ENDTAB%%TMPL:END%

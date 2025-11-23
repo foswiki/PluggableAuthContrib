@@ -1,0 +1,18 @@
+#!/bin/sh
+
+database_name=$1
+database_server=$2
+
+test -z "$database_server" && database_server=localhost
+test -z "$database_name" && database_name=foswiki
+mysql_cmd="mysql -r -s -h $database_server $database_name"
+
+echo "### processing in database $database_name@$database_server"
+for table in $(echo show tables | $mysql_cmd); do
+  collation=$(echo show create table $table| $mysql_cmd|grep "ENGINE.*COLLATE" |sed 's/.*COLLATE=//')
+  if [ "$collation" != "utf8_bin" ]; then
+    echo "### converting table $table from $collation to utf8_bin"
+    echo "alter table $table convert to character set utf8 collate utf8_bin" | $mysql_cmd
+  fi
+done
+

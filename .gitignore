@@ -1,0 +1,6 @@
+igp_*
+*,v
+*css.gz
+*js.gz
+/PluggableAuthContrib_installer.pl
+/PluggableAuthContrib.zip

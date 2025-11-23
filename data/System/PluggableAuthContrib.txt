@@ -1,0 +1,245 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1713544060" format="1.1" reprev="9" version="12"}%
+---+!! %TOPIC%
+%FORMFIELD{"Description"}%
+
+%TOC%
+
+---++ Description
+
+!PluggableAuth brings together all the different ways of identifying and authenticating users to Foswiki. Foswiki itself has a way of plugging in different schemes 
+for mapping users and groups. However, it only allows _one_ specific implementation to be plugged in, not _many_. 
+Nor does Foswiki have a central database to store these entities. This is what !PluggableAuth does: at its core
+it is a database fed from various sources that form the set of users, groups and membership between them, along with
+any kind of information associated with an identity. 
+
+Currenty the following identity and authenticatcion providers are supported:
+
+<noautolink>
+<ul class="providerList">
+   <li>
+      <img src='%ATTACHURLPATH%/amazon.svg' />
+      <b>Amazon</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/auth0.svg' />
+      <b>AuthZero</b>
+      (openid)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/foswiki.svg' />
+      <b>BasicAuth</b>
+       (native)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/foswiki.svg' />
+      <b>ClientCert</b>
+      (tls/ssl)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/discord.svg' />
+      <b>Discord</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/dropbox.svg' />
+      <b>Dropbox</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/egroupware.svg' />
+      <b>Egroupware</b>
+      (openid)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/facebook.svg' />
+      <b>Facebook</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/github.svg' />
+      <b>Github</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/gitlab.svg' />
+      <b>GitLab</b>
+      (openid)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/google.svg' />
+      <b>Google</b> 
+      (openid)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/keycloak.svg' />
+      <b>Keycloak</b> 
+      (openid) 
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/kerberos.svg' />
+      <b>Kerberos</b>
+      (ldap sso)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/windows.svg' />
+      <b>LDAP</b>
+      (several of them)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/linkedin.svg' />
+      <b>LinkedIn</b>
+      (openid)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/mastodon.svg' />
+      <b>Mastodon</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/microsoft.svg' />
+      <b>Microsoft</b> (openid)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/nextcloud.svg' />
+      <b>NextCloud</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/foswiki.svg' />
+      <b>RemoteUser</b>
+      (web server)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/saml.svg' />
+      <b>SAML 2.0</b>
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/foswiki.svg' />
+      <b>Topic</b>
+      (native)
+   </li>
+   <li>
+      <img src='%ATTACHURLPATH%/twitch.svg' />
+      <b>Twitch</b>
+      (openid)
+   </li> 
+   <li> 
+      <img src='%ATTACHURLPATH%/slack.svg' />
+      <b>Slack</b>
+      (oauth)
+   </li>
+   <li> 
+      <img src='%ATTACHURLPATH%/yahoo.svg' />
+      <b>Yahoo</b>
+      (openid, experimental)
+   </li>
+   <!-- li class="empty"></li -->
+</ul>
+<style>
+ul.providerList {
+   display:flex;
+   flex-wrap:wrap;
+   list-style:none;
+   margin:2em 0;
+   padding:0;
+   width:100%;
+   gap:1em;
+   box-sizing:border-box;
+}
+.providerList * {
+   box-sizing:inherit;
+}
+.providerList li {
+   margin:0;
+   padding:1em;
+   flex-basis:32%;
+   flex-grow:1;
+   border-radius:0.5em;
+   max-width:50%;
+   background-color:var(--alt-background, #f8f8f8);
+   color:var(--alt-foreground, #444);
+}
+.providerList li.empty {
+   background:transparent;
+}
+.providerList b {
+   display:block;
+}
+.providerList img {
+   width:48px;
+   height:48px;
+   float:left;
+   margin:0 1em 0 0;
+}
+</style>
+</noautolink>
+
+Most of the above providers are based on either OAuth2 or !OpenID, as indicated. These are mostly used for public sites to simplify
+the registration process for people who want to contribute to the wiki.
+
+!BasicAuth is the most classic way to authenticate on the web using =.htpasswd= kind of user and password management. 
+The !BasicAuth and Topic are the providers known natively to Foswiki, yet still !PluggableAuth reads this information from
+the system and caches found information into its central user database as all the other providers do.
+
+!BasicAuth is the most classic way of authenticating on the web, using a =.htpasswd= type of user and password management.
+!BasicAuth provider and Topic provider are natively known to Foswiki. !PluggableAuth reads this information from the system and caches the information it finds in its central user database, 
+like all the other providers.
+
+The Topic provider is mostly of use to import already existing users to !PluggableAuth while migrating from a previous configuration.
+
+!ClientCert is an interesting authentication provider for organisations is running their own Certification Authority roling out user certificates
+to people. These are an excellent choise for a passwordless single sign-on solution. 
+
+!Kerberos is another industry standard authentication provider for single sign on, most commonly used in conjunction with an !LDAP identity provider.
+!PluggableAuth is configured to connect up to 15 different LDAP servers. This can of course be extended if you need to connect to more !LDAP servers.
+
+!AuthZero is an interesting external service that in itself serves as an integration platform for even more identity providers. 
+Basically, it allows you to completely outsource user management and thus provide identity and authentication services to all sorts of web services in your organisation.
+
+There have been some issues with the Yahoo !OpenID connector that have not yet been resolved. It seems to be a bug on their part as far as the problem has been analysed.
+
+The Microsort provider allows Foswiki to be integrated into an Azure platform strategy. This is very similar to !AuthZero, but more complicated.
+
+---++ Installation Instructions
+%$INSTALL_INSTRUCTIONS%
+
+---++ Dependencies
+%$DEPENDENCIES%
+
+---++ Change History
+
+%TABLE{columnwidths="7em" tablewidth="100%"}%
+| 18 Sep 2020 | first beta release |
+
+%META:FORM{name="PackageForm"}%
+%META:FIELD{name="Author" title="Author" value="Michael Daum"}%
+%META:FIELD{name="Version" title="Version" value="%25$VERSION%25"}%
+%META:FIELD{name="Release" title="Release" value="%25$RELEASE%25"}%
+%META:FIELD{name="Description" title="Description" value="%25$SHORTDESCRIPTION%25"}%
+%META:FIELD{name="Repository" title="Repository" value="https://github.com/foswiki/PluggableAuthContrib"}%
+%META:FIELD{name="Copyright" title="Copyright" value="&copy; 2020-2025 Michael Daum"}%
+%META:FIELD{name="License" title="License" value="[[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]]"}%
+%META:FIELD{name="Home" title="Home" value="https://foswiki.org/Extensions/ListyPlugin"}%
+%META:FIELD{name="Support" title="Support" value="Foswiki:Support/ListyPlugin"}%
+%META:FILEATTACHMENT{name="auth0.svg" attachment="auth0.svg" attr="" comment="" date="1713521002" size="522" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="amazon.svg" attachment="amazon.svg" attr="" comment="" date="1713521064" size="1653" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="discord.svg" attachment="discord.svg" attr="" comment="" date="1713521343" size="1528" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="dropbox.svg" attachment="dropbox.svg" attr="" comment="" date="1713521389" size="340" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="egroupware.svg" attachment="egroupware.svg" attr="" comment="" date="1713523748" size="2643" user="micha" version="2"}%
+%META:FILEATTACHMENT{name="facebook.svg" attachment="facebook.svg" attr="" comment="" date="1713521983" size="551" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="github.svg" attachment="github.svg" attr="" comment="" date="1713524956" size="2267" user="micha" version="2"}%
+%META:FILEATTACHMENT{name="gitlab.svg" attachment="gitlab.svg" attr="" comment="" date="1713522069" size="814" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="google.svg" attachment="google.svg" attr="" comment="" date="1713522099" size="1018" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="kerberos.svg" attachment="kerberos.svg" attr="" comment="" date="1713524913" size="2467" user="micha" version="7"}%
+%META:FILEATTACHMENT{name="windows.svg" attachment="windows.svg" attr="" comment="" date="1713522422" size="389" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="mastodon.svg" attachment="mastodon.svg" attr="" comment="" date="1713523101" size="1398" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="microsoft.svg" attachment="microsoft.svg" attr="" comment="" date="1713523137" size="378" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="nextcloud.svg" attachment="nextcloud.svg" attr="" comment="" date="1713525059" size="9177" user="micha" version="2"}%
+%META:FILEATTACHMENT{name="slack.svg" attachment="slack.svg" attr="" comment="" date="1713523219" size="1394" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="yahoo.svg" attachment="yahoo.svg" attr="" comment="" date="1713523376" size="587" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="saml.svg" attachment="saml.svg" attr="" comment="" date="1713523400" size="5854" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="foswiki.svg" attachment="foswiki.svg" attr="" comment="" date="1713523593" size="3398" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="keycloak.svg" attachment="keycloak.svg" attr="" comment="" date="1713524518" size="12159" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="linkedin.svg" attachment="linkedin.svg" attr="" comment="" date="1713524653" size="1790" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="twitch.svg" attachment="twitch.svg" attr="" comment="" date="1713532124" size="395" user="micha" version="1"}%

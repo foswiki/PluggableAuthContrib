@@ -1,0 +1,78 @@
+.natLogin {
+  width:55em;
+}
+/*
+.natLogin .foswikiFormButtons {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+*/
+html .natLoginBanner .natLogin .foswikiFormSteps .foswikiFormStep {
+  margin-left:0;
+  margin-right:0;
+}
+a.pauthProviderLink {
+  display:block;
+  margin:0 0 0.5em;
+  padding:0.5em 0.3em;
+  text-decoration:none;
+  text-align:center;
+  opacity:0.6;
+  background-color:#999;
+  color:#fff !important;
+  transition: opacity 100ms;
+}
+a.pauthProviderLink:hover {
+  background-color:#999;
+  opacity:1.0;
+}
+a.pauthProviderLink.AuthZero {
+  background-color:#eb5424;
+}
+a.pauthProviderLink.Google {
+  background-color:#0F9D58;
+}
+a.pauthProviderLink.ClientCert {
+  background-color:#000;
+}
+a.pauthProviderLink.Facebook {
+  background-color:#4267b2;
+}
+a.pauthProviderLink.Github {
+  background-color:#000;
+}
+a.pauthProviderLink.Yahoo {
+  background-color:#410093;
+}
+a.pauthProviderLink.LinkedIn {
+  background-color:#0077b5;
+}
+a.pauthProviderLink.Microsoft {
+  background-color:#f65314;
+  background-color:#ffbb00;
+}
+a.pauthProviderLink.Amazon {
+  background-color:#FF9900;
+}
+a.pauthProviderLink.Dropbox {
+  background-color:#0061ff;
+}
+a.pauthProviderLink.SAML {
+  background-color:#72c4d0;
+}
+a.pauthProviderLink.Twitter {
+  background-color:#1DA1F2;
+}
+a.pauthProviderLink.Slack {
+  background-color:#E01E5A;
+}
+a.pauthProviderLink.NextCloud {
+  background-color:#0082c9;
+}
+a.pauthProviderLink.Discord {
+  background-color:#7289DA;
+}
+a.pauthProviderLink.Mastodon {
+  background-color:#6364ff;
+}

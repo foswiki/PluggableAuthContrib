@@ -1,0 +1,553 @@
+%META:TOPICINFO{author="micha" comment="" date="1761670278" format="1.1" reprev="66" version="67"}%
+%META:TOPICPARENT{name="WebHome"}%
+%TMPL:INCLUDE{"view"}%
+
+%TMPL:DEF{"sidebar"}%%TMPL:P{context="PluggableAuthEnabled" then="pauth::sidebar"}%%TMPL:END%
+%TMPL:DEF{"text"}%%TMPL:P{context="PluggableAuthEnabled" then="pauth" else="nopauth"}%%TMPL:END%
+
+%TMPL:DEF{"nopauth"}%<div class="foswikiErrorMessage">
+%TRANSLATE{"Pluggable Authentication is not enabled."}%
+</div>%TMPL:END%
+
+%TMPL:DEF{"pauth"}%%{}%
+%TMPL:P{"pauth::heading"}%
+%TMPL:P{"pauth::formstart"}%
+%TMPL:P{"pauth::buttons"}%
+%TMPL:P{"pauth::table"}%
+%TMPL:P{"pauth::formend"}%
+%TMPL:P{"pauth::seealso"}%
+%TMPL:P{"pauth::assets"}%
+%{}%%TMPL:END%
+
+%TMPL:DEF{"pauth::sidebar"}%%TMPL:P{"pauth::sidebar::title"}%%TMPL:P{"pauth::sidebar::groups"}%%TMPL:END%
+
+%TMPL:DEF{"pauth::sidebar::title"}%<h2>
+   %TRANSLATE{"Groups"}%</h2>%TMPL:END%
+
+%TMPL:DEF{"pauth::sidebar::groups"}%<div class='pauthSideBar jqLoader' data-url="%SCRIPTURLPATH{"rest"}%/RenderPlugin/template?name=%WEB%.%TOPIC%&expand=pauth::sidebar::groups::impl&topic=%WEB%.%TOPIC%&cachecontrol=0" data-show-effect="show" data-hide-effect="hide" data-mode="auto">
+<p class='foswikiCenter'>%JQICON{"fa-circle-o" animate="burst" style="color:var(--color-foreground);font-size:var(--font-size-large)"}% </p>
+</div>%TMPL:END%
+
+%TMPL:DEF{"pauth::sidebar::groups::impl"}%<noautolink>
+<ul>
+<li class='%IF{"$'URLPARAM{selected}'=''" then="selected"}%'>
+   <span class='pauthGroupCount foswikiGrayText'>%PAUTHUSERS{
+         format="" 
+         separator="" 
+         header="$count" 
+         exclude="^(WikiGuest|UnknownUser|RegistrationAgent|ProjectContributor)$"
+      }%
+   </span>
+   <a href='#' class='pauthGroupLink everyone'>
+      %JQICON{"fa-users fa-fw" class="on"}%%JQICON{"fa-users fa-fw" class="off"}% 
+      %TRANSLATE{"Everyone"}%
+    </a>
+</li>
+%PAUTHGROUPS{
+   include="^AdminGroup$"
+   format="<li class='%IF{"$'URLPARAM{selected}'='$id'" then="selected"}%'>
+      <span class='pauthGroupTools'>
+         <a href='$link' class='pauthGroupView' target='_blank'>%JQICON{"fa-eye"}%</a>
+         <a href='#' class='pauthGroupEdit pauthButton' data-dialog='pauth::editgroupdialog' data-gid='$id'>%JQICON{"fa-pencil"}%</a>
+      </span>
+      <span class='pauthGroupCount foswikiGrayText'>$count</span>
+      <a href='#' class='pauthGroupLink admins' data-gid='$id'>
+         %JQICON{"fa-user-secret fa-fw" class="on"}%%JQICON{"fa-user-secret fa-fw" class="off"}% 
+         %TRANSLATE{"Admins"}%
+      </a></li>"
+}%
+</ul>
+%FORMATLIST{
+   "%PAUTHGROUPS{format="$providerName;$pid" separator="$n"}%"
+   exclude="^.*;(Base|BasicAuth|Kerberos|ClientCert|RemoteUser)$"
+   split="\n"
+   pattern="(.*);(.*)"
+   separator=""
+   sort="on"
+   separator="$n"
+   unique="on"
+   format="
+      <h2>
+         <span class='jqTwisty foswikiRight foswikiSmallish' style='color:var(--color-text)' data-initial-state='close' data-open-icon='fa-binoculars' data-close-icon='fa-binoculars'> </span>
+         <input type='text' size='20' class='pauthProviderFilter foswikiSmall foswikiRight' data-target='#pauthProvider$2' style='display:none' />
+         <span class='jqTwisty' data-initial-state='open' data-open-icon='fa-caret-down' data-close-icon='fa-caret-right' data-target='#pauthProvider$2'>$1</span>
+      </h2>
+      <ul id='pauthProvider$2'>
+      $percntPAUTHGROUPS{
+         pid=\"$2\"
+         exclude=\"^(NobodyGroup|AdminGroup)$\"
+         expand=\"on\"
+         showall=\"on\"
+         format=\"<li class='$dollarpercntIF{\\"$'URLPARAM{selected}'='$dollarid'\\" then=\\"selected\\"}$dollarpercnt $dollarpercntIF{\\"$isEnabled\\" else=\\"disabled\\"}$dollarpercnt'>
+                     <span class='pauthGroupTools'>
+                        <a href='#' class='pauthGroupDelete pauthButton' $dollarpercntIF{\\"$canDeleteGroup\\" else=\\"style='display:none'\\"}$dollarpercnt' data-dialog='pauth::deletegroupdialog' data-gid='$dollarid'>%JQICON{"fa-trash"}%</a>
+                        <a href='$dollarlink' class='pauthGroupView' target='_blank'>%JQICON{"fa-eye"}%</a>
+                        <a href='#' class='pauthGroupEdit pauthButton' data-dialog='pauth::editgroupdialog' data-gid='$dollarid'>%JQICON{"fa-pencil"}%</a>
+                     </span>
+                     <span class='pauthGroupCount foswikiGrayText'>$dollarcount</span>
+                     <a href='#' class='pauthGroupLink' data-gid='$dollarid'>$percntTMPL:P{\"pauth::sidebar::groups::icon\"}$percnt$displayName
+                     </a>
+                  </li>\"
+         separator=\"$n\"
+      }$percnt</ul>"
+}%
+</noautolink>%TMPL:END%
+
+%TMPL:DEF{"pauth::sidebar::groups::icon"}%%JQICON{"fa-user-o fa-fw" class="off"}%%JQICON{"fa-user fa-fw" class="on"}% %TMPL:END%
+
+%TMPL:DEF{"pauth::heading"}%<h1>%TRANSLATE{"%GETTOPICTITLE%"}% <span class='pauthGroupFilter foswikiNormal'>( %TRANSLATE{"Everyone"}% )</span></h1>%TMPL:END%
+
+%TMPL:DEF{"pauth::formstart"}%<form class='pauthUsers'>%TMPL:END%
+
+%TMPL:DEF{"pauth::table"}%%DATATABLE{
+   columns="id, %TMPL:P{"pauth::table::columns"}%" 
+   hidecolumns="id"
+   query="%TMPL:P{"pauth::table::query"}%"
+   sort="wikiName"
+   selectproperty="id"
+   connector="users"
+   paging="on"
+   rows="10"
+   searching="on"
+   savestate="on"
+   info="on"
+   lengthmenu="5,10,50,100,500"
+   class="foswikiFlatTable foswikiStripes foswikiHideOnPrint pauthUsersTable"
+   width="100%"
+   selecting="on"
+   id_title="ID"
+   pid_title="PID"
+   picture_title="%TRANSLATE{"Picture"}%"
+   providerName_title="%TRANSLATE{"Provider"}%"
+   loginName_title="%TRANSLATE{"Login Name"}%"
+   displayName_title="%TRANSLATE{"Display Name"}%"
+   wikiName_title="%TRANSLATE{"Display Name"}%"
+   firstName_title="%TRANSLATE{"First Name"}%"
+   middleName_title="%TRANSLATE{"Middle Name"}%"
+   lastName_title="%TRANSLATE{"Last Name"}%"
+   displayName_title="%TRANSLATE{"Display Name"}%"
+   email_title="%TRANSLATE{"Email"}%"
+   registrationDate_title="%TRANSLATE{"Registration Date"}%"
+   loginDate_title="%TRANSLATE{"Login Date"}%"
+   enabled_title="%TRANSLATE{"Enabled"}%"
+   initials_title="%TRANSLATE{"Initials"}%"
+}%%TMPL:END%
+
+%TMPL:DEF{"pauth::table::columns"}%picture, wikiName, loginName, email, providerName, registrationDate, loginDate, enabled%TMPL:END%
+%TMPL:DEF{"pauth::table::query"}%(pid != 'Base' or wikiName = 'AdminUser')%TMPL:END%
+
+%TMPL:DEF{"pauth::buttons"}%<div class='pauthButtonBox'>
+%BUTTON{"%TRANSLATE{"Add user"}%" icon="fa-user-plus" class="pauthAddUser pauthButton" data_dialog="pauth::adduserdialog"}%
+%BUTTON{"%TRANSLATE{"Add group"}%" icon="fa-group"  class="pauthAddGroup pauthButton" data_dialog="pauth::addgroupdialog"}%
+%BUTTON{"%TRANSLATE{"Modify"}%" icon="fa-pencil" class="pauthUpdateUser pauthButton jqButtonDisabled" data_dialog="pauth::edituserdialog"}%
+%BUTTON{"%TRANSLATE{"Change Groups"}%" icon="fa-users" class="pauthGroups pauthButton jqButtonDisabled" data_dialog="pauth::groups"}%
+%BUTTON{"%TRANSLATE{"Change password"}%" icon="fa-key" class="pauthChangePassword pauthButton jqButtonDisabled" data_dialog="pauth::changepassworddialog"}%
+<!-- %!BUTTON{"%TRANSLATE{"Reset Password"}%" icon="fa-undo" class="pauthResetPassword pauthButton jqButtonDisabled" data_dialog="pauth::resetpassworddialog"}% -->
+%BUTTON{"%TRANSLATE{"Delete user"}%" icon="fa-trash-o" class="pauthDeleteUser pauthButton jqButtonDisabled" data_dialog="pauth::deleteuserdialog"}%
+%BUTTON{"%TRANSLATE{"Activate user"}%" icon="fa-toggle-on" class="pauthActivateUser pauthButton jqButtonDisabled" data_dialog="pauth::activateuserdialog"}%
+%BUTTON{"%TRANSLATE{"Deactivate user"}%" icon="fa-toggle-off" class="pauthDeactivateUser pauthButton jqButtonDisabled" data_dialog="pauth::deactivateuserdialog"}%
+</div>%TMPL:END%
+
+%TMPL:DEF{"pauth::formend"}%</form>%TMPL:END%
+
+%TMPL:DEF{"pauth::adduserdialog"}%<div class="jqUIDialog pauthDialog" id="pauthAddUserDialog" title="%TRANSLATE{"Add User"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm jqValidate" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/addUser" method="post" autocomplete="off" data-message="%TRANSLATE{"Adding ..."}%" data-onsubmit="false">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      %BEGINGRID%
+      %BEGINCOL{"4"}%
+         <h6>%TRANSLATE{"First Name"}%:<span class='foswikiAlert'>**</span></h6>
+         <input type="text" size="25" name="firstName" class="required" />
+      %BEGINCOL{"4"}%
+         <h6>%TRANSLATE{"Middle Name"}%:</h6>
+         <input type="text" size="25" name="middleName" />
+      %BEGINCOL{"4"}%
+         <h6>%TRANSLATE{"Last Name"}%:<span class='foswikiAlert'>**</span></h6>
+         <input type="text" size="25" name="lastName" class="required" />
+      %BEGINCOL{"6"}%
+         <h6>%TRANSLATE{"Email"}%:</h6>
+         <input type="text" size="25" name="email" />
+      %BEGINCOL{"6"}%
+         <h6>%TRANSLATE{"WikiName"}%:<span class='foswikiAlert'>**</span></h6>
+         <input type="text" size="25" name="wikiName" class="jqWikiWord required" data-source="[name=firstName], [name=middleName], [name=lastName]" data-transliterate="true" />
+      %BEGINCOL{"6"}%
+         <h6>%TRANSLATE{"Login Name"}%:<span class='foswikiAlert'>**</span></h6>
+         <input type="text" size="25" name="loginName" class="required" autocomplete="off" />
+      %BEGINCOL{"6"}%
+      %BEGINCOL{"6"}%
+         <h6>%TRANSLATE{"Password"}%:</h6>
+         <input type="password" size="25" name="password" autocomplete="new-password" id="newpassword" /> <br />
+         %JQICON{"fa-key"}% <a href="#" class='jqPasswordGenerator foswikiGrayText' data-length='20' data-target="#newpassword">%TRANSLATE{"Generate Password"}%</a>
+      %BEGINCOL{"12"}%
+         <label>
+            <input type="checkbox" class="foswikiCheckbox" name="sendmail" value="on" />
+            %TRANSLATE{"Notify user about new account"}%
+         </label>
+      %ENDGRID%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Save"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>%JQREQUIRE{"PasswordGenerator"}%%TMPL:END%
+
+%TMPL:DEF{"pauth::changepassworddialog"}%<div class="jqUIDialog pauthDialog" id="pauthAddUserDialog" title="%TRANSLATE{"Change password of [_1]" arg1="%USERINFO{"%URLPARAM{"uid"}%" showall="on" format="$displayName"}%"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm jqValidate" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/changePassword" method="post" autocomplete="off" data-message="%TRANSLATE{"Changing ..."}%" data-onsubmit="false">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      <div class='foswikiFormSteps'>
+         <div class='foswikiFormStep'>
+            <h3>%TRANSLATE{"New password"}%:</h3>
+            <input type="password" size="40" name="password" class="required" autocomplete="new-password" id="changepassword" /> <br />
+            %JQICON{"fa-key"}% <a href="#" class='jqPasswordGenerator foswikiGrayText' data-length='20' data-target="#changepassword">%TRANSLATE{"Generate Password"}%</a>
+         </div>
+         <div class='foswikiFormStep'>
+            <h3>%TRANSLATE{"Retype new password"}%:</h3>
+            <input type="password" size="40" name="password_confirm" class="required" autocomplete="new-password" />
+         </div>
+         <div class='foswikiFormStep'>
+            <label>
+               <input type="checkbox" class="foswikiCheckbox" name="sendmail" value="on" />
+               %TRANSLATE{"Notify user about new password"}%
+             </label>
+         </div>
+      </div>
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Save"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>%JQREQUIRE{"PasswordGenerator"}%%TMPL:END%
+
+%TMPL:DEF{"pauth::deleteuserdialog"}%<div class="jqUIDialog pauthDialog" id="pauthDeleteUserDialog" title="%TRANSLATE{"Delete User(s)"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/deleteUser" method="post" autocomplete="off" data-message="%TRANSLATE{"Deleting ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      %TRANSLATE{"Are you sure that you want to delete <b>[quant,_1,user,users]</b>?"
+         arg1="%FORMATLIST{"%URLPARAM{"uid"}%" format="$count" limit="1"}%"
+      }%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Yes, delete"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"No, thanks"}%</a>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::activateuserdialog"}%<div class="jqUIDialog pauthDialog" id="pauthActivateUserDialog" title="%TRANSLATE{"Activate User(s)"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/enableUser" method="post" autocomplete="off" data-message="%TRANSLATE{"Activating ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      <input type="hidden" name="enabled" value="on" />
+      %TRANSLATE{"Are you sure that you want to activate <b>[quant,_1,user,users]</b>?"
+         arg1="%FORMATLIST{"%URLPARAM{"uid"}%" format="$count" limit="1"}%"
+      }%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Yes, activate"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"No, thanks"}%</a>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::deactivateuserdialog"}%<div class="jqUIDialog pauthDialog" id="pauthActivateUserDialog" title="%TRANSLATE{"Deactivate User(s)"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/enableUser" method="post" autocomplete="off" data-message="%TRANSLATE{"Deactivating ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      <input type="hidden" name="enabled" value="off" />
+      %TRANSLATE{"Are you sure that you want to deactivate <b>[quant,_1,user,users]</b>?"
+         arg1="%FORMATLIST{"%URLPARAM{"uid"}%" format="$count" limit="1"}%"
+      }%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Yes, deactivate"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"No, thanks"}%</a>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::deletegroupdialog"}%<div class="jqUIDialog pauthDialog" id="pauthDeleteGroupDialog" title="%TRANSLATE{"Delete Group"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/deleteGroup" method="post" autocomplete="off" data-message="%TRANSLATE{"Deleting ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="gid" value="%URLPARAM{"gid" encode="entity"}%" />
+      %TRANSLATE{"Are you sure that you want to delete <b>[_1]</b>?"
+         arg1="%URLPARAM{"gid"}%"
+      }%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Yes, delete"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"No, thanks"}%</a>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::resetpassworddialog"}%<div class="jqUIDialog pauthDialog" id="pauthResetPasswordDialog" title="%TRANSLATE{"Reset Password"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/resetPassword" method="post" autocomplete="off" data-message="%TRANSLATE{"Resetting ..."}%" data-onsubmit="false">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      %TRANSLATE{"Are you sure that you want to reset the password of <b>[quant,_1,user,users]</b>?"
+         arg1="%FORMATLIST{"%URLPARAM{"uid"}%" format="$count" limit="1"}%"
+      }%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Yes, reset"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"No, thanks"}%</a>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::addgroupdialog"}%<div class="jqUIDialog pauthDialog" id="pauthAddGroupDialog" title="%TRANSLATE{"Add Group"}%" data-width="40em" data-height="500" data-auto-open="true" data-modal="on" data-draggable="true" data-resizable="true">
+   <form class="jqAjaxForm jqValidate" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/addGroup" method="post" autocomplete="off" data-message="%TRANSLATE{"Adding ..."}%" data-onsubmit="false" data-reload-sidebar="troe">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      %BEGINGRID%
+      %BEGINCOL{"6"}%
+      <h6>%TRANSLATE{"Title"}%:<span class='foswikiAlert'>**</span></h6>
+      <input type="text" size="25" name="displayName" class="required" />
+      %BEGINCOL{"6"}%
+      <h6>%TRANSLATE{"Name"}%:</h6>
+      <input type="text" size="25" name="wikiName" class="jqWikiWord" data-source="input[name=displayName]" data-transliterate="true" data-suffix="Group" />
+      %BEGINCOL{"12"}%
+      <h6>%TRANSLATE{"Options"}%:</h6>
+      <ul class='foswikiNoBullets'>
+         <li><label>
+               <input type='checkbox' class='foswikiCheckbox' name='enabled' value='1' checked />
+               <input type="hidden" name="enabled" value="0" />
+               %TRANSLATE{"Group enabled"}%
+            </label>
+         </li>
+      </ul>
+      %BEGINCOL{"12"}%
+      <h6>%TRANSLATE{"Members"}%:</h6>
+      %RENDERFOREDIT{
+           form="%SYSTEMWEB%.MoreFormfieldsPlugin"
+           field="UserOrGroup"
+           UserOrGroup_name="members"
+           UserOrGroup_type="userorgroup+multi"
+           value="%FORMATLIST{"%URLPARAM{"uid"}%" 
+              format="$percntUSERINFO{\"$1\" format=\"$wikiusername\"}$percnt" 
+           }%"
+           header=""
+           footer=""
+      }%
+      %ENDGRID%
+   </form>
+   <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Save"}%</a>
+   <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>%JQREQUIRE{"wikiword"}%%TMPL:END%
+
+%TMPL:DEF{"pauth::editgroupdialog"}%<div class="jqUIDialog pauthDialog" id="pauthEditGroupDialog" title="%TRANSLATE{"Edit Group"}%" data-width="40em" data-height="500" data-auto-open="true" data-modal="on" data-draggable="true" data-resizable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/updateGroup" method="post" autocomplete="off" data-message="%TRANSLATE{"Saving ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="gid" value="%URLPARAM{"gid" encode="entity"}%" />
+      %BEGINGRID%
+      %PAUTHGROUPS{
+         group="%URLPARAM{"gid"}%"
+         showall="on"
+         format="$percntBEGINCOL{6}$percnt
+                  <h6>%TRANSLATE{"Title"}%:</h6>
+                  <input type='text' size='25' name='displayName' value='$displayName' $percntIF{\"$canChangeGroupName\" else=\"disabled\"}$percnt />
+                 $percntBEGINCOL{6}$percnt
+                  <h6>%TRANSLATE{"Name"}%:</h6>
+                  <input type='text' size='25' name='wikiName' value='$wikiName' disabled />
+                 $percntBEGINCOL{12}$percnt
+                  <h6>%TRANSLATE{"Options"}%:</h6>
+                  <ul class='foswikiNoBullets'>
+                     <li><label>
+                           <input type='checkbox' class='foswikiCheckbox' name='enabled' value='1' $percntIF{\"'$enabled'='1'\" then=\"checked\"}$percnt />
+                           <input type='hidden' name='enabled' value='0' />
+                           %TRANSLATE{"Group enabled"}%
+                        </label></li>
+                  </ul>
+                 $percntBEGINCOL{\"12\" class=\"$percntIF{\"$canChangeMembership\" else=\"foswikiHidden\"}$percnt\"}$percnt
+                  <h6>%TRANSLATE{"Members"}%:</h6>
+                  $percntRENDERFOREDIT{
+                       form=\"%SYSTEMWEB%.MoreFormfieldsPlugin\"
+                       field=\"UserOrGroup\"
+                       UserOrGroup_name=\"members\"
+                       UserOrGroup_type=\"userorgroup+multi\"
+                       UserOrGroup_value=\"$members\"
+                       header=\"\"
+                       footer=\"\"
+                  }$percnt"
+      }%
+      %ENDGRID%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Save"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>%TMPL:END%
+
+%TMPL:DEF{"pauth::edituserdialog"}%<div class="jqUIDialog pauthDialog" id="pauthEditUserDialog" title="%TRANSLATE{"Edit User"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/updateUser" method="post" autocomplete="off" data-message="%TRANSLATE{"Saving ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      %BEGINGRID%
+      %USERINFO{"%URLPARAM{"uid"}%"
+         showall="on"
+         format="$percntBEGINCOL{\"4\"}$percnt
+                     <h6>%TRANSLATE{"First Name"}%:</h6>
+                     <input type='text' size='25' name='firstName' value='$firstName' />
+                 $percntBEGINCOL{\"4\"}$percnt
+                     <h6>%TRANSLATE{"Middle Name"}%:</h6>
+                     <input type='text' size='25' name='middleName' value='$middleName' />
+                 $percntBEGINCOL{\"4\"}$percnt
+                     <h6>%TRANSLATE{"Last Name"}%:</h6>
+                     <input type='text' size='25' name='lastName' value='$lastName' />
+                 $percntBEGINCOL{\"6\"}$percnt
+                     <h6>%TRANSLATE{"Display Name"}%:</h6>
+                     <input type='text' size='25' name='displayName' value='$displayName' />
+                 $percntBEGINCOL{\"6\"}$percnt
+                     <h6>%TRANSLATE{"Initials"}%:</h6>
+                     <input type='text' size='25' name='initials' value='$initials' />
+                 $percntBEGINCOL{\"6\"}$percnt
+                     <h6>%TRANSLATE{"Email"}%:</h6>
+                     <input type='text' size='25' name='email' value='$emails' />
+                 $percntBEGINCOL{\"6\"}$percnt
+                     <h6>%TRANSLATE{"WikiName"}%:</h6>
+                     <input type='text' size='25' name='wikiName' value='$wikiName' />
+                 $percntBEGINCOL{\"6\"}$percnt
+                     <h6>%TRANSLATE{"Login Name"}%:</h6>
+                     <input type='text' size='25' name='loginName' value='$loginName' />
+                 $percntBEGINCOL{\"12\"}$percnt
+                     <h6>%TRANSLATE{"Options"}%:</h6>
+                     <ul class='foswikiNoBullets'>
+                        <li><label>
+                              <input type='checkbox' class='foswikiCheckbox' name='enabled' value='1' $percntIF{\"'$enabled'='1'\" then=\"checked\"}$percnt />
+                              <input type='hidden' name='enabled' value='0'  />
+                              %TRANSLATE{"Account enabled"}%
+                           </label></li>
+                        <!-- li><label>
+                              <input type='checkbox' class='foswikiCheckbox' name='newPassword' value='1' $percntIF{\"'$newPassword'='1'\" then=\"checked\"}$percnt />
+                              %TRANSLATE{"New password required"}%
+                           </label></li -->
+                        <li $percntIF{\"not $twoFactorAuthConfigured\" then=\"class='foswikiHidden'\"}$percnt>
+                           <label>
+                              <input type='checkbox' class='foswikiCheckbox' name='two_factor_auth_enabled' value='1' $percntIF{\"$twoFactorAuthEnabled\" then=\"checked\"}$percnt />
+                              <input type='hidden' name='two_factor_auth_enabled' value='0'  />
+                              %TRANSLATE{"Two-factor authentication enabled"}%
+                           </label>
+                        </li>
+                     </ul>"
+      }%
+      %ENDGRID%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Save"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::seealso"}%
+%TRANSLATE{"See also"}%:
+%IF{"istopic '%USERSWEB%.WikiUsers'" then="[[%USERSWEB%.WikiUsers]], "}% [[%USERSWEB%.WikiGroups]], [[%SYSTEMWEB%.UserRegistration]]
+%TMPL:END%
+
+%TMPL:DEF{"pauth::groups"}%<div class="jqUIDialog pauthDialog" id="pauthGroupsDialog" title="%TRANSLATE{"Groups of [_1]" arg1="%USERINFO{"%URLPARAM{"uid"}%" showall="on" format="$displayName"}%"}%" data-width="auto" data-height='600' data-auto-open="true" data-modal="on" data-draggable="true">
+   <form class="jqAjaxForm" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/membership" method="post" autocomplete="off" data-message="%TRANSLATE{"Saving ..."}%" data-onsubmit="false" data-reload-sidebar="true">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid" encode="entity"}%" />
+      %TMPL:P{"pauth::groups::list"
+         groups="%PAUTHGROUPS{
+                   user="%URLPARAM{"uid"}%" 
+                   format="$id:$pid" 
+                   separator=", "
+                }%"
+      }%
+   </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Save"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>
+%TMPL:END%
+
+%TMPL:DEF{"pauth::groups::list"}%<h6>%TRANSLATE{"Editable groups"}%:</h6>
+<select class="jqSelect2" name="groups" multiple="multiple" data-width="30em">
+<option value='AdminGroup' %IF{"'%groups%'=~'\bAdminGroup\b'" then="selected='selected'"}%>AdminGroup</option>
+%PAUTHGROUPS{
+   pid="Topic"
+   exclude="^(Topic_Group|AdminGroup)$"
+   showall="on"
+   expand="on"
+   format="<option value='$id' $percntIF{\"'%groups%'=~'\b$id\b'\" then=\"selected='selected'\"}$percnt>$wikiName</option>"
+}%
+</select>
+<input type="hidden" name="groups" value="none" />
+%FORMATLIST{
+   "%groups%"
+   pattern="^(.*):(.*)$"
+   exclude=".*:(Topic|Base)$"
+   header="<p></p><h6>%TRANSLATE{"External groups"}%:</h6>$n"
+   format="<nop>$1"
+   separator="%BR%"
+}%%TMPL:END%
+
+%TMPL:DEF{"pauth::assets"}%%JQREQUIRE{"pauthusers, loader, select2, jqtwisty, validate, blockui"}%<style>
+.pauthButtonBox {
+   margin: calc(var(--margin) * 0.5) 0;
+}
+.pauthDialog h6 {
+   font-size: var(--font-size-normal);
+   margin:0.75em 0 0;
+}
+.pauthDialog .foswikiGrid input[type=text],
+.pauthDialog .foswikiGrid input[type=password] {
+   width:100%;
+}
+.pauthDialog .foswikiNoBullets {
+   margin:0;
+}
+.pauthSideBar li {
+   position:relative;
+   white-space:nowrap;
+}
+.pauthSideBar li .pauthGroupLink {
+   text-overflow:ellipsis;
+   overflow:hidden;
+}
+.pauthSideBar li.selected .off,
+.pauthSideBar li .on {
+   display:none;
+}
+.pauthSideBar li.selected .on {
+   display:inline-block;
+   color: var(--color-selected-foreground);
+}
+.pauthSideBar li.disabled .pauthGroupLink {
+   text-decoration:line-through;
+   color:var(--color-disabled-foreground, #eee);
+}
+.pauthSideBar li:hover .pauthGroupTools {
+   opacity:1;
+}
+.pauthSideBar li:hover .pauthGroupCount {
+   display:none;
+}
+.pauthGroupTools {
+   opacity:0;
+   transition: opacity 250ms;
+   position:absolute;
+   top:0.25em;
+   right:0;
+   background-color: var(--color-hover-background);
+}
+.pauthGroupCount {
+  position:absolute;
+  top:0.5em;
+  right:1em;
+}
+.pauthSideBar .pauthGroupTools a {
+   display:inline-block;
+   float:right;
+   padding:0.25em 0.75em;
+   margin:0;
+}
+.pauthSideBar li.selected a {
+   color: var(--color-selected-foreground);
+}
+.pauthUserPicture {
+   width:3em;
+   height:3em;
+   object-fit:cover;
+   border-radius:50%;
+}
+.pauthUsersTable table > tbody > tr > td {
+   vertical-align:middle;
+}
+input.pauthProviderFilter {
+  border-bottom:0;
+  margin-right:0.5rem;
+}
+</style>%TMPL:END%
+
+%META:TOPICMOVED{by="micha" date="1657882216" from="Sandbox.PluggableAuthUsers" to="System.PluggableAuthUsers"}%
+%META:PREFERENCE{name="TOPICTITLE" title="TOPICTITLE" type="Local" value="User Management"}%
+%META:PREFERENCE{name="NATSKIN_LAYOUT" title="NATSKIN_LAYOUT" type="Local" value="sticky"}%
+%META:PREFERENCE{name="ALLOWTOPICVIEW" title="ALLOWTOPICVIEW" type="Set" value="AdminUser"}%
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="AdminUser"}%
+%META:PREFERENCE{name="PERMSET_VIEW" title="PERMSET_VIEW" type="Local" value="nobody"}%
+%META:PREFERENCE{name="PERMSET_CHANGE" title="PERMSET_CHANGE" type="Local" value="nobody"}%
+%META:PREFERENCE{name="DISPLAYTOPICTITLE" title="DISPLAYTOPICTITLE" type="Local" value="off"}%
+%META:PREFERENCE{name="DISPLAYREVISIONINFO" title="DISPLAYREVISIONINFO" type="Local" value="off"}%
+%META:PREFERENCE{name="DISPLAYFORM" title="DISPLAYFORM" type="Local" value="off"}%
+%META:PREFERENCE{name="DISPLAYATTACHMENTS" title="DISPLAYATTACHMENTS" type="Local" value="off"}%
+%META:PREFERENCE{name="DISPLAYCOMMENTS" title="DISPLAYCOMMENTS" type="Local" value="off"}%
+%META:PREFERENCE{name="VIEW_TEMPLATE" title="VIEW_TEMPLATE" type="Set" value="System.PluggableAuthUsers"}%
+%META:PREFERENCE{name="NATSKIN_SIDEBAR" title="NATSKIN_SIDEBAR" type="Local" value="left"}%
+%META:PREFERENCE{name="NOAUTOLINK" title="NOAUTOLINK" type="Set" value="on"}%

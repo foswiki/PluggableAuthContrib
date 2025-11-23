@@ -1,0 +1,938 @@
+# Foswiki translation for Swedish
+# Translators:
+#   Foswiki:Main/ErikAman, 2006, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: sv\n"
+"Report-Msgid-Bugs-To: foswiki-svn@lists.sourceforge.net\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-06-01 22:28+0200\n"
+"Last-Translator: Lieven L. Litaer <qephom@gmx.de>\n"
+"Language-Team: Swedish <N/A>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.1\n"
+
+#: data/System/PluggableAuthResetPasswordTemplate.txt:22
+#: data/System/PluggableAuthResetPasswordTemplate.txt:6
+#, fuzzy
+msgid "%1 - New password for %2"
+msgstr "Nytt lösenord"
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:6
+#, fuzzy
+msgid "%1 - Security Alert for %2"
+msgstr "%1 - Registreringsinformation för %2 (%3)"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:29
+#: data/System/PluggableAuthAddAccountTemplate.txt:6
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:23
+#, fuzzy
+msgid "%1 - User Registration for %2"
+msgstr "%1 - Registreringsinformation för %2 (%3)"
+
+#: data/System/PluggableAuthUsers.txt:98
+msgid "%GETTOPICTITLE%"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:187
+#: data/System/PluggableAuthUsers.txt:213
+#: data/System/PluggableAuthUsers.txt:314
+#: data/System/PluggableAuthUsers.txt:355
+#: data/System/PluggableAuthUsers.txt:413
+#: data/System/PluggableAuthUsers.txt:435 templates/twofactorbase.tmpl:106
+msgid "Abort"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1047 lib/Foswiki/PluggableAuth.pm:1271
+#: lib/Foswiki/PluggableAuth.pm:1326 lib/Foswiki/PluggableAuth.pm:1388
+#: lib/Foswiki/PluggableAuth.pm:1496 lib/Foswiki/PluggableAuth.pm:1587
+#: lib/Foswiki/PluggableAuth.pm:743 lib/Foswiki/PluggableAuth.pm:757
+#: lib/Foswiki/PluggableAuth.pm:791 lib/Foswiki/PluggableAuth.pm:847
+#: lib/Foswiki/PluggableAuth.pm:887 lib/Foswiki/PluggableAuth.pm:990
+msgid "Access to API denied"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:395
+#, fuzzy
+msgid "Account enabled"
+msgstr "Användarnamn %1 raderat"
+
+#: templates/twofactorbase.tmpl:156
+#, fuzzy
+msgid "Activate"
+msgstr "Felaktig aktiveringskod"
+
+#: data/System/PluggableAuthUsers.txt:228
+#, fuzzy
+msgid "Activate User(s)"
+msgstr "Radera sista raden"
+
+#: data/System/PluggableAuthUsers.txt:146
+#, fuzzy
+msgid "Activate user"
+msgstr "Felaktig aktiveringskod"
+
+#: data/System/PluggableAuthUsers.txt:229
+#, fuzzy
+msgid "Activating ..."
+msgstr "Radera sida..."
+
+#: data/System/PluggableAuthUsers.txt:278
+#, fuzzy
+msgid "Add Group"
+msgstr "Skapa grupp"
+
+#: data/System/PluggableAuthUsers.txt:152
+#, fuzzy
+msgid "Add User"
+msgstr "Lägg till rad"
+
+#: data/System/PluggableAuthUsers.txt:140
+#, fuzzy
+msgid "Add group"
+msgstr "Skapa grupp"
+
+#: data/System/PluggableAuthUsers.txt:139
+#, fuzzy
+msgid "Add user"
+msgstr "Lägg till rad"
+
+#: data/System/PluggableAuthUsers.txt:153
+#: data/System/PluggableAuthUsers.txt:279
+msgid "Adding ..."
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:56
+#, fuzzy
+msgid "Admins"
+msgstr "Registrering"
+
+#: templates/twofactorbase.tmpl:147
+msgid ""
+"After scanning the image or entering the code, the authentication "
+"application is ready to generate six-digit codes. Enter the code below to "
+"activate the two-factor authentication for your account."
+msgstr ""
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:12
+#: data/System/PluggableAuthAddAccountTemplate.txt:35
+msgid "An account has been created for you."
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:233
+msgid "Are you sure that you want to activate <b>%quant(%1,user,users)</b>?"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:246
+msgid "Are you sure that you want to deactivate <b>%quant(%1,user,users)</b>?"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:56
+msgid "Are you sure that you want to deactivate two-factor authentication?"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:258
+msgid "Are you sure that you want to delete <b>%1</b>?"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:220
+msgid "Are you sure that you want to delete <b>%quant(%1,user,users)</b>?"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:270
+msgid ""
+"Are you sure that you want to reset the password of <b>%quant(%1,user,"
+"users)</b>?"
+msgstr ""
+
+#: data/System/PluggableAuthMailBaseTemplate.txt:46
+msgid "Best Regards, %1Your Wiki Team."
+msgstr ""
+
+#: data/System/PluggableAuthMailBaseTemplate.txt:43
+msgid "Best Regards, Your Wiki Team."
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1229
+#, fuzzy
+msgid "Cannot change email"
+msgstr "Byt lösenord"
+
+#: lib/Foswiki/PluggableAuth.pm:1146
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:254
+#, fuzzy
+msgid "Cannot change password"
+msgstr "Byt lösenord"
+
+#: lib/Foswiki/PluggableAuth.pm:860
+#, fuzzy
+msgid "Cannot delete group"
+msgstr "Radera sida"
+
+#: lib/Foswiki/PluggableAuth.pm:1294
+#, fuzzy
+msgid "Cannot delete user"
+msgstr "Radera sista raden"
+
+#: lib/Foswiki/PluggableAuth.pm:1164
+#, fuzzy
+msgid "Cannot notify user via email. Not changing the password"
+msgstr "Skriv det nya lösenordet igen"
+
+#: data/System/PluggableAuthUsers.txt:142
+#, fuzzy
+msgid "Change Groups"
+msgstr "Ändra från"
+
+#: data/System/PluggableAuthUsers.txt:143
+#, fuzzy
+msgid "Change password"
+msgstr "Byt lösenord"
+
+#: data/System/PluggableAuthUsers.txt:190
+#, fuzzy
+msgid "Change password of %1"
+msgstr "Byt lösenord"
+
+#: data/System/PluggableAuthUsers.txt:191
+msgid "Changing ..."
+msgstr ""
+
+#: templates/twofactorbase.tmpl:151
+msgid "Code"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:115
+msgid "Configure authentication application"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1156
+#, fuzzy
+msgid "Confirmed password required"
+msgstr "Nytt lösenord"
+
+#: data/System/PluggableAuthUsers.txt:241
+#, fuzzy
+msgid "Deactivate User(s)"
+msgstr "Radera sista raden"
+
+#: data/System/PluggableAuthUsers.txt:147
+#, fuzzy
+msgid "Deactivate user"
+msgstr "Radera sista raden"
+
+#: data/System/PluggableAuthUsers.txt:242
+#, fuzzy
+msgid "Deactivating ..."
+msgstr "Radera sida..."
+
+#: data/System/PluggableAuthMailBaseTemplate.txt:42
+#: data/System/PluggableAuthMailBaseTemplate.txt:45
+msgid "Dear %1"
+msgstr "Kära %1"
+
+#: data/System/PluggableAuthUsers.txt:254
+#, fuzzy
+msgid "Delete Group"
+msgstr "Radera sida"
+
+#: data/System/PluggableAuthUsers.txt:216
+#, fuzzy
+msgid "Delete User(s)"
+msgstr "Radera sista raden"
+
+#: data/System/PluggableAuthUsers.txt:145
+#, fuzzy
+msgid "Delete user"
+msgstr "Radera sista raden"
+
+#: data/System/PluggableAuthUsers.txt:217
+#: data/System/PluggableAuthUsers.txt:255
+#, fuzzy
+msgid "Deleting ..."
+msgstr "Radera sida..."
+
+#: data/System/PluggableAuthUserEditTemplate.txt:10
+msgid "Details"
+msgstr ""
+
+#: templates/pauthlogin.nat.tmpl:40
+msgid "Did you forget your password?"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:50
+#, fuzzy
+msgid "Disable two-factor authentication"
+msgstr "Foswiki användarautentisering"
+
+#: data/System/PluggableAuthUserEditTemplate.txt:15
+#: data/System/PluggableAuthUsers.txt:122
+#: data/System/PluggableAuthUsers.txt:123
+#: data/System/PluggableAuthUsers.txt:127
+#: data/System/PluggableAuthUsers.txt:375
+msgid "Display Name"
+msgstr ""
+
+#: templates/pauthlogin.nat.tmpl:42
+msgid "Do you want to become a registered user?"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:317
+#, fuzzy
+msgid "Edit Group"
+msgstr "Grupper"
+
+#: data/System/PluggableAuthUsers.txt:358
+#, fuzzy
+msgid "Edit User"
+msgstr "Redigeringshjälp"
+
+#: data/System/PluggableAuthUsers.txt:439
+msgid "Editable groups"
+msgstr ""
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:18
+#: data/System/PluggableAuthAddAccountTemplate.txt:41
+#: data/System/PluggableAuthUsers.txt:128
+#: data/System/PluggableAuthUsers.txt:166
+#: data/System/PluggableAuthUsers.txt:381
+msgid "Email"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1246
+#, fuzzy
+msgid "Email has been changed"
+msgstr "Ditt lösenord ändrades till %1."
+
+#: lib/Foswiki/PluggableAuth.pm:762
+msgid "Email parameter missing"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1243
+msgid "Email required"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1249
+#, fuzzy
+msgid "Email was not changed"
+msgstr "Ditt lösenord ändrades till %1."
+
+#: data/System/PluggableAuthUsers.txt:131
+#, fuzzy
+msgid "Enabled"
+msgstr "Redigera tabell"
+
+#. ($error)
+#: lib/Foswiki/PluggableAuth.pm:2338
+msgid "Error during updateUser(): %1"
+msgstr ""
+
+#. ($error)
+#: lib/Foswiki/PluggableAuth.pm:1549
+msgid "Error updating group: %1"
+msgstr ""
+
+#. ($error)
+#: lib/Foswiki/PluggableAuth.pm:1633
+msgid "Error updating user: %1"
+msgstr ""
+
+#: templates/twofactorlogin.tmpl:6
+#, fuzzy
+msgid "Error, access code does not match."
+msgstr "Lösenorden är inte samma"
+
+#: data/System/PluggableAuthUsers.txt:43 data/System/PluggableAuthUsers.txt:98
+msgid "Everyone"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:455
+msgid "External groups"
+msgstr ""
+
+#. ("$@")
+#: lib/Foswiki/PluggableAuth.pm:1833
+msgid "Failed loading auth provider: %1"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1089
+msgid "Failed to create user"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:124
+#: data/System/PluggableAuthUsers.txt:157
+#: data/System/PluggableAuthUsers.txt:366
+#, fuzzy
+msgid "First Name"
+msgstr "Förnamn:"
+
+#: lib/Foswiki/PluggableAuth.pm:1061
+#, fuzzy
+msgid "FirstName required"
+msgstr "Förnamn:"
+
+#: data/System/PluggableAuthUsers.txt:178
+#: data/System/PluggableAuthUsers.txt:198
+#, fuzzy
+msgid "Generate Password"
+msgstr "Nollställ lösenord"
+
+#: lib/Foswiki/PluggableAuth.pm:803
+#, fuzzy
+msgid "Group already exists"
+msgstr "Enbart sidnamn"
+
+#: lib/Foswiki/Users/PluggableUserMapping.pm:480
+msgid "Group does not exist and create not permitted"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:294
+#: data/System/PluggableAuthUsers.txt:337
+#, fuzzy
+msgid "Group enabled"
+msgstr "Enbart sidnamn"
+
+#: lib/Foswiki/PluggableAuth.pm:864
+#, fuzzy
+msgid "Group has been deleted"
+msgstr "Enbart sidnamn"
+
+#: lib/Foswiki/PluggableAuth.pm:1552
+#, fuzzy
+msgid "Group has been updated"
+msgstr "Enbart sidnamn"
+
+#: data/System/PluggableAuthUsers.txt:25
+msgid "Groups"
+msgstr "Grupper"
+
+#: data/System/PluggableAuthUsers.txt:422
+#, fuzzy
+msgid "Groups of %1"
+msgstr "Grupper"
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:13
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:31
+msgid "If not, then your password possibly is being compromised."
+msgstr ""
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:13
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:30
+msgid "If this was you, you don't need to do anything."
+msgstr ""
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:23
+#: data/System/PluggableAuthAddAccountTemplate.txt:48
+#: data/System/PluggableAuthResetPasswordTemplate.txt:16
+#: data/System/PluggableAuthResetPasswordTemplate.txt:34
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:17
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:37
+msgid "If you have any questions, please contact %1."
+msgstr "Kontakta %1 om du har frågor."
+
+#: data/System/PluggableAuthUsers.txt:132
+#: data/System/PluggableAuthUsers.txt:378
+msgid "Initials"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:82
+msgid "Install a two-factor application on your phone"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:722
+msgid "Invalid API invocation"
+msgstr ""
+
+#: lib/Foswiki/LoginManager/PluggableLogin.pm:487
+#, fuzzy
+msgid "Invalid access code"
+msgstr "Felaktig aktiveringskod"
+
+#: lib/Foswiki/PluggableAuth.pm:481
+#, fuzzy
+msgid "Invalid email address"
+msgstr "Felaktig aktiveringskod"
+
+#: lib/Foswiki/PluggableAuth.pm:1160
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:257
+#, fuzzy
+msgid "Invalid password"
+msgstr "Felaktig aktiveringskod"
+
+#: lib/Foswiki/PluggableAuth.pm:1071
+msgid "Invalid wikiName"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:126
+#: data/System/PluggableAuthUsers.txt:163
+#: data/System/PluggableAuthUsers.txt:372
+#, fuzzy
+msgid "Last Name"
+msgstr "Efternamn:"
+
+#: lib/Foswiki/PluggableAuth.pm:1062
+#, fuzzy
+msgid "LastName required"
+msgstr "Efternamn:"
+
+#: data/System/PluggableAuthUsers.txt:130
+#, fuzzy
+msgid "Login Date"
+msgstr "Användarnamn %1"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:16
+#: data/System/PluggableAuthAddAccountTemplate.txt:39
+#: data/System/PluggableAuthUsers.txt:121
+#: data/System/PluggableAuthUsers.txt:172
+#: data/System/PluggableAuthUsers.txt:387
+#, fuzzy
+msgid "Login Name"
+msgstr "Ditt [[%1.LoginName][inloggningsnamn]]"
+
+#: lib/Foswiki/PluggableAuth.pm:1060
+#, fuzzy
+msgid "LoginName required"
+msgstr "Ditt [[%1.LoginName][inloggningsnamn]]"
+
+#: templates/twofactorbase.tmpl:105
+msgid "Logout"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:299
+#: data/System/PluggableAuthUsers.txt:341
+#, fuzzy
+msgid "Members"
+msgstr "Lägg till användare"
+
+#: lib/Foswiki/PluggableAuth.pm:1467
+msgid "Membership has been updated"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:125
+#: data/System/PluggableAuthUsers.txt:160
+#: data/System/PluggableAuthUsers.txt:369
+msgid "Middle Name"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:141
+#, fuzzy
+msgid "Modify"
+msgstr "Anpassa sökning"
+
+#: data/System/PluggableAuthUsers.txt:286
+#: data/System/PluggableAuthUsers.txt:329
+#, fuzzy
+msgid "Name"
+msgstr "Enbart sidnamn"
+
+#: data/System/PluggableAuthUsers.txt:196
+#, fuzzy
+msgid "New password"
+msgstr "Nytt lösenord"
+
+#: data/System/PluggableAuthUsers.txt:399
+#, fuzzy
+msgid "New password required"
+msgstr "Nytt lösenord"
+
+#: templates/twofactorbase.tmpl:108 templates/twofactorbase.tmpl:136
+msgid "Next"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1500 lib/Foswiki/PluggableAuth.pm:852
+msgid "No gid parameter"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:2081
+msgid "No group name specified"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1819
+msgid "No id trying to get a provider"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:891
+msgid "No pid defined"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1006
+#, fuzzy
+msgid "No two-factor authentication enabled"
+msgstr "Foswiki användarautentisering"
+
+#: lib/Foswiki/PluggableAuth.pm:1276 lib/Foswiki/PluggableAuth.pm:1331
+#: lib/Foswiki/PluggableAuth.pm:1392 lib/Foswiki/PluggableAuth.pm:1591
+msgid "No uid parameter"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:796
+msgid "No wikiName parameter"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:225
+#: data/System/PluggableAuthUsers.txt:238
+#: data/System/PluggableAuthUsers.txt:251
+#: data/System/PluggableAuthUsers.txt:263
+#: data/System/PluggableAuthUsers.txt:275 templates/twofactorbase.tmpl:59
+msgid "No, thanks"
+msgstr ""
+
+#. ($mid)
+#: lib/Foswiki/PluggableAuth.pm:685
+msgid "Not adding myself as a member: %1"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:182
+#, fuzzy
+msgid "Notify user about new account"
+msgstr "Skriv det nya lösenordet igen"
+
+#: data/System/PluggableAuthUsers.txt:207
+#, fuzzy
+msgid "Notify user about new password"
+msgstr "Skriv det nya lösenordet igen"
+
+#: lib/Foswiki/PluggableAuth.pm:751
+msgid "OK"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1170
+#, fuzzy
+msgid "Old password required"
+msgstr "Nytt lösenord"
+
+#: data/System/PluggableAuthUsers.txt:289
+#: data/System/PluggableAuthUsers.txt:332
+#: data/System/PluggableAuthUsers.txt:390
+#, fuzzy
+msgid "Options"
+msgstr "Åtgärd"
+
+#: templates/twofactorbase.tmpl:124
+msgid "Or enter this code into your authentication application."
+msgstr ""
+
+#: templates/pauthlogin.nat.tmpl:47
+msgid "Or, sign in with:"
+msgstr ""
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:17
+#: data/System/PluggableAuthAddAccountTemplate.txt:40
+#: data/System/PluggableAuthUsers.txt:176
+msgid "Password"
+msgstr "Lösenord"
+
+#: lib/Foswiki/PluggableAuth.pm:1182
+#, fuzzy
+msgid "Password has been changed"
+msgstr "Ditt lösenord ändrades till %1."
+
+#: lib/Foswiki/PluggableAuth.pm:1152 lib/Foswiki/PluggableAuth.pm:1236
+#, fuzzy
+msgid "Password required"
+msgstr "Nytt lösenord"
+
+#: lib/Foswiki/PluggableAuth.pm:1185
+#, fuzzy
+msgid "Password was not changed"
+msgstr "Ditt lösenord ändrades till %1."
+
+#: lib/Foswiki/PluggableAuth.pm:1157
+#, fuzzy
+msgid "Passwords don't match"
+msgstr "Ditt lösenord ändrades till %1."
+
+#: lib/Foswiki/PluggableAuth.pm:1172 lib/Foswiki/PluggableAuth.pm:1238
+msgid "Permission denied"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:119
+msgid "Picture"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:20
+msgid "Please [[%1][log in]] first."
+msgstr ""
+
+#: templates/twofactorlogin.tmpl:5
+#, fuzzy
+msgid "Please enter your access code"
+msgstr "Ange administratörsanvändarnamn och lösenord"
+
+#: templates/twofactorbase.tmpl:46
+msgid ""
+"Please note that a valid two-factor authentication is mandatory for your "
+"user account."
+msgstr ""
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:15
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:34
+msgid "Please sign in to your account and change your password immediately: %1"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1531 lib/Foswiki/PluggableAuth.pm:1619
+msgid "Please specify the attribute(s) to change"
+msgstr ""
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:21
+#: data/System/PluggableAuthAddAccountTemplate.txt:45
+#: data/System/PluggableAuthResetPasswordTemplate.txt:14
+#: data/System/PluggableAuthResetPasswordTemplate.txt:31
+msgid ""
+"Please visit %1 to change your password to something more memorable for you."
+msgstr ""
+"Gå till sidan %1 för att byta till ett lösenord som är lättare att komma "
+"ihåg."
+
+#: data/System/PluggableAuthUsers.txt:9
+#, fuzzy
+msgid "Pluggable Authentication is not enabled."
+msgstr "Foswiki användarautentisering"
+
+#: templates/twofactorbase.tmpl:135 templates/twofactorbase.tmpl:155
+#, fuzzy
+msgid "Previous"
+msgstr "förhandsgranska"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:19
+#: data/System/PluggableAuthAddAccountTemplate.txt:42
+msgid "Profile Page"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:120
+msgid "Provider"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:897
+msgid "Provider has been deleted"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:129
+#, fuzzy
+msgid "Registration Date"
+msgstr "Registrering"
+
+#: data/System/PluggableAuthUsers.txt:144
+#: data/System/PluggableAuthUsers.txt:266
+msgid "Reset Password"
+msgstr "Nollställ lösenord"
+
+#: data/System/PluggableAuthUsers.txt:267
+#, fuzzy
+msgid "Resetting ..."
+msgstr "Radera sida..."
+
+#: data/System/PluggableAuthUsers.txt:201
+#, fuzzy
+msgid "Retype new password"
+msgstr "Skriv det nya lösenordet igen"
+
+#: data/System/PluggableAuthUsers.txt:186
+#: data/System/PluggableAuthUsers.txt:212
+#: data/System/PluggableAuthUsers.txt:313
+#: data/System/PluggableAuthUsers.txt:354
+#: data/System/PluggableAuthUsers.txt:412
+#: data/System/PluggableAuthUsers.txt:434
+#, fuzzy
+msgid "Save"
+msgstr "Sparat i:"
+
+#: data/System/PluggableAuthUsers.txt:318
+#: data/System/PluggableAuthUsers.txt:359
+#: data/System/PluggableAuthUsers.txt:423
+msgid "Saving ..."
+msgstr ""
+
+#: templates/twofactorbase.tmpl:118
+msgid ""
+"Scan this image with the two-factor authentication application on your phone."
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:418
+#, fuzzy
+msgid "See also"
+msgstr "Se också:"
+
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:13
+#: data/System/PluggableAuthSecurityAlertTemplate.txt:29
+msgid ""
+"Somebody tried to sign in to your account but failed to verify the second "
+"factor repeatedly."
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:2023
+msgid "Sorry, access denied. No source for a wikiName."
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:136
+msgid "Sorry, account is disabled"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth/Provider/Topic.pm:497
+msgid "Sorry, account is disabled (3)"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:121
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:124
+#, fuzzy
+msgid "Sorry, account not found"
+msgstr "Användarnamn %1 raderat"
+
+#: data/System/PluggableAuthUserEditTemplate.txt:39
+#, fuzzy
+msgid "Text"
+msgstr "Innehåll"
+
+#: data/System/PluggableAuthUsers.txt:283
+#: data/System/PluggableAuthUsers.txt:326
+#, fuzzy
+msgid "Title"
+msgstr "Sidnamn"
+
+#: lib/Foswiki/PluggableAuth/TwoFactorAuth.pm:235
+msgid "Too many failures"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:64 templates/twofactorlogin.tmpl:3
+#, fuzzy
+msgid "Two-factor authentication"
+msgstr "Foswiki användarautentisering"
+
+#: data/System/PluggableAuthUsers.txt:405
+#, fuzzy
+msgid "Two-factor authentication enabled"
+msgstr "Foswiki användarautentisering"
+
+#: templates/twofactorbase.tmpl:143
+#, fuzzy
+msgid "Two-step authentication has been activated."
+msgstr "Användaren har redan aktiverats"
+
+#: templates/twofactorbase.tmpl:54
+#, fuzzy
+msgid "Two-step authentication has been deactivated."
+msgstr "Tyvärr, registreringen är tillfälligt avstängd"
+
+#. ($event)
+#: lib/Foswiki/PluggableAuth.pm:515
+msgid "Unknown event %1"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1502 lib/Foswiki/PluggableAuth.pm:1511
+#: lib/Foswiki/PluggableAuth.pm:859
+msgid "Unknown group"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1826 lib/Foswiki/PluggableAuth.pm:2000
+#: lib/Foswiki/PluggableAuth.pm:2076 lib/Foswiki/PluggableAuth.pm:634
+#: lib/Foswiki/PluggableAuth.pm:894
+msgid "Unknown provider"
+msgstr ""
+
+#: lib/Foswiki/LoginManager/PluggableLogin.pm:478
+#: lib/Foswiki/PluggableAuth.pm:1005 lib/Foswiki/PluggableAuth.pm:1140
+#: lib/Foswiki/PluggableAuth.pm:1222 lib/Foswiki/PluggableAuth.pm:1293
+#: lib/Foswiki/PluggableAuth.pm:1342 lib/Foswiki/PluggableAuth.pm:1400
+#: lib/Foswiki/PluggableAuth.pm:1599
+msgid "Unknown user"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:83
+msgid ""
+"Use an application on your phone to get two-factor authentication codes when "
+"prompted."
+msgstr ""
+
+#. ($cuid)
+#: lib/Foswiki/Users/PluggableUserMapping.pm:523
+#, fuzzy
+msgid "User %1 not in group, cannot be removed"
+msgstr "%1 är medlem av minst en grupp och kan inte tas bort"
+
+#: data/System/PluggableAuthAddAccountTemplate.txt:14
+#: data/System/PluggableAuthAddAccountTemplate.txt:37
+#, fuzzy
+msgid "User account information"
+msgstr "Användarnamn %1 raderat"
+
+#: lib/Foswiki/PluggableAuth.pm:1073
+msgid "User already exists"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1101
+msgid "User has been added"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1300
+msgid "User has been deleted"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1351
+msgid "User has been disabled"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1351
+#, fuzzy
+msgid "User has been enabled"
+msgstr "Enbart sidnamn"
+
+#: lib/Foswiki/PluggableAuth.pm:1648
+msgid "User has been updated"
+msgstr ""
+
+#: templates/twofactorbase.tmpl:146
+#, fuzzy
+msgid "Verify installation"
+msgstr "Registrering"
+
+#: templates/twofactorbase.tmpl:85
+#, fuzzy
+msgid "We recommend %1."
+msgstr "(rekommenderas)"
+
+#: data/System/PluggableAuthUsers.txt:169
+#: data/System/PluggableAuthUsers.txt:384
+#, fuzzy
+msgid "WikiName"
+msgstr "Enbart sidnamn"
+
+#: data/System/PluggableAuthUsers.txt:237
+#, fuzzy
+msgid "Yes, activate"
+msgstr "Felaktig aktiveringskod"
+
+#: data/System/PluggableAuthUsers.txt:250 templates/twofactorbase.tmpl:58
+msgid "Yes, deactivate"
+msgstr ""
+
+#: data/System/PluggableAuthUsers.txt:224
+#: data/System/PluggableAuthUsers.txt:262
+#, fuzzy
+msgid "Yes, delete"
+msgstr "(ta bort)"
+
+#: data/System/PluggableAuthUsers.txt:274
+#, fuzzy
+msgid "Yes, reset"
+msgstr "(ta bort)"
+
+#: templates/twofactorbase.tmpl:27
+msgid "Your account already has got two-factor authentication."
+msgstr ""
+
+#: data/System/PluggableAuthResetPasswordTemplate.txt:12
+#: data/System/PluggableAuthResetPasswordTemplate.txt:28
+msgid "Your password has been changed to %1."
+msgstr "Ditt lösenord ändrades till %1."
+
+#, fuzzy
+#~ msgid "Cannot change the password"
+#~ msgstr "Byt lösenord"
+
+#, fuzzy
+#~ msgid "Username %1."
+#~ msgstr "Användarnamn"

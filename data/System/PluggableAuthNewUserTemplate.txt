@@ -1,0 +1,18 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1725348435" format="1.1" reprev="2" version="4"}%
+%META:TOPICPARENT{name="WikiUsers"}%
+
+
+%META:FORM{name="System.PluggableAuthUserForm"}%
+%META:FIELD{name="TopicTitle" title="<nop>TopicTitle" value="%25CREATE:DISPLAYNAME%25"}%
+%META:FIELD{name="FirstName" title="First Name" value="%25CREATE:FIRSTNAME%25"}%
+%META:FIELD{name="MiddleName" title="Middle Name" value="%25CREATE:MIDDLENAME%25"}%
+%META:FIELD{name="LastName" title="Last Name" value="%25CREATE:LASTNAME%25"}%
+%META:FIELD{name="Initials" title="Initials" value="%25CREATE:INITIALS%25"}%
+%META:FIELD{name="OrganisationName" title="Organisation Name" value=""}%
+%META:FIELD{name="Profession" title="Profession" value=""}%
+%META:FIELD{name="Location" title="Location" value=""}%
+%META:FIELD{name="Telephone" title="Telephone" value=""}%
+%META:FIELD{name="Mobile" title="Mobile" value=""}%
+%META:PREFERENCE{name="ALLOWTOPICCHANGE" title="ALLOWTOPICCHANGE" type="Set" value="%25CREATE:WIKINAME%25"}%
+%META:PREFERENCE{name="PERMSET_CHANGE" title="PERMSET_CHANGE" type="Local" value="details"}%
+%META:PREFERENCE{name="PERMSET_CHANGE_DETAILS" title="PERMSET_CHANGE_DETAILS" type="Local" value="%25CREATE:WIKINAME%25"}%

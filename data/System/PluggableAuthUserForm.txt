@@ -1,0 +1,16 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1695809147" format="1.1" reprev="5" version="5"}%
+%META:TOPICPARENT{name="PluggableAuthContrib"}%
+---+ %TOPIC%
+
+| *Name*  | *Type*  | *Size*  | *Values*  | *Description*  | *Attributes*  | *Default* |
+| <nop>TopicTitle | text | 40 | | |  | |
+| First Name | text | 50 | | | | |
+| Middle Name | text | 50 | | | | |
+| Last Name | text | 50 | | | | |
+| Initials | text | 5 | | | | |
+| Organisation Name | text | 50 | | | | |
+| Profession | text | 50 | | | | |
+| Location | text | 50 | | | | |
+| Email | label | 50 | | | | |
+| Telephone | text | 50 | | | | |
+| Mobile | text | 50 | | | | |

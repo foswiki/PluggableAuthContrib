@@ -1,0 +1,18 @@
+Source: foswiki-pluggable-auth-contrib
+Section: web
+Priority: optional
+Maintainer: Michael Daum <debian@michaeldaumconsulting.com>
+Build-Depends: debhelper (>= 8)
+Standards-Version: 3.9.2
+Homepage: http://foswiki.org/Extensions/PluggableAuthContrib
+#Vcs-Git: git://git.debian.org/collab-maint/foswiki.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/foswiki.git;a=summary
+
+Package: foswiki-pluggable-auth-contrib
+Architecture: all
+Depends: ${misc:Depends}, foswiki-cache-contrib, foswiki-core, foswiki-dbi-plugin, foswiki-grid-layout-plugin, foswiki-image-generator-plugin, foswiki-jq-code-input-contrib, foswiki-jq-password-generator-contrib, foswiki-json-rpc-contrib, foswiki-qr-code-plugin, foswiki-topic-title-plugin, libauthen-oath-perl, libbytes-random-secure-perl, libconvert-base32-perl, libcrypt-passwdmd5-perl, libcrypt-pbkdf2-perl, libemail-valid-perl, libimage-magick-perl, libjson-perl, libnet-cidr-perl, libtext-unidecode-perl, liburi-perl
+Suggests: libauthen-sasl-perl, libcrypt-eksblowfish-perl, libcrypt-jwt-perl, libcrypt-openssl-x509-perl, libgssapi-perl, libnet-ldap-perl, libnet-twitter-perl, libpod-coverage-perl, liburi-perl
+Description: Pluggable authentication and user management
+ (...add your text here...)
+ .
+ See http://foswiki.org/Extensions/PluggableAuthContrib for more.

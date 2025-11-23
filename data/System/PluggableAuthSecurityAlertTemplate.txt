@@ -1,0 +1,40 @@
+%META:TOPICINFO{author="micha" comment="reprev" date="1705602652" format="1.1" reprev="1" version="1"}%
+%META:TOPICPARENT{name="PluggableAuthContrib"}%
+%{ WARNING: Please do not modify this template. Create a skin overlay instead. }%
+%TMPL:INCLUDE{"PluggableAuthMailBase"}%
+
+%TMPL:DEF{"pauth::mail::header::subject"}%Subject: %MAKETEXT{"[_1] - Security Alert for [_2]" args="%WIKITOOLNAME%, %DISPLAYNAME%"}%%TMPL:END%
+%TMPL:DEF{"pauth::mail::header::to"}%To: %FIRSTLASTNAME% <%EMAILADDRESS%>%TMPL:END%
+
+%{ text body}%
+%TMPL:DEF{"pauth::mail::body::text"}%
+%TMPL:P{"pauth::mail::greeting::text"}%
+
+%MAKETEXT{"Somebody tried to sign in to your account but failed to verify the second factor repeatedly."}% %MAKETEXT{"If this was you, you don't need to do anything."}% %MAKETEXT{"If not, then your password possibly is being compromised."}% 
+
+%MAKETEXT{"Please sign in to your account and change your password immediately: [_1]" args="%TMPL:P{"pauth::mail::changepassword"}%"}% 
+
+%MAKETEXT{"If you have any questions, please contact [_1]." args="%WIKIWEBMASTER%"}%
+
+%TMPL:P{"pauth::mail::closing::text"}%
+%TMPL:END%
+
+%{ html body }%
+%TMPL:DEF{"pauth::mail::title::html"}%<h3>%MAKETEXT{"[_1] - User Registration for [_2]" args="%WIKITOOLNAME%, %DISPLAYNAME%"}%</h3>%TMPL:END%
+
+%TMPL:DEF{"pauth::mail::body::html"}%
+%TMPL:P{"pauth::mail::title::html"}%
+%TMPL:P{"pauth::mail::greeting::html"}%
+<p>
+%MAKETEXT{"Somebody tried to sign in to your account but failed to verify the second factor repeatedly."}% 
+%MAKETEXT{"If this was you, you don't need to do anything."}% 
+%MAKETEXT{"If not, then your password possibly is being compromised."}% 
+</p>
+<p>
+%MAKETEXT{"Please sign in to your account and change your password immediately: [_1]" args="<a href='%TMPL:P{"pauth::mail::changepassword"}%'>%TMPL:P{"pauth::mail::changepassword"}%</a>"}% 
+</p>
+<p>
+%MAKETEXT{"If you have any questions, please contact [_1]." args="%WIKIWEBMASTER%"}%
+</p>
+%TMPL:P{"pauth::mail::closing::html"}%
+%TMPL:END%

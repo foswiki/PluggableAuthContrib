@@ -1,0 +1,128 @@
+#!/usr/bin/env perl
+# Test program to check your ldap connectivity using perl
+#
+# Copyright (C) 2006-2025 Michael Daum http://michaeldaumconsulting.com
+# Portions Copyright (C) 2006 Spanlink Communications
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version. For
+# more details read LICENSE in the root of this distribution.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# As per the GPL, removal of this notice is prohibited.
+
+use strict;
+use warnings;
+#use open qw(:std :utf8);
+
+use Net::LDAP qw(LDAP_REFERRAL);
+use Authen::SASL ();
+use URI::ldap;
+
+our $server;
+our $baseDN;
+our $bindUser;
+our $bindPassword;
+our $useSASL = 0;
+our $useTLS = 0;
+our $saslMechanism = 'GSSAPI';
+our $sizeLimit = 10;
+our $deref = "always";
+our $scope = "sub";
+our $followLink = 1;
+our $configFile = "./ldaptest.conf";
+
+print "reading config from $configFile\n";
+do $configFile;
+
+die "no server specified. please configure ldaptest.conf" unless $server;
+
+###############################################################
+ldapSearch($server, $baseDN, $ARGV[0] || '(objectClass=*)');
+
+###############################################################
+my %seen = ();
+sub ldapSearch {
+  my ($server, $dn, $filter) = @_;
+
+   $server = lc($server);
+   return if $seen{$server};
+   $seen{$server} = 1;
+ 
+  print STDERR "connecting $server\n";
+  my $ldap = Net::LDAP->new($server) || die "$@";
+  my $mesg;
+
+  if ($useTLS) {
+    $mesg = $ldap->start_tls({
+       sslversion => 'tlsv1',
+       verify => 'none',
+    });
+    die $mesg->{errorMessage} if $mesg->{errorMessage};
+  }
+
+  if ($useSASL) {
+    my $sasl = Authen::SASL->new(mechanism => $saslMechanism) || die "$@";
+    $mesg = $ldap->bind(sasl => $sasl);
+  } elsif ($bindUser) {
+    $mesg = $ldap->bind($bindUser, password => $bindPassword);
+  } else {
+    $mesg = $ldap->bind();
+  }
+  my $code = $mesg->code;
+  $code && die "$code: " . $mesg->error;
+
+  $mesg = $ldap->search(
+    filter => $filter,
+    base => $dn,
+    scope => $scope,
+    deref => "always",
+    sizelimit => $sizeLimit,
+    callback => sub {
+      my ($ldap, $entry) = @_;
+      processSearch($ldap, $entry, $filter);
+    },
+  );
+  $code = $mesg->code;
+
+  print "code=$code\n" if $code;
+
+  if ($code == LDAP_REFERRAL) {
+    foreach my $link ($mesg->referrals) {
+      followUrl($link, $filter);
+    }
+  } elsif ($code && $code != 4) {
+    die "$code: " . $mesg->error;
+  }
+}
+
+###############################################################
+sub processSearch {
+  my ($ldap, $entry, $filter) = @_;
+
+  return unless defined $entry;
+  if ($entry->isa("Net::LDAP::Reference")) {
+    foreach my $link ($entry->references) {
+      followUrl($link, $filter);
+    }
+  } else {
+    $entry->dump();
+    print "\n";
+  }
+}
+
+###############################################################
+sub followUrl {
+  my ($url, $filter) = @_;
+
+  return unless $followLink;
+  print "following $url\n";
+  my $link = URI::ldap->new($url);
+
+  ldapSearch($link->host, $link->dn, $filter);
+}
