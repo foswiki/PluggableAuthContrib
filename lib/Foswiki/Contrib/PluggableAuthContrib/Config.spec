@@ -34,7 +34,7 @@ $Foswiki::cfg{PluggableAuth}{CreateProviderGroups} = 0;
 # Try to get a profile image from gravatar in case there is no other picture available. 
 $Foswiki::cfg{PluggableAuth}{EnableGravatarFallback} = 0;
 
-# **NUMBER**
+# **NUMBER LABEL="Cache Expire" CHECK="undefok emptyok"**
 # Network in seconds for the cache to expire, e.g. a default of 3600 seconds means fresh results are fetched every hour.
 $Foswiki::cfg{PluggableAuth}{CacheExpire} = 3600;
 
@@ -179,6 +179,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Topic}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Topic}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Topic}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Topic}{Enabled} && {PluggableAuth}{Providers}{Topic}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Topic}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Topic}{Enabled} && {PluggableAuth}{Providers}{Topic}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Topic}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Topic}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Topic}{SyncOnLogin} = 1;
 
@@ -273,6 +281,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{Realm} = '';
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled} && {PluggableAuth}{Providers}{BasicAuth}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled} && {PluggableAuth}{Providers}{BasicAuth}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="AutoLogin" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{AutoLogin} = 0;
 
@@ -308,6 +324,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{Module} = 'Foswiki::Pluggabl
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled} && {PluggableAuth}{Providers}{ClientCert}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled} && {PluggableAuth}{Providers}{ClientCert}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Environment Variable" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled}" **
 # specifies the environment variable that holds the raw client certificate of the client.
@@ -346,6 +370,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{Module} = 'Foswiki::PluggableA
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled} && {PluggableAuth}{Providers}{Kerberos}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled} && {PluggableAuth}{Providers}{Kerberos}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="AutoLogin" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{AutoLogin} = 1;
@@ -389,6 +421,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{Module} = 'Foswiki::PluggableAuth
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap1}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap1}{Enabled} && {PluggableAuth}{Providers}{Ldap1}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap1}{Enabled} && {PluggableAuth}{Providers}{Ldap1}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap1}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{AllowedIPAddresses} = '';
@@ -687,6 +727,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap2}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap2}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap2}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap2}{Enabled} && {PluggableAuth}{Providers}{Ldap2}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap2}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap2}{Enabled} && {PluggableAuth}{Providers}{Ldap2}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap2}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap2}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap2}{AllowedIPAddresses} = '';
 
@@ -983,6 +1031,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap3}{Module} = 'Foswiki::PluggableAuth
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap3}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap3}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap3}{Enabled} && {PluggableAuth}{Providers}{Ldap3}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap3}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap3}{Enabled} && {PluggableAuth}{Providers}{Ldap3}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap3}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap3}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap3}{AllowedIPAddresses} = '';
@@ -1281,6 +1337,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap4}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap4}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap4}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap4}{Enabled} && {PluggableAuth}{Providers}{Ldap4}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap4}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap4}{Enabled} && {PluggableAuth}{Providers}{Ldap4}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap4}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap4}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap4}{AllowedIPAddresses} = '';
 
@@ -1577,6 +1641,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap5}{Module} = 'Foswiki::PluggableAuth
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap5}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap5}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap5}{Enabled} && {PluggableAuth}{Providers}{Ldap5}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap5}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap5}{Enabled} && {PluggableAuth}{Providers}{Ldap5}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap5}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap5}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap5}{AllowedIPAddresses} = '';
@@ -1875,6 +1947,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap6}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap6}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap6}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap6}{Enabled} && {PluggableAuth}{Providers}{Ldap6}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap6}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap6}{Enabled} && {PluggableAuth}{Providers}{Ldap6}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap6}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap6}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap6}{AllowedIPAddresses} = '';
 
@@ -2171,6 +2251,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap7}{Module} = 'Foswiki::PluggableAuth
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap7}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap7}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap7}{Enabled} && {PluggableAuth}{Providers}{Ldap7}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap7}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap7}{Enabled} && {PluggableAuth}{Providers}{Ldap7}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap7}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap7}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap7}{AllowedIPAddresses} = '';
@@ -2469,6 +2557,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap8}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap8}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap8}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap8}{Enabled} && {PluggableAuth}{Providers}{Ldap8}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap8}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap8}{Enabled} && {PluggableAuth}{Providers}{Ldap8}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap8}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap8}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap8}{AllowedIPAddresses} = '';
 
@@ -2765,6 +2861,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap9}{Module} = 'Foswiki::PluggableAuth
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap9}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap9}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap9}{Enabled} && {PluggableAuth}{Providers}{Ldap9}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap9}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap9}{Enabled} && {PluggableAuth}{Providers}{Ldap9}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap9}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap9}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap9}{AllowedIPAddresses} = '';
@@ -3063,6 +3167,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap10}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap10}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap10}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap10}{Enabled} && {PluggableAuth}{Providers}{Ldap10}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap10}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap10}{Enabled} && {PluggableAuth}{Providers}{Ldap10}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap10}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap10}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap10}{AllowedIPAddresses} = '';
 
@@ -3359,6 +3471,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap11}{Module} = 'Foswiki::PluggableAut
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap11}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap11}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap11}{Enabled} && {PluggableAuth}{Providers}{Ldap11}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap11}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap11}{Enabled} && {PluggableAuth}{Providers}{Ldap11}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap11}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap11}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap11}{AllowedIPAddresses} = '';
@@ -3657,6 +3777,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap12}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap12}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap12}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap12}{Enabled} && {PluggableAuth}{Providers}{Ldap12}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap12}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap12}{Enabled} && {PluggableAuth}{Providers}{Ldap12}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap12}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap12}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap12}{AllowedIPAddresses} = '';
 
@@ -3953,6 +4081,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap13}{Module} = 'Foswiki::PluggableAut
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap13}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap13}{Visible} = 0;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap13}{Enabled} && {PluggableAuth}{Providers}{Ldap13}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap13}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap13}{Enabled} && {PluggableAuth}{Providers}{Ldap13}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap13}{BackgroundColor} = '';
 
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap13}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap13}{AllowedIPAddresses} = '';
@@ -4251,6 +4387,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap14}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap14}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap14}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap14}{Enabled} && {PluggableAuth}{Providers}{Ldap14}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap14}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap14}{Enabled} && {PluggableAuth}{Providers}{Ldap14}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap14}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap14}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap14}{AllowedIPAddresses} = '';
 
@@ -4548,6 +4692,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap15}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap15}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap15}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap15}{Enabled} && {PluggableAuth}{Providers}{Ldap15}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap15}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap15}{Enabled} && {PluggableAuth}{Providers}{Ldap15}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap15}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap15}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap15}{AllowedIPAddresses} = '';
 
@@ -4842,6 +4994,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled} && {PluggableAuth}{Providers}{Amazon}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled} && {PluggableAuth}{Providers}{Amazon}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{SyncOnLogin} = 1;
 
@@ -4912,6 +5072,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{AuthZero}{Module} = 'Foswiki::PluggableA
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{AuthZero}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{AuthZero}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{AuthZero}{Enabled} && {PluggableAuth}{Providers}{AuthZero}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{AuthZero}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{AuthZero}{Enabled} && {PluggableAuth}{Providers}{AuthZero}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{AuthZero}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{AuthZero}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{AuthZero}{SyncOnLogin} = 1;
@@ -4999,6 +5167,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Discord}{Module} = 'Foswiki::PluggableAu
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Discord}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Discord}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Discord}{Enabled} && {PluggableAuth}{Providers}{Discord}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Discord}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Discord}{Enabled} && {PluggableAuth}{Providers}{Discord}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Discord}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Discord}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Discord}{SyncOnLogin} = 1;
 
@@ -5057,6 +5233,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{Module} = 'Foswiki::PluggableAu
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled} && {PluggableAuth}{Providers}{Dropbox}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled} && {PluggableAuth}{Providers}{Dropbox}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{SyncOnLogin} = 1;
@@ -5131,6 +5315,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{Module} = 'Foswiki::Pluggabl
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled} && {PluggableAuth}{Providers}{Egroupware}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled} && {PluggableAuth}{Providers}{Egroupware}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{SyncOnLogin} = 1;
@@ -5218,6 +5410,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{Module} = 'Foswiki::PluggableA
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled} && {PluggableAuth}{Providers}{Facebook}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled} && {PluggableAuth}{Providers}{Facebook}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{SyncOnLogin} = 1;
 
@@ -5289,6 +5489,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Github}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Github}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Github}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Github}{Enabled} && {PluggableAuth}{Providers}{Github}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Github}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Github}{Enabled} && {PluggableAuth}{Providers}{Github}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Github}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Github}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Github}{SyncOnLogin} = 1;
 
@@ -5350,6 +5558,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{GitLab}{Module} = 'Foswiki::PluggableAut
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{GitLab}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{GitLab}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Gitlab}{Enabled} && {PluggableAuth}{Providers}{Gitlab}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Gitlab}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Gitlab}{Enabled} && {PluggableAuth}{Providers}{Gitlab}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Gitlab}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{GitLab}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{GitLab}{SyncOnLogin} = 1;
@@ -5437,6 +5653,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Google}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Google}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Google}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Google}{Enabled} && {PluggableAuth}{Providers}{Google}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Google}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Google}{Enabled} && {PluggableAuth}{Providers}{Google}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Google}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Google}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Google}{SyncOnLogin} = 1;
 
@@ -5522,6 +5746,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{Module} = 'Foswiki::PluggableA
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled} && {PluggableAuth}{Providers}{Keycloak}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled} && {PluggableAuth}{Providers}{Keycloak}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{SyncOnLogin} = 1;
@@ -5609,6 +5841,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{Module} = 'Foswiki::PluggableA
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled} && {PluggableAuth}{Providers}{LinkedIn}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled} && {PluggableAuth}{Providers}{LinkedIn}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{SyncOnLogin} = 1;
 
@@ -5679,6 +5919,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Mastodon}{Module} = 'Foswiki::PluggableA
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Mastodon}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Mastodon}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Mastodon}{Enabled} && {PluggableAuth}{Providers}{Mastodon}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Mastodon}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Mastodon}{Enabled} && {PluggableAuth}{Providers}{Mastodon}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Mastodon}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Mastodon}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Mastodon}{SyncOnLogin} = 1;
@@ -5753,6 +6001,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Microsoft}{Module} = 'Foswiki::Pluggable
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Microsoft}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Microsoft}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Microsoft}{Enabled} && {PluggableAuth}{Providers}{Microsoft}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Microsoft}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Microsoft}{Enabled} && {PluggableAuth}{Providers}{Microsoft}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Microsoft}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Microsoft}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Microsoft}{SyncOnLogin} = 1;
@@ -5842,6 +6098,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{Module} = 'Foswiki::Pluggable
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled} && {PluggableAuth}{Providers}{NextCloud}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled} && {PluggableAuth}{Providers}{NextCloud}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{SyncOnLogin} = 1;
 
@@ -5903,6 +6167,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{SAML}{Module} = 'Foswiki::PluggableAuth:
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{SAML}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled} && {PluggableAuth}{Providers}{SAML}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{SAML}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled} && {PluggableAuth}{Providers}{SAML}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{SAML}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{SAML}{SyncOnLogin} = 1;
@@ -5996,6 +6268,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Slack}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Slack}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled} && {PluggableAuth}{Providers}{Slack}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Slack}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled} && {PluggableAuth}{Providers}{Slack}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Slack}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Slack}{SyncOnLogin} = 1;
 
@@ -6054,6 +6334,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{Module} = 'Foswiki::PluggableAut
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled} && {PluggableAuth}{Providers}{Twitch}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled} && {PluggableAuth}{Providers}{Twitch}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{SyncOnLogin} = 1;
@@ -6125,6 +6413,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{Module} = 'Foswiki::PluggableAuth
 
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{Visible} = 1;
+
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled} && {PluggableAuth}{Providers}{Yahoo}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled} && {PluggableAuth}{Providers}{Yahoo}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{BackgroundColor} = '';
 
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{SyncOnLogin} = 1;

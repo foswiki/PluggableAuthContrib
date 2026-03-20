@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Twitter}{Module} = 'Foswiki::PluggableAu
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Twitter}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Twitter}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Twitter}{Enabled} && {PluggableAuth}{Providers}{Twitter}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Twitter}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Twitter}{Enabled} && {PluggableAuth}{Providers}{Twitter}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Twitter}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Twitter}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Twitter}{SyncOnLogin} = 1;
 

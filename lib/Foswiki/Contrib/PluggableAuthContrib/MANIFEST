@@ -102,6 +102,7 @@ lib/Foswiki/PluggableAuth/Provider/Unknown.pm 0644
 lib/Foswiki/PluggableAuth/Provider/Xing.pm 0644
 lib/Foswiki/PluggableAuth/Provider/Yahoo.pm 0644
 lib/Foswiki/PluggableAuth/Schema/MariaDB.pm 0644
+lib/Foswiki/PluggableAuth/Schema/PostgreSQL.pm 0644
 lib/Foswiki/PluggableAuth/Schema/MySQL.pm 0644
 lib/Foswiki/PluggableAuth/Schema.pm 0644
 lib/Foswiki/PluggableAuth/Schema/SQLite.pm 0644

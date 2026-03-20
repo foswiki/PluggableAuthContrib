@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled} && {PluggableAuth}{Providers}{Yahoo}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled} && {PluggableAuth}{Providers}{Yahoo}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Yahoo}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Yahoo}{SyncOnLogin} = 1;
 

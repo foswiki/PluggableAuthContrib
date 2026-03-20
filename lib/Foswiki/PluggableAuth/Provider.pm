@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -1234,17 +1234,8 @@ sub setPassword {
 sub savePassword {
   my ($this, %params) = @_;
 
-  my (@fields, @values, @q);
-  while (my ($k, $v) = each %params) {
-    push @fields, $k;
-    push @values, $v;
-    push @q, '?';
-  }
-  return 0 unless @fields;
-
-  my $stm = "REPLACE INTO PluggableAuth_passwords (".join(", ", @fields).") VALUES(".join(", ", @q).")";
-
-  return $this->db->handler->do($stm, {}, @values);
+  return unless keys %params;
+  return $this->db->replace("PluggableAuth_passwords", "uid", \%params);
 }
 
 sub getPassword {

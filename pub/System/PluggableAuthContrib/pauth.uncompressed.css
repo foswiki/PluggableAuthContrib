@@ -20,7 +20,7 @@ a.pauthProviderLink {
   text-align:center;
   opacity:0.6;
   background-color:#999;
-  color:#fff !important;
+  color:#fff;
   transition: opacity 100ms;
 }
 a.pauthProviderLink:hover {

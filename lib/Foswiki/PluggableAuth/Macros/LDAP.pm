@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -26,6 +26,8 @@ TODO
 use strict;
 use warnings;
 
+use constant TRACE => 0;
+
 use Foswiki::Contrib::CacheContrib ();
 use Foswiki::PluggableAuth ();
 use Foswiki::Func ();
@@ -38,7 +40,7 @@ sub handle {
 
   my $pauth = Foswiki::PluggableAuth->new();
 
-  _writeDebug("called handle");
+  _writeDebug("called handleLdap()");
 
   my $theWarnings = Foswiki::Func::isTrue($params->{warn}, 1);
   my $theProvider = $params->{pid};
@@ -67,8 +69,10 @@ sub handle {
   $theCache = $Foswiki::cfg{PluggableAuth}{CacheExpire} // 3600 if !defined($theCache) || $theCache eq 'on';
   $theCache = 0 if $theCache eq 'off';
 
+  _writeDebug("cache=$theCache");
+
   if ($theCache) {
-    $fingerPrint = Digest::MD5::md5_hex(Encode::encode_utf8($params->stringify()));
+    $fingerPrint = _fingerPrint($web, $topic, $params);
     _writeDebug("fingerPrint=$fingerPrint");
     $cache = Foswiki::Contrib::CacheContrib::getCache("Ldap", $theCache);
     if ($theRefresh) {
@@ -76,11 +80,11 @@ sub handle {
       $cache->remove($fingerPrint);
     }
     my $data = $cache->get($fingerPrint);
-    if ($data) {
-      _writeDebug("found response in cache");
+    if (defined $data) {
+      _writeDebug("FOUND response in cache");
       return $data;
     } else {
-      _writeDebug("not found in cache ... recomputing");
+      _writeDebug("NOT found in cache ... recomputing");
     }
   }
 
@@ -153,7 +157,6 @@ sub handle {
   };
   return ($theWarnings ? _inlineError("ERROR: $error") : "") if defined $error;
 
-
   @entries = reverse @entries if $theReverse;
   my $index = 0;
   my @results = ();
@@ -185,33 +188,33 @@ sub handle {
   }
 
   my $count = scalar(@results);
-  unless ($count) {
-    return $theHideNull?"":Foswiki::Func::decodeFormatTokens($theNullFormat);
+  my $result;
+  if ($count) {
+
+    $result = $theHeader . join($theSep, @results) . $theFooter;
+    $result =~ s/\$count\b/$count/g;
+
+    #_writeDebug("result=$result");
+
+    if ($theClear) {
+      $theClear =~ s/\$/\\\$/g;
+      my $regex = join('|', split(/[\s,]+/, $theClear));
+      $result =~ s/$regex//g;
+    }
+
+    $result = Foswiki::Func::decodeFormatTokens($result);
+  } else {
+    $result = $theHideNull?"":Foswiki::Func::decodeFormatTokens($theNullFormat);
   }
 
-  my $result = $theHeader . join($theSep, @results) . $theFooter;
-  $result =~ s/\$count\b/$count/g;
-
-  #_writeDebug("result=$result");
-
-  if ($theClear) {
-    $theClear =~ s/\$/\\\$/g;
-    my $regex = join('|', split(/[\s,]+/, $theClear));
-    $result =~ s/$regex//g;
-  }
-
-  $result = Foswiki::Func::decodeFormatTokens($result);
-
-  if ($theCache) {
-    $cache->set($fingerPrint, $result, $theCache);
-  }
+  $cache->set($fingerPrint, $result, $theCache) if $theCache;
 
   _writeDebug("done handleLdap()");
   return $result;
 }
 
 sub _writeDebug {
-  print STDERR "PluggableAuth::Macros::LDAP - $_[0]\n" if $Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{Debug} || $Foswiki::cfg{PluggableAuth}{Debug};
+  print STDERR "PluggableAuth::Macros::LDAP - $_[0]\n" if TRACE || $Foswiki::cfg{PluggableAuth}{Providers}{Ldap1}{Debug} || $Foswiki::cfg{PluggableAuth}{Debug};
 }
 
 sub _inlineError {
@@ -243,4 +246,19 @@ sub _expandVars {
   return $format;
 }
 
+sub _fingerPrint {
+  my ($web, $topic, $params) = @_;
+
+  my @parts = ();
+
+  push @parts, "web=$web";
+  push @parts, "topic=$topic";
+
+  foreach my $key (sort keys %$params) {
+    my $val = $params->{val} // '';
+    push @parts, "$key=".Encode::decode_utf8($val);
+  }
+  
+  return Digest::MD5::md5_hex(join("::", @parts));
+}
 1;

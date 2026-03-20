@@ -30,18 +30,18 @@
 
 %TMPL:DEF{"login::registration"}%<div>[[%SYSTEMWEB%.UserRegistration][%MAKETEXT{"Do you want to become a registered user?"}%]]</div>%TMPL:END%
 
-%TMPL:DEF{"login::provider"}%%PROVIDERINFO{
+%TMPL:DEF{"login::provider"}%<noautolink>%PROVIDERINFO{
   showvisible="on"
   showallowed="on"
   header="<div class='foswikiPageForm pauthProviders'><h3>%MAKETEXT{"Or, sign in with:"}%</h3>"
-  format="<a href='%SCRIPTURLPATH{"login"}%/%WEB%/%TOPIC%?foswiki_origin=%FOSWIKI_ORIGIN%&pauth_provider=$id' class='pauthProviderLink <nop>$id'>$name</a>"
+  format="<a href='%SCRIPTURLPATH{"login"}%/%WEB%/%TOPIC%?foswiki_origin=%FOSWIKI_ORIGIN%&pauth_provider=$id' class='pauthProviderLink $id' $style>$name</a>"
   separator="$n"
   footer="</div>"
 }%%ADDTOZONE{
   "head"
   id="PAUTHCSS"
   text="<link rel='stylesheet' media='all' href='%PUBURLPATH%/%SYSTEMWEB%/PluggableAuthContrib/pauth.css'>"
-}%%TMPL:END%
+}%</noautolink>%TMPL:END%
 
 %TMPL:DEF{"seealso"}%<div class='foswikiFormStep natLoginSeeAlso'>
 %TMPL:P{context="passwords_modifyable" else="login::resetpassword"}%%{}%

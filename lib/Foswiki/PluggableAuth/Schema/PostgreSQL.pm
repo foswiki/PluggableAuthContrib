@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, https://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2026 Michael Daum https://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -13,13 +13,13 @@
 # GNU General Public License for more details, published at
 # http://www.gnu.org/copyleft/gpl.html
 
-package Foswiki::PluggableAuth::Schema::MariaDB;
+package Foswiki::PluggableAuth::Schema::PostgreSQL;
 
 =begin TML
 
----+ package Foswiki::PluggableAuth::Schema::MariaDB
+---+ package Foswiki::PluggableAuth::Schema::PostgreSQL
 
-Database schema when using a <nop>MariaDB
+Database schema when using a <nop>PostgreSQL
 
 =cut
 
@@ -48,7 +48,7 @@ sub getDefinition {
   my $adminGroup = $Foswiki::cfg{SuperAdminGroup} || "AdminGroup";
 
   my @schema = ([
-    "CREATE TABLE IF NOT EXISTS %prefix%users (
+    'CREATE TABLE IF NOT EXISTS %prefix%users (
             id VARCHAR(255) NOT NULL PRIMARY KEY,
             pid VARCHAR(255) NOT NULL,
             loginName VARCHAR(255) NOT NULL,
@@ -63,36 +63,36 @@ sub getDefinition {
             registrationDate INTEGER,
             loginDate INTEGER,
             enabled INTEGER DEFAULT 1
-    ) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE utf8mb4_bin",
-    "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_users_loginName ON %prefix%users (loginName, pid)",
-    "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_users_wikiName ON %prefix%users (wikiName)",
+    )',
+    'CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_users_loginName ON %prefix%users (loginName, pid)',
+    'CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_users_wikiName ON %prefix%users (wikiName)',
 
-    "CREATE TABLE IF NOT EXISTS %prefix%passwords (
+    'CREATE TABLE IF NOT EXISTS %prefix%passwords (
             uid VARCHAR(255) NOT NULL,
             password VARCHAR(255),
             encoding VARCHAR(255),
             realm VARCHAR(255)
-    ) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE utf8mb4_bin",
-    "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_passwords_uid ON %prefix%passwords (uid)",
+    )',
+    'CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_passwords_uid ON %prefix%passwords (uid)',
 
-    "CREATE TABLE IF NOT EXISTS %prefix%groups (
+    'CREATE TABLE IF NOT EXISTS %prefix%groups (
             id VARCHAR(255) NOT NULL PRIMARY KEY,
             pid VARCHAR(255) NOT NULL,
             wikiName VARCHAR(255) NOT NULL,
             displayName VARCHAR(255),
             count INTEGER DEFAULT 0,
             enabled INTEGER DEFAULT 1
-    ) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE utf8mb4_bin",
-    "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_groups_name ON %prefix%groups (wikiName)",
+    )',
+    'CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_groups_name ON %prefix%groups (wikiName)',
 
-    "CREATE TABLE IF NOT EXISTS %prefix%group_members (
+    'CREATE TABLE IF NOT EXISTS %prefix%group_members (
             gid VARCHAR(255) NOT NULL,
             mid VARCHAR(255) NOT NULL
-    ) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE utf8mb4_bin",
-    "CREATE INDEX IF NOT EXISTS %prefix%idx_group_members_gid ON %prefix%group_members (gid)",
-    "CREATE INDEX IF NOT EXISTS %prefix%idx_group_members_mid ON %prefix%group_members (mid)",
-    "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_group_members ON %prefix%group_members (gid, mid)",
-    "CREATE TABLE IF NOT EXISTS %prefix%user_keys (
+    )',
+    'CREATE INDEX IF NOT EXISTS %prefix%idx_group_members_gid ON %prefix%group_members (gid)',
+    'CREATE INDEX IF NOT EXISTS %prefix%idx_group_members_mid ON %prefix%group_members (mid)',
+    'CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_group_members ON %prefix%group_members (gid, mid)',
+    'CREATE TABLE IF NOT EXISTS %prefix%user_keys (
             id VARCHAR(255) NOT NULL PRIMARY KEY,
             uid VARCHAR(255) NOT NULL,
             enabled INTEGER DEFAULT 1,
@@ -100,34 +100,35 @@ sub getDefinition {
             description VARCHAR(255),
             counter INTEGER DEFAULT 0,
             attemptTime INTEGER DEFAULT 0,
-            keyHandle BLOB,
-            publicKey BLOB,
+            keyHandle BYTEA,
+            publicKey BYTEA,
             attestation VARCHAR(255)
-    ) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE utf8mb4_bin",
-    "CREATE INDEX IF NOT EXISTS %prefix%idx_user_keys_uid ON %prefix%user_keys (uid)",
-    "CREATE TABLE IF NOT EXISTS %prefix%providers (
+    )',
+    'CREATE INDEX IF NOT EXISTS %prefix%idx_user_keys_uid ON %prefix%user_keys (uid)',
+    'CREATE TABLE IF NOT EXISTS %prefix%providers (
             id VARCHAR(255) NOT NULL PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
             enabled INTEGER DEFAULT 0
-    ) DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE utf8mb4_bin",
-    "CREATE INDEX IF NOT EXISTS %prefix%idx_providers_name ON %prefix%providers (name)",
+    )',
+    'CREATE INDEX IF NOT EXISTS %prefix%idx_providers_name ON %prefix%providers (name)',
   ], [
-    "INSERT IGNORE INTO %prefix%users (pid, id, loginName, wikiName, displayName, firstName, lastName, initials, email) VALUES
+    "INSERT INTO %prefix%users (pid, id, loginName, wikiName, displayName, firstName, lastName, initials, email) VALUES
       ('Base', 'BaseUserMapping_111', 'ProjectContributor', 'ProjectContributor', 'Project Contributor', 'Project', 'Contributor', 'PC', ''),
       ('Base', 'BaseUserMapping_222', 'RegistrationAgent', 'RegistrationAgent', 'Registration Agent', 'Registration', 'Agent', 'RA', ''),
       ('Base', 'BaseUserMapping_333', '$adminLogin', '$adminWikiName', 'Admin User', 'Admin', 'User', 'AU', '$adminEmail'),
       ('Base', 'BaseUserMapping_666', '$guestLogin', '$guestWikiName', 'Wiki Guest', 'Wiki', 'Guest', 'WG', ''),
       ('Base', 'BaseUserMapping_999', 'unknown', 'UnknownUser', 'Unknown User', 'Unknown', 'User', 'UU', '')"
   ], [
-    "INSERT IGNORE INTO %prefix%groups (pid, id, wikiName, displayName) VALUES
+    "INSERT INTO %prefix%groups (pid, id, wikiName, displayName) VALUES
       ('Base', 'BaseGroup', 'BaseGroup', 'Base Group'),
       ('Base', 'NobodyGroup', 'NobodyGroup', 'Nobody Group'),
       ('Base', '$adminGroup', '$adminGroup', 'Admin Group')"
   ], [], [
-    "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_user_keys_type ON %prefix%user_keys (uid, type)"
+    'CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_user_keys_type ON %prefix%user_keys (uid, type)'
   ]);
 
   return \@schema;
 }
 
 1;
+

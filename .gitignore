@@ -5,3 +5,4 @@ igp_*
 /PluggableAuthContrib_installer.pl
 /PluggableAuthContrib.zip
 pub/System/PluggableAuthContrib/blobs/*jpeg
+locale/**/*~

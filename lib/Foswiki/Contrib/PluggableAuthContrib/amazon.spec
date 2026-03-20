@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled} && {PluggableAuth}{Providers}{Amazon}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled} && {PluggableAuth}{Providers}{Amazon}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Amazon}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Amazon}{SyncOnLogin} = 1;
 

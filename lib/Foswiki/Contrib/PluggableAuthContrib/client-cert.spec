@@ -19,6 +19,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{Module} = 'Foswiki::Pluggabl
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled} && {PluggableAuth}{Providers}{ClientCert}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled} && {PluggableAuth}{Providers}{ClientCert}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{ClientCert}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Environment Variable" DISPLAY_IF="{PluggableAuth}{Providers}{ClientCert}{Enabled}" **
 # specifies the environment variable that holds the raw client certificate of the client.
 # Add this to your nginx config =fastcgi_param SSL_CLIENT_CERT $ssl_client_raw_cert;=.

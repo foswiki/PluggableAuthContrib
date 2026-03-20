@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -79,13 +79,27 @@ sub init {
 sub find {
   my ($this, %params) = @_;
 
-  return $this->auth->getCachedUser($params{id}) // $this->SUPER::find(%params);
+  my @ids = ();
+
+  if (ref($params{id})) {
+    push @ids, @{$params{id}};
+  } else {
+    push @ids, $params{id};
+  }
+
+  foreach my $id (@ids) {
+    my $user = $this->auth->getCachedUser($id);
+    return $user if defined $user;    
+  }
+
+  return $this->SUPER::find(%params);
 }
 
 sub load {
   my ($this, %params) = @_;
 
-  my $that = $this->auth->getCachedUser($params{id});
+  my $id = $params{id} // $this->{_props}{id};
+  my $that = $this->auth->getCachedUser($id);
   return $that if defined $that;
 
   return $this->SUPER::load(%params);

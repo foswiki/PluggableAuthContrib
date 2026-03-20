@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{Module} = 'Foswiki::Pluggabl
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled} && {PluggableAuth}{Providers}{Egroupware}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled} && {PluggableAuth}{Providers}{Egroupware}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Egroupware}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Egroupware}{SyncOnLogin} = 1;
 

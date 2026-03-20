@@ -723,7 +723,7 @@ msgstr "Leider ist das Konto deaktiviert."
 #: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:121
 #: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:124
 msgid "Sorry, account not found"
-msgstr "Leider wurder das Konto nicht gefunden."
+msgstr "Leider wurde das Konto nicht gefunden."
 
 #: data/System/PluggableAuthUserEditTemplate.txt:39
 msgid "Text"

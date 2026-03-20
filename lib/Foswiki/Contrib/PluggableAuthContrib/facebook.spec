@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{Module} = 'Foswiki::PluggableA
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled} && {PluggableAuth}{Providers}{Facebook}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled} && {PluggableAuth}{Providers}{Facebook}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Facebook}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Facebook}{SyncOnLogin} = 1;
 

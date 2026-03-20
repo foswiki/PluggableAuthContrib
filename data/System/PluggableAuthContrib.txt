@@ -1,4 +1,4 @@
-%META:TOPICINFO{author="micha" comment="reprev" date="1713544060" format="1.1" reprev="9" version="12"}%
+%META:TOPICINFO{author="ProjectContributor" comment="" date="1774028807" format="1.1"  version="1"}%
 ---+!! %TOPIC%
 %FORMFIELD{"Description"}%
 
@@ -178,13 +178,11 @@ ul.providerList {
 Most of the above providers are based on either OAuth2 or !OpenID, as indicated. These are mostly used for public sites to simplify
 the registration process for people who want to contribute to the wiki.
 
-!BasicAuth is the most classic way to authenticate on the web using =.htpasswd= kind of user and password management. 
-The !BasicAuth and Topic are the providers known natively to Foswiki, yet still !PluggableAuth reads this information from
-the system and caches found information into its central user database as all the other providers do.
-
-!BasicAuth is the most classic way of authenticating on the web, using a =.htpasswd= type of user and password management.
-!BasicAuth provider and Topic provider are natively known to Foswiki. !PluggableAuth reads this information from the system and caches the information it finds in its central user database, 
-like all the other providers.
+!BasicAuth is the most classic way of authenticating on the web, using a =.htpasswd=
+type of user and password management. !BasicAuth provider and Topic provider are
+natively known to Foswiki. !PluggableAuth reads this information from the system
+and caches the information it finds in its central user database,  like all the other
+providers.
 
 The Topic provider is mostly of use to import already existing users to !PluggableAuth while migrating from a previous configuration.
 
@@ -222,24 +220,24 @@ The Microsort provider allows Foswiki to be integrated into an Azure platform st
 %META:FIELD{name="License" title="License" value="[[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]]"}%
 %META:FIELD{name="Home" title="Home" value="https://foswiki.org/Extensions/ListyPlugin"}%
 %META:FIELD{name="Support" title="Support" value="Foswiki:Support/ListyPlugin"}%
-%META:FILEATTACHMENT{name="auth0.svg" attachment="auth0.svg" attr="" comment="" date="1713521002" size="522" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="amazon.svg" attachment="amazon.svg" attr="" comment="" date="1713521064" size="1653" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="discord.svg" attachment="discord.svg" attr="" comment="" date="1713521343" size="1528" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="dropbox.svg" attachment="dropbox.svg" attr="" comment="" date="1713521389" size="340" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="egroupware.svg" attachment="egroupware.svg" attr="" comment="" date="1713523748" size="2643" user="micha" version="2"}%
-%META:FILEATTACHMENT{name="facebook.svg" attachment="facebook.svg" attr="" comment="" date="1713521983" size="551" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="github.svg" attachment="github.svg" attr="" comment="" date="1713524956" size="2267" user="micha" version="2"}%
-%META:FILEATTACHMENT{name="gitlab.svg" attachment="gitlab.svg" attr="" comment="" date="1713522069" size="814" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="google.svg" attachment="google.svg" attr="" comment="" date="1713522099" size="1018" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="kerberos.svg" attachment="kerberos.svg" attr="" comment="" date="1713524913" size="2467" user="micha" version="7"}%
-%META:FILEATTACHMENT{name="windows.svg" attachment="windows.svg" attr="" comment="" date="1713522422" size="389" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="mastodon.svg" attachment="mastodon.svg" attr="" comment="" date="1713523101" size="1398" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="microsoft.svg" attachment="microsoft.svg" attr="" comment="" date="1713523137" size="378" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="nextcloud.svg" attachment="nextcloud.svg" attr="" comment="" date="1713525059" size="9177" user="micha" version="2"}%
-%META:FILEATTACHMENT{name="slack.svg" attachment="slack.svg" attr="" comment="" date="1713523219" size="1394" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="yahoo.svg" attachment="yahoo.svg" attr="" comment="" date="1713523376" size="587" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="saml.svg" attachment="saml.svg" attr="" comment="" date="1713523400" size="5854" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="foswiki.svg" attachment="foswiki.svg" attr="" comment="" date="1713523593" size="3398" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="keycloak.svg" attachment="keycloak.svg" attr="" comment="" date="1713524518" size="12159" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="linkedin.svg" attachment="linkedin.svg" attr="" comment="" date="1713524653" size="1790" user="micha" version="1"}%
-%META:FILEATTACHMENT{name="twitch.svg" attachment="twitch.svg" attr="" comment="" date="1713532124" size="395" user="micha" version="1"}%
+%META:FILEATTACHMENT{name="auth0.svg" attachment="auth0.svg" attr="" comment="" date="1774028807" size="522" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="amazon.svg" attachment="amazon.svg" attr="" comment="" date="1774028807" size="1653" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="discord.svg" attachment="discord.svg" attr="" comment="" date="1774028807" size="1528" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="dropbox.svg" attachment="dropbox.svg" attr="" comment="" date="1774028807" size="340" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="egroupware.svg" attachment="egroupware.svg" attr="" comment="" date="1774028807" size="2643" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="facebook.svg" attachment="facebook.svg" attr="" comment="" date="1774028807" size="551" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="github.svg" attachment="github.svg" attr="" comment="" date="1774028807" size="2267" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="gitlab.svg" attachment="gitlab.svg" attr="" comment="" date="1774028807" size="814" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="google.svg" attachment="google.svg" attr="" comment="" date="1774028807" size="1018" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="kerberos.svg" attachment="kerberos.svg" attr="" comment="" date="1774028807" size="2467" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="windows.svg" attachment="windows.svg" attr="" comment="" date="1774028807" size="389" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="mastodon.svg" attachment="mastodon.svg" attr="" comment="" date="1774028807" size="1398" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="microsoft.svg" attachment="microsoft.svg" attr="" comment="" date="1774028807" size="378" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="nextcloud.svg" attachment="nextcloud.svg" attr="" comment="" date="1774028807" size="9177" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="slack.svg" attachment="slack.svg" attr="" comment="" date="1774028807" size="1394" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="yahoo.svg" attachment="yahoo.svg" attr="" comment="" date="1774028807" size="587" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="saml.svg" attachment="saml.svg" attr="" comment="" date="1774028807" size="5854" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="foswiki.svg" attachment="foswiki.svg" attr="" comment="" date="1774028807" size="3398" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="keycloak.svg" attachment="keycloak.svg" attr="" comment="" date="1774028807" size="12159" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="linkedin.svg" attachment="linkedin.svg" attr="" comment="" date="1774028807" size="1790" user="ProjectContributor" version="1"}%
+%META:FILEATTACHMENT{name="twitch.svg" attachment="twitch.svg" attr="" comment="" date="1774028807" size="395" user="ProjectContributor" version="1"}%

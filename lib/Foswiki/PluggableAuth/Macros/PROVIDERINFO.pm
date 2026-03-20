@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -85,6 +85,13 @@ sub handle {
     next if defined $include && $provider->prop("Name") !~ /$include/;
     next if defined $exclude && $provider->prop("Name") =~ /$exclude/;
 
+    my @css = ();
+    my $fgColor = $provider->prop("ForegroundColor");
+    my $bgColor = $provider->prop("BackgroundColor");
+    push @css, "color:$fgColor" if $fgColor;
+    push @css, "background-color:$bgColor" if $bgColor;
+    my $style = @css ? "style='".join("; ", @css)."'" : "";
+
     my $line = $format;
     $line =~ s/\$name\b/$provider->prop("Name")/ge;
     $line =~ s/\$id\b/$provider->prop("id")/ge;
@@ -93,6 +100,7 @@ sub handle {
     $line =~ s/\$external\b/$provider->isExternalLogin?1:0/ge;
     $line =~ s/\$internal\b/$provider->isInternalLogin?1:0/ge;
     $line =~ s/\$allowed\b/$provider->isAllowedIpAddress?1:0/ge;
+    $line =~ s/\$style\b/$style/g;
     $line =~ s/\$index\b/$index/g;
     push @result, $line;
     $index++;

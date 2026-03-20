@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -707,7 +707,10 @@ sub addMemberToGroup {
   throw Error::Simple($this->maketext("Not adding myself as a member: [_1]", $mid)) if $mid eq $gid;
 
   #return if $group->hasMember($obj);
-  return $this->db->handler->do("REPLACE INTO PluggableAuth_group_members (gid, mid) VALUES(?, ?)", {}, $gid, $mid);
+  return $this->db->replace("PluggableAuth_group_members", "gid, mid", {
+    gid => $gid,
+    mid => $mid,
+  }); 
 }
 
 sub removeMemberFromGroup {
@@ -1236,7 +1239,7 @@ sub jsonRpcChangePassword {
   }
 
   $user //= $currentUser;
-  throw Error::Simple($this->maketext("Cannot change password"))
+  throw Error::Simple($this->maketext("Cannot change password for ".$user->prop("loginName")))
     unless $user->canSetPassword($user);
 
   my $isCommandLine = Foswiki::Func::getContext()->{command_line};
@@ -2420,25 +2423,22 @@ sub loadProviders {
   if (!$lastModified || !$providersTimeStamp || $lastModified > $providersTimeStamp) {
     writeDebug("... updating providers table");
     # SMELL: only MySQL, MariaDB???
-    my $stm = "REPLACE into PluggableAuth_providers (id, name, enabled) VALUES (?, ?, ?)";
-    my $sth = $this->db->handler->prepare_cached($stm);
-    my $it = $this->eachProvider(1);
 
     my $error;
+    my $it = $this->eachProvider(1);
+
     try {
       while ($it->hasNext) {
         my $provider = $it->next();
-        my @values = (
-          $provider->prop("id"), 
-          $provider->prop("Name"),
-          Foswiki::Func::isTrue($provider->prop("Enabled")) ? 1:0,
-        );
-        $sth->execute(@values);
+        $this->db->replace("PluggableAuth_providers", "id", {
+          id => $provider->prop("id"),
+          name => $provider->prop("Name"),
+          enabled => Foswiki::Func::isTrue($provider->prop("Enabled"))? 1:0,
+        });
       }
     } catch Error with {
       $error = shift;
     };
-    $sth->finish();
 
     if (defined $error) {
       writeDebug("ERROR: $error");

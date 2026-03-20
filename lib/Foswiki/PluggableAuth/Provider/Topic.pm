@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -243,6 +243,7 @@ sub cacheUser {
     return; 
   }
 
+  $userInfo->{id} = $loginName unless $this->auth->userExists(id => $loginName);
   $this->writeDebug("... adding user $loginName");
 
   $userInfo->{registrationDate} = Foswiki::Time::parseTime($date) if $date && $date !~ /^\d+$/;

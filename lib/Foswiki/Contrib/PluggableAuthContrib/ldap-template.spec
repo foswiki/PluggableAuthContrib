@@ -18,6 +18,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Ldap%i%}{Module} = 'Foswiki::PluggableAu
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap%i%}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap%i%}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap%i%}{Enabled} && {PluggableAuth}{Providers}{Ldap%i%}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap%i%}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap%i%}{Enabled} && {PluggableAuth}{Providers}{Ldap%i%}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Ldap%i%}{BackgroundColor} = '';
+
 # **STRING 80 LABEL="Allowed IP Addresses" DISPLAY_IF="{PluggableAuth}{Providers}{Ldap%i%}{Enabled}" CHECK="undefok emptyok"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Ldap%i%}{AllowedIPAddresses} = '';
 

@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -78,7 +78,7 @@ Below classes connect <nop>PluggableAuth to Foswiki:
 use strict;
 use warnings;
 
-our $VERSION = '0.989';
+our $VERSION = '0.993';
 our $RELEASE = '%$RELEASE%';
 our $SHORTDESCRIPTION = 'Pluggable authentication and user management';
 our $LICENSECODE = '%$LICENSECODE%';

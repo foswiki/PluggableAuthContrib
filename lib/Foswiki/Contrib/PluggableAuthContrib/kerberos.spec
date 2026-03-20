@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{Module} = 'Foswiki::PluggableA
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled}" **
 $Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled} && {PluggableAuth}{Providers}{Kerberos}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled} && {PluggableAuth}{Providers}{Kerberos}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="AutoLogin" DISPLAY_IF="{PluggableAuth}{Providers}{Kerberos}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Kerberos}{AutoLogin} = 1;
 

@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -48,6 +48,19 @@ use Foswiki::Iterator::DBIterator ();
 use constant TRACE => 0;
 use constant TABLE_PROPS => qw();
 use constant TABLE_NAME => "";
+
+our %PropOfColName = (
+  "loginname" => "loginName",
+  "wikiname" => "wikiName",
+  "displayname" => "displayName",
+  "firstname" => "firstName",
+  "middlename" => "middleName",
+  "lastname" => "lastName",
+  "registrationdate" => "registrationDate",
+  "logindate" => "loginDate",
+  "keyhandle" => "keyHandle",
+  "publickey" => "publicKey",
+);
 
 =begin TML
 
@@ -311,7 +324,7 @@ sub init {
   #$this->writeDebug("row=".dump($row));
 
   return unless defined $row;
-  $this->props($row);
+  $this->props($this->propsOfRow($row));
   $this->{_isLoaded} = 1;
 
   return $this;
@@ -718,6 +731,41 @@ sub writeDebug {
 
 sub indexSolr {
   #my ($this, $indexer, $doc, $meta, $text) = @_;
+}
+
+=begin TML
+
+---++ ObjectMethod propOfCol($colName) -> $propName
+
+maps a column name of a database table to a property name of the object.
+
+=cut
+
+sub propOfCol {
+  my ($this, $name) = @_;
+
+  return $PropOfColName{$name} // $name;
+}
+
+=begin TML
+
+---++ ObjectMethod propsOfRow($table, $row) -> $hash
+
+translates a table row as stored into an property hash 
+
+=cut
+
+sub propsOfRow {
+  my ($this, $row) = @_;
+
+  $row //= {};
+  my $props = {};
+
+  foreach my $col (keys %$row) {
+    $props->{$this->propOfCol($col)} = $row->{$col};
+  }
+  
+  return $props;
 }
 
 1;

@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{SAML}{Module} = 'Foswiki::PluggableAuth:
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{SAML}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled} && {PluggableAuth}{Providers}{SAML}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{SAML}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled} && {PluggableAuth}{Providers}{SAML}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{SAML}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{SAML}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{SAML}{SyncOnLogin} = 1;
 

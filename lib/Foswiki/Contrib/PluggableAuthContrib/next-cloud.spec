@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{Module} = 'Foswiki::Pluggable
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled} && {PluggableAuth}{Providers}{NextCloud}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled} && {PluggableAuth}{Providers}{NextCloud}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{NextCloud}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{NextCloud}{SyncOnLogin} = 1;
 

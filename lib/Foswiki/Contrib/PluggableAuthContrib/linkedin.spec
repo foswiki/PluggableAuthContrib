@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{Module} = 'Foswiki::PluggableA
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled} && {PluggableAuth}{Providers}{LinkedIn}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled} && {PluggableAuth}{Providers}{LinkedIn}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{LinkedIn}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{LinkedIn}{SyncOnLogin} = 1;
 

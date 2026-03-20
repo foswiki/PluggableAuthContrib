@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, https://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2023-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2023-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -308,15 +308,7 @@ sub updateUserKey {
   $data->{id} //= $this->auth->generateID("userkey");
   $data->{uid} //= $uid;
 
-  my (@fields, @values, @q);
-  while (my ($k, $v) = each %$data) {
-    push @fields, $k;
-    push @values, $v;
-    push @q, "?";
-  }
-
-  my $stm = "REPLACE into PluggableAuth_user_keys (". join(", ", @fields).") VALUES (".join(", ", @q).")";
-  my $res = $this->db->handler->do($stm, {}, @values);
+  $this->db->replace("PluggableAuth_user_keys", "id", $data);
 
   while (my ($k, $v) = each %$data) {
     $this->{_data}{$uid}{$k} = $v;
@@ -408,7 +400,7 @@ sub clearSecretFromSession {
   my $this = shift;
 
   my $cgis = $this->auth->{session}->getCGISession();
-  $cgis->clear("_PAUTH_SECRET");
+  $cgis->clear("_PAUTH_SECRET") if $cgis;
 }
 
 sub generateSecret {

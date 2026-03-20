@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Slack}{Module} = 'Foswiki::PluggableAuth
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Slack}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled} && {PluggableAuth}{Providers}{Slack}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Slack}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled} && {PluggableAuth}{Providers}{Slack}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Slack}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Slack}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Slack}{SyncOnLogin} = 1;
 

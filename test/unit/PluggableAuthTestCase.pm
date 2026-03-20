@@ -1,6 +1,6 @@
 # Extension for Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 #
-# PluggableAuthContrib is Copyright (C) 2020-2025 Michael Daum http://michaeldaumconsulting.com
+# PluggableAuthContrib is Copyright (C) 2020-2026 Michael Daum http://michaeldaumconsulting.com
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -43,6 +43,7 @@ sub new {
 
   $Foswiki::cfg{DBI}{Implementation} = 'Foswiki::DBI::Database::SQLite';
   $Foswiki::cfg{DBI}{SQLite}{Filename} = $this->{fileName};
+  $Foswiki::cfg{DBI}{MemoryCache} = 0;
   $Foswiki::cfg{Cache}{Enabled} = 0;
   $Foswiki::cfg{PluggableAuth}{EnableGravatarFallback} = 0;
 

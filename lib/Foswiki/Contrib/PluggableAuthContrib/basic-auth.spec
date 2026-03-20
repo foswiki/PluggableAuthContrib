@@ -20,6 +20,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{Realm} = '';
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{Visible} = 0;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled} && {PluggableAuth}{Providers}{BasicAuth}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled} && {PluggableAuth}{Providers}{BasicAuth}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="AutoLogin" DISPLAY_IF="{PluggableAuth}{Providers}{BasicAuth}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{BasicAuth}{AutoLogin} = 0;
 

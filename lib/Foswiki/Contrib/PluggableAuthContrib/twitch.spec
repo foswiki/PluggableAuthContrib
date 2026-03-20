@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{Module} = 'Foswiki::PluggableAut
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled} && {PluggableAuth}{Providers}{Twitch}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled} && {PluggableAuth}{Providers}{Twitch}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Twitch}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Twitch}{SyncOnLogin} = 1;
 

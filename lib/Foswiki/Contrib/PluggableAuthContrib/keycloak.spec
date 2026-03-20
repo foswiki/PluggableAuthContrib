@@ -15,6 +15,14 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{Module} = 'Foswiki::PluggableA
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{Visible} = 1;
 
+# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled} && {PluggableAuth}{Providers}{Keycloak}{Visible}" CHECK="undefok emptyok"**
+# foreground color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{ForegroundColor} = '';
+
+# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled} && {PluggableAuth}{Providers}{Keycloak}{Visible}" CHECK="undefok emptyok"**
+# background color of login button
+$Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{BackgroundColor} = '';
+
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Keycloak}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Keycloak}{SyncOnLogin} = 1;
 
