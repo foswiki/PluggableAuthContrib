@@ -255,7 +255,7 @@ sub _fingerPrint {
   push @parts, "topic=$topic";
 
   foreach my $key (sort keys %$params) {
-    my $val = $params->{val} // '';
+    my $val = $params->{$key} // '';
     push @parts, "$key=".Encode::decode_utf8($val);
   }
   

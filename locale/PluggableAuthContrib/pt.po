@@ -40,25 +40,26 @@ msgstr "%1 - Registo de %2 (%3)"
 msgid "%GETTOPICTITLE%"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:187
-#: data/System/PluggableAuthUsers.txt:213
-#: data/System/PluggableAuthUsers.txt:314
-#: data/System/PluggableAuthUsers.txt:355
-#: data/System/PluggableAuthUsers.txt:413
-#: data/System/PluggableAuthUsers.txt:435 templates/twofactorbase.tmpl:106
+#: data/System/PluggableAuthUsers.txt:188
+#: data/System/PluggableAuthUsers.txt:214
+#: data/System/PluggableAuthUsers.txt:315
+#: data/System/PluggableAuthUsers.txt:356
+#: data/System/PluggableAuthUsers.txt:414
+#: data/System/PluggableAuthUsers.txt:436 templates/twofactorbase.tmpl:106
 msgid "Abort"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1047 lib/Foswiki/PluggableAuth.pm:1271
-#: lib/Foswiki/PluggableAuth.pm:1326 lib/Foswiki/PluggableAuth.pm:1388
-#: lib/Foswiki/PluggableAuth.pm:1496 lib/Foswiki/PluggableAuth.pm:1587
-#: lib/Foswiki/PluggableAuth.pm:743 lib/Foswiki/PluggableAuth.pm:757
-#: lib/Foswiki/PluggableAuth.pm:791 lib/Foswiki/PluggableAuth.pm:847
-#: lib/Foswiki/PluggableAuth.pm:887 lib/Foswiki/PluggableAuth.pm:990
+#: lib/Foswiki/PluggableAuth.pm:1081 lib/Foswiki/PluggableAuth.pm:1138
+#: lib/Foswiki/PluggableAuth.pm:1374 lib/Foswiki/PluggableAuth.pm:1429
+#: lib/Foswiki/PluggableAuth.pm:1491 lib/Foswiki/PluggableAuth.pm:1599
+#: lib/Foswiki/PluggableAuth.pm:1690 lib/Foswiki/PluggableAuth.pm:768
+#: lib/Foswiki/PluggableAuth.pm:791 lib/Foswiki/PluggableAuth.pm:813
+#: lib/Foswiki/PluggableAuth.pm:835 lib/Foswiki/PluggableAuth.pm:882
+#: lib/Foswiki/PluggableAuth.pm:938 lib/Foswiki/PluggableAuth.pm:978
 msgid "Access to API denied"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:395
+#: data/System/PluggableAuthUsers.txt:396
 #, fuzzy
 msgid "Account enabled"
 msgstr "Conta de usuário %1 foi removida"
@@ -68,43 +69,43 @@ msgstr "Conta de usuário %1 foi removida"
 msgid "Activate"
 msgstr "Código de ativação inválido"
 
-#: data/System/PluggableAuthUsers.txt:228
+#: data/System/PluggableAuthUsers.txt:229
 #, fuzzy
 msgid "Activate User(s)"
 msgstr "Remover última linha"
 
-#: data/System/PluggableAuthUsers.txt:146
+#: data/System/PluggableAuthUsers.txt:147
 #, fuzzy
 msgid "Activate user"
 msgstr "Código de ativação inválido"
 
-#: data/System/PluggableAuthUsers.txt:229
+#: data/System/PluggableAuthUsers.txt:230
 #, fuzzy
 msgid "Activating ..."
 msgstr "Remover tópico..."
 
-#: data/System/PluggableAuthUsers.txt:278
+#: data/System/PluggableAuthUsers.txt:279
 #, fuzzy
 msgid "Add Group"
 msgstr "Criar Novo Tópico"
 
-#: data/System/PluggableAuthUsers.txt:152
+#: data/System/PluggableAuthUsers.txt:153
 #, fuzzy
 msgid "Add User"
 msgstr "Adicionar linha"
 
-#: data/System/PluggableAuthUsers.txt:140
+#: data/System/PluggableAuthUsers.txt:141
 #, fuzzy
 msgid "Add group"
 msgstr "Criar Novo Tópico"
 
-#: data/System/PluggableAuthUsers.txt:139
+#: data/System/PluggableAuthUsers.txt:140
 #, fuzzy
 msgid "Add user"
 msgstr "Adicionar linha"
 
-#: data/System/PluggableAuthUsers.txt:153
-#: data/System/PluggableAuthUsers.txt:279
+#: data/System/PluggableAuthUsers.txt:154
+#: data/System/PluggableAuthUsers.txt:280
 msgid "Adding ..."
 msgstr ""
 
@@ -125,11 +126,11 @@ msgstr ""
 msgid "An account has been created for you."
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:233
+#: data/System/PluggableAuthUsers.txt:234
 msgid "Are you sure that you want to activate <b>%quant(%1,user,users)</b>?"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:246
+#: data/System/PluggableAuthUsers.txt:247
 msgid "Are you sure that you want to deactivate <b>%quant(%1,user,users)</b>?"
 msgstr ""
 
@@ -137,15 +138,15 @@ msgstr ""
 msgid "Are you sure that you want to deactivate two-factor authentication?"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:258
+#: data/System/PluggableAuthUsers.txt:259
 msgid "Are you sure that you want to delete <b>%1</b>?"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:220
+#: data/System/PluggableAuthUsers.txt:221
 msgid "Are you sure that you want to delete <b>%quant(%1,user,users)</b>?"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:270
+#: data/System/PluggableAuthUsers.txt:271
 msgid ""
 "Are you sure that you want to reset the password of <b>%quant(%1,user,"
 "users)</b>?"
@@ -159,48 +160,53 @@ msgstr ""
 msgid "Best Regards, Your Wiki Team."
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1229
+#: lib/Foswiki/PluggableAuth.pm:1332
 #, fuzzy
 msgid "Cannot change email"
 msgstr "Alterar Senha"
 
-#: lib/Foswiki/PluggableAuth.pm:1146
-#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:254
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:261
 #, fuzzy
 msgid "Cannot change password"
 msgstr "Alterar Senha"
 
-#: lib/Foswiki/PluggableAuth.pm:860
+#. ($user->prop("loginName")
+#: lib/Foswiki/PluggableAuth.pm:1242
+#, fuzzy
+msgid "Cannot change password for "
+msgstr "Alterar Senha"
+
+#: lib/Foswiki/PluggableAuth.pm:951
 #, fuzzy
 msgid "Cannot delete group"
 msgstr "Remover tópico"
 
-#: lib/Foswiki/PluggableAuth.pm:1294
+#: lib/Foswiki/PluggableAuth.pm:1397
 #, fuzzy
 msgid "Cannot delete user"
 msgstr "Remover última linha"
 
-#: lib/Foswiki/PluggableAuth.pm:1164
+#: lib/Foswiki/PluggableAuth.pm:1260
 #, fuzzy
 msgid "Cannot notify user via email. Not changing the password"
 msgstr "Repita a nova senha:"
 
-#: data/System/PluggableAuthUsers.txt:142
+#: data/System/PluggableAuthUsers.txt:143
 #, fuzzy
 msgid "Change Groups"
 msgstr "Alterar de:"
 
-#: data/System/PluggableAuthUsers.txt:143
+#: data/System/PluggableAuthUsers.txt:144
 #, fuzzy
 msgid "Change password"
 msgstr "Alterar Senha"
 
-#: data/System/PluggableAuthUsers.txt:190
+#: data/System/PluggableAuthUsers.txt:191
 #, fuzzy
 msgid "Change password of %1"
 msgstr "Alterar senha"
 
-#: data/System/PluggableAuthUsers.txt:191
+#: data/System/PluggableAuthUsers.txt:192
 msgid "Changing ..."
 msgstr ""
 
@@ -212,22 +218,22 @@ msgstr ""
 msgid "Configure authentication application"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1156
+#: lib/Foswiki/PluggableAuth.pm:1252
 #, fuzzy
 msgid "Confirmed password required"
 msgstr "Nova senha"
 
-#: data/System/PluggableAuthUsers.txt:241
+#: data/System/PluggableAuthUsers.txt:242
 #, fuzzy
 msgid "Deactivate User(s)"
 msgstr "Remover última linha"
 
-#: data/System/PluggableAuthUsers.txt:147
+#: data/System/PluggableAuthUsers.txt:148
 #, fuzzy
 msgid "Deactivate user"
 msgstr "Remover última linha"
 
-#: data/System/PluggableAuthUsers.txt:242
+#: data/System/PluggableAuthUsers.txt:243
 #, fuzzy
 msgid "Deactivating ..."
 msgstr "Remover tópico..."
@@ -237,23 +243,23 @@ msgstr "Remover tópico..."
 msgid "Dear %1"
 msgstr "Caro(a) %1"
 
-#: data/System/PluggableAuthUsers.txt:254
+#: data/System/PluggableAuthUsers.txt:255
 #, fuzzy
 msgid "Delete Group"
 msgstr "Remover tópico"
 
-#: data/System/PluggableAuthUsers.txt:216
+#: data/System/PluggableAuthUsers.txt:217
 #, fuzzy
 msgid "Delete User(s)"
 msgstr "Remover última linha"
 
-#: data/System/PluggableAuthUsers.txt:145
+#: data/System/PluggableAuthUsers.txt:146
 #, fuzzy
 msgid "Delete user"
 msgstr "Remover última linha"
 
-#: data/System/PluggableAuthUsers.txt:217
-#: data/System/PluggableAuthUsers.txt:255
+#: data/System/PluggableAuthUsers.txt:218
+#: data/System/PluggableAuthUsers.txt:256
 #, fuzzy
 msgid "Deleting ..."
 msgstr "Remover tópico..."
@@ -262,7 +268,7 @@ msgstr "Remover tópico..."
 msgid "Details"
 msgstr ""
 
-#: templates/pauthlogin.nat.tmpl:40
+#: templates/pauthlogin.nat.tmpl:29
 msgid "Did you forget your password?"
 msgstr ""
 
@@ -272,74 +278,74 @@ msgid "Disable two-factor authentication"
 msgstr "Autenticação de usuário Foswiki"
 
 #: data/System/PluggableAuthUserEditTemplate.txt:15
-#: data/System/PluggableAuthUsers.txt:122
 #: data/System/PluggableAuthUsers.txt:123
-#: data/System/PluggableAuthUsers.txt:127
-#: data/System/PluggableAuthUsers.txt:375
+#: data/System/PluggableAuthUsers.txt:124
+#: data/System/PluggableAuthUsers.txt:128
+#: data/System/PluggableAuthUsers.txt:376
 msgid "Display Name"
 msgstr ""
 
-#: templates/pauthlogin.nat.tmpl:42
+#: templates/pauthlogin.nat.tmpl:31
 msgid "Do you want to become a registered user?"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:317
+#: data/System/PluggableAuthUsers.txt:318
 #, fuzzy
 msgid "Edit Group"
 msgstr "Grupos"
 
-#: data/System/PluggableAuthUsers.txt:358
+#: data/System/PluggableAuthUsers.txt:359
 #, fuzzy
 msgid "Edit User"
 msgstr "Ajuda com edição"
 
-#: data/System/PluggableAuthUsers.txt:439
+#: data/System/PluggableAuthUsers.txt:440
 msgid "Editable groups"
 msgstr ""
 
 #: data/System/PluggableAuthAddAccountTemplate.txt:18
 #: data/System/PluggableAuthAddAccountTemplate.txt:41
-#: data/System/PluggableAuthUsers.txt:128
-#: data/System/PluggableAuthUsers.txt:166
-#: data/System/PluggableAuthUsers.txt:381
+#: data/System/PluggableAuthUsers.txt:129
+#: data/System/PluggableAuthUsers.txt:167
+#: data/System/PluggableAuthUsers.txt:382
 msgid "Email"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1246
+#: lib/Foswiki/PluggableAuth.pm:1349
 #, fuzzy
 msgid "Email has been changed"
 msgstr "Sua senha foi alterada para %1."
 
-#: lib/Foswiki/PluggableAuth.pm:762
+#: lib/Foswiki/PluggableAuth.pm:796
 msgid "Email parameter missing"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1243
+#: lib/Foswiki/PluggableAuth.pm:1346
 msgid "Email required"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1249
+#: lib/Foswiki/PluggableAuth.pm:1352
 #, fuzzy
 msgid "Email was not changed"
 msgstr "Sua senha foi alterada para %1."
 
-#: data/System/PluggableAuthUsers.txt:131
+#: data/System/PluggableAuthUsers.txt:132
 #, fuzzy
 msgid "Enabled"
 msgstr "Editar tabela"
 
 #. ($error)
-#: lib/Foswiki/PluggableAuth.pm:2338
+#: lib/Foswiki/PluggableAuth.pm:2445
 msgid "Error during updateUser(): %1"
 msgstr ""
 
 #. ($error)
-#: lib/Foswiki/PluggableAuth.pm:1549
+#: lib/Foswiki/PluggableAuth.pm:1652
 msgid "Error updating group: %1"
 msgstr ""
 
 #. ($error)
-#: lib/Foswiki/PluggableAuth.pm:1633
+#: lib/Foswiki/PluggableAuth.pm:1737
 msgid "Error updating user: %1"
 msgstr ""
 
@@ -352,58 +358,58 @@ msgstr "As senhas não conferem"
 msgid "Everyone"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:455
+#: data/System/PluggableAuthUsers.txt:456
 msgid "External groups"
 msgstr ""
 
 #. ("$@")
-#: lib/Foswiki/PluggableAuth.pm:1833
+#: lib/Foswiki/PluggableAuth.pm:1937
 msgid "Failed loading auth provider: %1"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1089
+#: lib/Foswiki/PluggableAuth.pm:1185
 msgid "Failed to create user"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:124
-#: data/System/PluggableAuthUsers.txt:157
-#: data/System/PluggableAuthUsers.txt:366
+#: data/System/PluggableAuthUsers.txt:125
+#: data/System/PluggableAuthUsers.txt:158
+#: data/System/PluggableAuthUsers.txt:367
 #, fuzzy
 msgid "First Name"
 msgstr "Primeiro nome:"
 
-#: lib/Foswiki/PluggableAuth.pm:1061
+#: lib/Foswiki/PluggableAuth.pm:1152
 #, fuzzy
 msgid "FirstName required"
 msgstr "Primeiro nome:"
 
-#: data/System/PluggableAuthUsers.txt:178
-#: data/System/PluggableAuthUsers.txt:198
+#: data/System/PluggableAuthUsers.txt:179
+#: data/System/PluggableAuthUsers.txt:199
 #, fuzzy
 msgid "Generate Password"
 msgstr "Restaurar senha"
 
-#: lib/Foswiki/PluggableAuth.pm:803
+#: lib/Foswiki/PluggableAuth.pm:894
 #, fuzzy
 msgid "Group already exists"
 msgstr "Nome do tópico"
 
-#: lib/Foswiki/Users/PluggableUserMapping.pm:480
+#: lib/Foswiki/Users/PluggableUserMapping.pm:475
 msgid "Group does not exist and create not permitted"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:294
-#: data/System/PluggableAuthUsers.txt:337
+#: data/System/PluggableAuthUsers.txt:295
+#: data/System/PluggableAuthUsers.txt:338
 #, fuzzy
 msgid "Group enabled"
 msgstr "Nome do tópico"
 
-#: lib/Foswiki/PluggableAuth.pm:864
+#: lib/Foswiki/PluggableAuth.pm:955
 #, fuzzy
 msgid "Group has been deleted"
 msgstr "Nome do tópico"
 
-#: lib/Foswiki/PluggableAuth.pm:1552
+#: lib/Foswiki/PluggableAuth.pm:1655
 #, fuzzy
 msgid "Group has been updated"
 msgstr "Nome do tópico"
@@ -412,7 +418,7 @@ msgstr "Nome do tópico"
 msgid "Groups"
 msgstr "Grupos"
 
-#: data/System/PluggableAuthUsers.txt:422
+#: data/System/PluggableAuthUsers.txt:423
 #, fuzzy
 msgid "Groups of %1"
 msgstr "Grupos"
@@ -436,8 +442,8 @@ msgstr ""
 msgid "If you have any questions, please contact %1."
 msgstr "Se você tiver qualquer dúvida, contacte %1."
 
-#: data/System/PluggableAuthUsers.txt:132
-#: data/System/PluggableAuthUsers.txt:378
+#: data/System/PluggableAuthUsers.txt:133
+#: data/System/PluggableAuthUsers.txt:379
 msgid "Initials"
 msgstr ""
 
@@ -445,57 +451,57 @@ msgstr ""
 msgid "Install a two-factor application on your phone"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:722
+#: lib/Foswiki/PluggableAuth.pm:747
 msgid "Invalid API invocation"
 msgstr ""
 
-#: lib/Foswiki/LoginManager/PluggableLogin.pm:487
+#: lib/Foswiki/LoginManager/PluggableLogin.pm:486
 #, fuzzy
 msgid "Invalid access code"
 msgstr "Código de ativação inválido"
 
-#: lib/Foswiki/PluggableAuth.pm:481
+#: lib/Foswiki/PluggableAuth.pm:500
 #, fuzzy
 msgid "Invalid email address"
 msgstr "Código de ativação inválido"
 
-#: lib/Foswiki/PluggableAuth.pm:1160
-#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:257
+#: lib/Foswiki/PluggableAuth.pm:1256 lib/Foswiki/PluggableAuth.pm:503
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:264
 #, fuzzy
 msgid "Invalid password"
 msgstr "Código de ativação inválido"
 
-#: lib/Foswiki/PluggableAuth.pm:1071
+#: lib/Foswiki/PluggableAuth.pm:1162
 msgid "Invalid wikiName"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:126
-#: data/System/PluggableAuthUsers.txt:163
-#: data/System/PluggableAuthUsers.txt:372
+#: data/System/PluggableAuthUsers.txt:127
+#: data/System/PluggableAuthUsers.txt:164
+#: data/System/PluggableAuthUsers.txt:373
 #, fuzzy
 msgid "Last Name"
 msgstr "Último Nome:"
 
-#: lib/Foswiki/PluggableAuth.pm:1062
+#: lib/Foswiki/PluggableAuth.pm:1153
 #, fuzzy
 msgid "LastName required"
 msgstr "Último Nome:"
 
-#: data/System/PluggableAuthUsers.txt:130
+#: data/System/PluggableAuthUsers.txt:131
 #, fuzzy
 msgid "Login Date"
 msgstr "Nome de login: %1"
 
 #: data/System/PluggableAuthAddAccountTemplate.txt:16
 #: data/System/PluggableAuthAddAccountTemplate.txt:39
-#: data/System/PluggableAuthUsers.txt:121
-#: data/System/PluggableAuthUsers.txt:172
-#: data/System/PluggableAuthUsers.txt:387
+#: data/System/PluggableAuthUsers.txt:122
+#: data/System/PluggableAuthUsers.txt:173
+#: data/System/PluggableAuthUsers.txt:388
 #, fuzzy
 msgid "Login Name"
 msgstr "Seu [[%1.LoginName][Nome de Usuário]]"
 
-#: lib/Foswiki/PluggableAuth.pm:1060
+#: lib/Foswiki/PluggableAuth.pm:1151
 #, fuzzy
 msgid "LoginName required"
 msgstr "Seu [[%1.LoginName][Nome de Usuário]]"
@@ -504,39 +510,39 @@ msgstr "Seu [[%1.LoginName][Nome de Usuário]]"
 msgid "Logout"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:299
-#: data/System/PluggableAuthUsers.txt:341
+#: data/System/PluggableAuthUsers.txt:300
+#: data/System/PluggableAuthUsers.txt:342
 #, fuzzy
 msgid "Members"
 msgstr "Adicionar linha"
 
-#: lib/Foswiki/PluggableAuth.pm:1467
+#: lib/Foswiki/PluggableAuth.pm:1570
 msgid "Membership has been updated"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:125
-#: data/System/PluggableAuthUsers.txt:160
-#: data/System/PluggableAuthUsers.txt:369
+#: data/System/PluggableAuthUsers.txt:126
+#: data/System/PluggableAuthUsers.txt:161
+#: data/System/PluggableAuthUsers.txt:370
 msgid "Middle Name"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:141
+#: data/System/PluggableAuthUsers.txt:142
 #, fuzzy
 msgid "Modify"
 msgstr "Modificar busca"
 
-#: data/System/PluggableAuthUsers.txt:286
-#: data/System/PluggableAuthUsers.txt:329
+#: data/System/PluggableAuthUsers.txt:287
+#: data/System/PluggableAuthUsers.txt:330
 #, fuzzy
 msgid "Name"
 msgstr "Nome do tópico"
 
-#: data/System/PluggableAuthUsers.txt:196
+#: data/System/PluggableAuthUsers.txt:197
 #, fuzzy
 msgid "New password"
 msgstr "Nova senha"
 
-#: data/System/PluggableAuthUsers.txt:399
+#: data/System/PluggableAuthUsers.txt:400
 #, fuzzy
 msgid "New password required"
 msgstr "Nova senha"
@@ -545,71 +551,71 @@ msgstr "Nova senha"
 msgid "Next"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1500 lib/Foswiki/PluggableAuth.pm:852
+#: lib/Foswiki/PluggableAuth.pm:1603 lib/Foswiki/PluggableAuth.pm:943
 msgid "No gid parameter"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:2081
+#: lib/Foswiki/PluggableAuth.pm:2185
 msgid "No group name specified"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1819
+#: lib/Foswiki/PluggableAuth.pm:1923
 msgid "No id trying to get a provider"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:891
+#: lib/Foswiki/PluggableAuth.pm:982
 msgid "No pid defined"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1006
+#: lib/Foswiki/PluggableAuth.pm:1097
 #, fuzzy
 msgid "No two-factor authentication enabled"
 msgstr "Autenticação de usuário Foswiki"
 
-#: lib/Foswiki/PluggableAuth.pm:1276 lib/Foswiki/PluggableAuth.pm:1331
-#: lib/Foswiki/PluggableAuth.pm:1392 lib/Foswiki/PluggableAuth.pm:1591
+#: lib/Foswiki/PluggableAuth.pm:1379 lib/Foswiki/PluggableAuth.pm:1434
+#: lib/Foswiki/PluggableAuth.pm:1495 lib/Foswiki/PluggableAuth.pm:1694
 msgid "No uid parameter"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:796
+#: lib/Foswiki/PluggableAuth.pm:887
 msgid "No wikiName parameter"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:225
-#: data/System/PluggableAuthUsers.txt:238
-#: data/System/PluggableAuthUsers.txt:251
-#: data/System/PluggableAuthUsers.txt:263
-#: data/System/PluggableAuthUsers.txt:275 templates/twofactorbase.tmpl:59
+#: data/System/PluggableAuthUsers.txt:226
+#: data/System/PluggableAuthUsers.txt:239
+#: data/System/PluggableAuthUsers.txt:252
+#: data/System/PluggableAuthUsers.txt:264
+#: data/System/PluggableAuthUsers.txt:276 templates/twofactorbase.tmpl:59
 msgid "No, thanks"
 msgstr ""
 
 #. ($mid)
-#: lib/Foswiki/PluggableAuth.pm:685
+#: lib/Foswiki/PluggableAuth.pm:707
 msgid "Not adding myself as a member: %1"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:182
+#: data/System/PluggableAuthUsers.txt:183
 #, fuzzy
 msgid "Notify user about new account"
 msgstr "Repita a nova senha:"
 
-#: data/System/PluggableAuthUsers.txt:207
+#: data/System/PluggableAuthUsers.txt:208
 #, fuzzy
 msgid "Notify user about new password"
 msgstr "Repita a nova senha:"
 
-#: lib/Foswiki/PluggableAuth.pm:751
+#: lib/Foswiki/PluggableAuth.pm:777
 msgid "OK"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1170
+#: lib/Foswiki/PluggableAuth.pm:1269
 #, fuzzy
 msgid "Old password required"
 msgstr "Nova senha"
 
-#: data/System/PluggableAuthUsers.txt:289
-#: data/System/PluggableAuthUsers.txt:332
-#: data/System/PluggableAuthUsers.txt:390
+#: data/System/PluggableAuthUsers.txt:290
+#: data/System/PluggableAuthUsers.txt:333
+#: data/System/PluggableAuthUsers.txt:391
 #, fuzzy
 msgid "Options"
 msgstr "Ação"
@@ -618,41 +624,45 @@ msgstr "Ação"
 msgid "Or enter this code into your authentication application."
 msgstr ""
 
-#: templates/pauthlogin.nat.tmpl:47
+#: templates/pauthlogin.nat.tmpl:36
 msgid "Or, sign in with:"
 msgstr ""
 
 #: data/System/PluggableAuthAddAccountTemplate.txt:17
 #: data/System/PluggableAuthAddAccountTemplate.txt:40
-#: data/System/PluggableAuthUsers.txt:176
+#: data/System/PluggableAuthUsers.txt:177
 msgid "Password"
 msgstr "Senha"
 
-#: lib/Foswiki/PluggableAuth.pm:1182
+#: lib/Foswiki/PluggableAuth.pm:1285
 #, fuzzy
 msgid "Password has been changed"
 msgstr "Sua senha foi alterada para %1."
 
-#: lib/Foswiki/PluggableAuth.pm:1152 lib/Foswiki/PluggableAuth.pm:1236
+#: lib/Foswiki/PluggableAuth.pm:818
+msgid "Password parameter missing"
+msgstr ""
+
+#: lib/Foswiki/PluggableAuth.pm:1248 lib/Foswiki/PluggableAuth.pm:1339
 #, fuzzy
 msgid "Password required"
 msgstr "Nova senha"
 
-#: lib/Foswiki/PluggableAuth.pm:1185
+#: lib/Foswiki/PluggableAuth.pm:1288
 #, fuzzy
 msgid "Password was not changed"
 msgstr "Sua senha foi alterada para %1."
 
-#: lib/Foswiki/PluggableAuth.pm:1157
+#: lib/Foswiki/PluggableAuth.pm:1253
 #, fuzzy
 msgid "Passwords don't match"
 msgstr "Sua senha foi alterada para %1."
 
-#: lib/Foswiki/PluggableAuth.pm:1172 lib/Foswiki/PluggableAuth.pm:1238
+#: lib/Foswiki/PluggableAuth.pm:1271 lib/Foswiki/PluggableAuth.pm:1341
 msgid "Permission denied"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:119
+#: data/System/PluggableAuthUsers.txt:120
 msgid "Picture"
 msgstr ""
 
@@ -676,7 +686,7 @@ msgstr ""
 msgid "Please sign in to your account and change your password immediately: %1"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1531 lib/Foswiki/PluggableAuth.pm:1619
+#: lib/Foswiki/PluggableAuth.pm:1634 lib/Foswiki/PluggableAuth.pm:1723
 msgid "Please specify the attribute(s) to change"
 msgstr ""
 
@@ -705,47 +715,47 @@ msgstr "pré-visualização"
 msgid "Profile Page"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:120
+#: data/System/PluggableAuthUsers.txt:121
 msgid "Provider"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:897
+#: lib/Foswiki/PluggableAuth.pm:988
 msgid "Provider has been deleted"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:129
+#: data/System/PluggableAuthUsers.txt:130
 #, fuzzy
 msgid "Registration Date"
 msgstr "Registro"
 
-#: data/System/PluggableAuthUsers.txt:144
-#: data/System/PluggableAuthUsers.txt:266
+#: data/System/PluggableAuthUsers.txt:145
+#: data/System/PluggableAuthUsers.txt:267
 msgid "Reset Password"
 msgstr "Restaurar senha"
 
-#: data/System/PluggableAuthUsers.txt:267
+#: data/System/PluggableAuthUsers.txt:268
 #, fuzzy
 msgid "Resetting ..."
 msgstr "Remover tópico..."
 
-#: data/System/PluggableAuthUsers.txt:201
+#: data/System/PluggableAuthUsers.txt:202
 #, fuzzy
 msgid "Retype new password"
 msgstr "Repita a nova senha:"
 
-#: data/System/PluggableAuthUsers.txt:186
-#: data/System/PluggableAuthUsers.txt:212
-#: data/System/PluggableAuthUsers.txt:313
-#: data/System/PluggableAuthUsers.txt:354
-#: data/System/PluggableAuthUsers.txt:412
-#: data/System/PluggableAuthUsers.txt:434
+#: data/System/PluggableAuthUsers.txt:187
+#: data/System/PluggableAuthUsers.txt:213
+#: data/System/PluggableAuthUsers.txt:314
+#: data/System/PluggableAuthUsers.txt:355
+#: data/System/PluggableAuthUsers.txt:413
+#: data/System/PluggableAuthUsers.txt:435
 #, fuzzy
 msgid "Save"
 msgstr "Salvo como:"
 
-#: data/System/PluggableAuthUsers.txt:318
-#: data/System/PluggableAuthUsers.txt:359
-#: data/System/PluggableAuthUsers.txt:423
+#: data/System/PluggableAuthUsers.txt:319
+#: data/System/PluggableAuthUsers.txt:360
+#: data/System/PluggableAuthUsers.txt:424
 msgid "Saving ..."
 msgstr ""
 
@@ -754,7 +764,7 @@ msgid ""
 "Scan this image with the two-factor authentication application on your phone."
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:418
+#: data/System/PluggableAuthUsers.txt:419
 #, fuzzy
 msgid "See also"
 msgstr "Veja também:"
@@ -766,20 +776,20 @@ msgid ""
 "factor repeatedly."
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:2023
+#: lib/Foswiki/PluggableAuth.pm:2127
 msgid "Sorry, access denied. No source for a wikiName."
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:136
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:143
 msgid "Sorry, account is disabled"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth/Provider/Topic.pm:497
+#: lib/Foswiki/PluggableAuth/Provider/Topic.pm:499
 msgid "Sorry, account is disabled (3)"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:121
-#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:124
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:128
+#: lib/Foswiki/PluggableAuth/Provider/Ldap.pm:131
 #, fuzzy
 msgid "Sorry, account not found"
 msgstr "Conta de usuário %1 foi removida"
@@ -789,8 +799,8 @@ msgstr "Conta de usuário %1 foi removida"
 msgid "Text"
 msgstr "Corpo do texto"
 
-#: data/System/PluggableAuthUsers.txt:283
-#: data/System/PluggableAuthUsers.txt:326
+#: data/System/PluggableAuthUsers.txt:284
+#: data/System/PluggableAuthUsers.txt:327
 #, fuzzy
 msgid "Title"
 msgstr "Nome do tópico"
@@ -804,7 +814,7 @@ msgstr ""
 msgid "Two-factor authentication"
 msgstr "Autenticação de usuário Foswiki"
 
-#: data/System/PluggableAuthUsers.txt:405
+#: data/System/PluggableAuthUsers.txt:406
 #, fuzzy
 msgid "Two-factor authentication enabled"
 msgstr "Autenticação de usuário Foswiki"
@@ -820,26 +830,26 @@ msgid "Two-step authentication has been deactivated."
 msgstr "Desculpe-nos, o registro está temporariamente desativado."
 
 #. ($event)
-#: lib/Foswiki/PluggableAuth.pm:515
+#: lib/Foswiki/PluggableAuth.pm:537
 msgid "Unknown event %1"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1502 lib/Foswiki/PluggableAuth.pm:1511
-#: lib/Foswiki/PluggableAuth.pm:859
+#: lib/Foswiki/PluggableAuth.pm:1605 lib/Foswiki/PluggableAuth.pm:1614
+#: lib/Foswiki/PluggableAuth.pm:950
 msgid "Unknown group"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1826 lib/Foswiki/PluggableAuth.pm:2000
-#: lib/Foswiki/PluggableAuth.pm:2076 lib/Foswiki/PluggableAuth.pm:634
-#: lib/Foswiki/PluggableAuth.pm:894
+#: lib/Foswiki/PluggableAuth.pm:1930 lib/Foswiki/PluggableAuth.pm:2104
+#: lib/Foswiki/PluggableAuth.pm:2180 lib/Foswiki/PluggableAuth.pm:656
+#: lib/Foswiki/PluggableAuth.pm:985
 msgid "Unknown provider"
 msgstr ""
 
-#: lib/Foswiki/LoginManager/PluggableLogin.pm:478
-#: lib/Foswiki/PluggableAuth.pm:1005 lib/Foswiki/PluggableAuth.pm:1140
-#: lib/Foswiki/PluggableAuth.pm:1222 lib/Foswiki/PluggableAuth.pm:1293
-#: lib/Foswiki/PluggableAuth.pm:1342 lib/Foswiki/PluggableAuth.pm:1400
-#: lib/Foswiki/PluggableAuth.pm:1599
+#: lib/Foswiki/LoginManager/PluggableLogin.pm:477
+#: lib/Foswiki/PluggableAuth.pm:1096 lib/Foswiki/PluggableAuth.pm:1236
+#: lib/Foswiki/PluggableAuth.pm:1325 lib/Foswiki/PluggableAuth.pm:1396
+#: lib/Foswiki/PluggableAuth.pm:1445 lib/Foswiki/PluggableAuth.pm:1503
+#: lib/Foswiki/PluggableAuth.pm:1702 lib/Foswiki/PluggableAuth.pm:846
 msgid "Unknown user"
 msgstr ""
 
@@ -850,7 +860,7 @@ msgid ""
 msgstr ""
 
 #. ($cuid)
-#: lib/Foswiki/Users/PluggableUserMapping.pm:523
+#: lib/Foswiki/Users/PluggableUserMapping.pm:518
 #, fuzzy
 msgid "User %1 not in group, cannot be removed"
 msgstr "%1 está em pelo menos um grupo e não pode ser removido"
@@ -861,28 +871,28 @@ msgstr "%1 está em pelo menos um grupo e não pode ser removido"
 msgid "User account information"
 msgstr "Conta de usuário %1 foi removida"
 
-#: lib/Foswiki/PluggableAuth.pm:1073
+#: lib/Foswiki/PluggableAuth.pm:1166
 msgid "User already exists"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1101
+#: lib/Foswiki/PluggableAuth.pm:1197
 msgid "User has been added"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1300
+#: lib/Foswiki/PluggableAuth.pm:1403
 msgid "User has been deleted"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1351
+#: lib/Foswiki/PluggableAuth.pm:1454
 msgid "User has been disabled"
 msgstr ""
 
-#: lib/Foswiki/PluggableAuth.pm:1351
+#: lib/Foswiki/PluggableAuth.pm:1454
 #, fuzzy
 msgid "User has been enabled"
 msgstr "Nome do tópico"
 
-#: lib/Foswiki/PluggableAuth.pm:1648
+#: lib/Foswiki/PluggableAuth.pm:1752
 msgid "User has been updated"
 msgstr ""
 
@@ -896,28 +906,28 @@ msgstr "Registro"
 msgid "We recommend %1."
 msgstr "(recomendado)"
 
-#: data/System/PluggableAuthUsers.txt:169
-#: data/System/PluggableAuthUsers.txt:384
+#: data/System/PluggableAuthUsers.txt:170
+#: data/System/PluggableAuthUsers.txt:385
 #, fuzzy
 msgid "WikiName"
 msgstr "Nome do tópico"
 
-#: data/System/PluggableAuthUsers.txt:237
+#: data/System/PluggableAuthUsers.txt:238
 #, fuzzy
 msgid "Yes, activate"
 msgstr "Código de ativação inválido"
 
-#: data/System/PluggableAuthUsers.txt:250 templates/twofactorbase.tmpl:58
+#: data/System/PluggableAuthUsers.txt:251 templates/twofactorbase.tmpl:58
 msgid "Yes, deactivate"
 msgstr ""
 
-#: data/System/PluggableAuthUsers.txt:224
-#: data/System/PluggableAuthUsers.txt:262
+#: data/System/PluggableAuthUsers.txt:225
+#: data/System/PluggableAuthUsers.txt:263
 #, fuzzy
 msgid "Yes, delete"
 msgstr "(remover)"
 
-#: data/System/PluggableAuthUsers.txt:274
+#: data/System/PluggableAuthUsers.txt:275
 #, fuzzy
 msgid "Yes, reset"
 msgstr "(remover)"
@@ -928,8 +938,13 @@ msgstr ""
 
 #: data/System/PluggableAuthResetPasswordTemplate.txt:12
 #: data/System/PluggableAuthResetPasswordTemplate.txt:28
-msgid "Your password has been changed to %1."
+#, fuzzy
+msgid "Your password has been changed to: %1"
 msgstr "Sua senha foi alterada para %1."
+
+#: lib/Foswiki/PluggableAuth.pm:855
+msgid "no uid or email parameter"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Cannot change the password"

@@ -36,9 +36,9 @@
 </p>
 %MAKETEXT{"User account information"}%:
 <ul>
-  <li> %MAKETEXT{"Login Name"}%: %LOGINNAME% </li>
-  <li> %MAKETEXT{"Password"}%: %PASSWORD% </li>
-  <li> %MAKETEXT{"Email"}%: %EMAILADDRESS% </li>
+  <li> %MAKETEXT{"Login Name"}%: %LOGINNAME%</li>
+  <li> %MAKETEXT{"Password"}%: %PASSWORD%</li>
+  <li> %MAKETEXT{"Email"}%: %EMAILADDRESS%</li>
   <li> %MAKETEXT{"Profile Page"}%: <a href='%SCRIPTURL{"view" topic="%USERSWEB%.%WIKINAME%"}%'>%SCRIPTURL{"view" topic="%USERSWEB%.%WIKINAME%"}%</a> </li>
 </ul>
 <p>

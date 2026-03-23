@@ -78,7 +78,7 @@ Below classes connect <nop>PluggableAuth to Foswiki:
 use strict;
 use warnings;
 
-our $VERSION = '0.993';
+our $VERSION = '0.994';
 our $RELEASE = '%$RELEASE%';
 our $SHORTDESCRIPTION = 'Pluggable authentication and user management';
 our $LICENSECODE = '%$LICENSECODE%';
