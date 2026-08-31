@@ -101,7 +101,6 @@ sub new {
     );
     #writeDebug("new singleton $SINGLETON");
 
-
     $SINGLETON->init();
   }
 
@@ -148,10 +147,24 @@ sub init {
   # load all providers
   $this->loadProviders();
 
+  # SMELL: undocumented
+  $Foswiki::cfg{BaseUserMappingManager} = 'Foswiki::Users::PluggableUserMapping';
+
   Foswiki::Plugins::JQueryPlugin::registerPlugin(
     'pauthusers', 
     'Foswiki::Contrib::PluggableAuthContrib::PauthUsers'
   );
+
+  # admins only
+  if ($Foswiki::cfg{PluggableAuth}{EnableMergeAccounts}) {
+    Foswiki::Contrib::JsonRpcContrib::registerMethod(
+      'PluggableAuth',
+      'mergeAccount',
+      sub {
+        return Foswiki::PluggableAuth->new->jsonRpcMergeAccount(@_);
+      }
+    );
+  }
 
   # admins only
   Foswiki::Contrib::JsonRpcContrib::registerMethod(
@@ -387,7 +400,11 @@ sub init {
   }
 
   # flag pauth to wiki apps
-  Foswiki::Func::getContext()->{PluggableAuthEnabled} = 1;
+  my $context = Foswiki::Func::getContext();
+  $context->{PluggableAuthEnabled} = 1;
+
+  # features
+  $context->{EnableMergeAccounts} = 1 if $Foswiki::cfg{PluggableAuth}{EnableMergeAccounts};
 
   # init database if required
   #$this->refresh() unless $this->countUsers();
@@ -702,7 +719,7 @@ sub addMemberToGroup {
   my $mid = $obj->prop("id");
   my $gid = $group->prop("id");
 
-  $this->writeDebug("called addMemberToGroup(mid=$mid, gid=$gid)");
+  writeDebug("called addMemberToGroup(mid=$mid, gid=$gid)");
 
   throw Error::Simple($this->maketext("Not adding myself as a member: [_1]", $mid)) if $mid eq $gid;
 
@@ -719,7 +736,7 @@ sub removeMemberFromGroup {
   my $mid = $obj->prop("id");
   my $gid = $group->prop("id");
 
-  $this->writeDebug("called removeMemberFromGroup(mid=$mid, gid=$gid)");
+  writeDebug("called removeMemberFromGroup(mid=$mid, gid=$gid)");
 
   #return unless $group->hasMember($obj);
   return $this->db->handler->do("DELETE from PluggableAuth_group_members WHERE gid=? AND mid=?", {}, $gid, $mid);
@@ -767,7 +784,7 @@ sub jsonRpcRefresh {
 
   throw Error::Simple($this->maketext("Access to API denied")) unless Foswiki::Func::isAnAdmin();
 
-  writeDebug("called refresh");
+  writeDebug("called jsonRpcRefresh");
 
   my $pid = $request->param("pid");
   my $debug = Foswiki::Func::isTrue($request->param("debug"));
@@ -775,6 +792,52 @@ sub jsonRpcRefresh {
   $this->refresh($pid, $debug);
 
   return $this->maketext("OK");
+}
+
+=begin TML
+
+---++ ObjectMethod jsonRpcMergeAccount($session, $request) 
+
+JSON-RPC handler for the mergeAccount method.
+
+=cut
+
+sub jsonRpcMergeAccount {
+  my ($this, $session, $request) = @_;
+
+  throw Error::Simple($this->maketext("Access to API denied"))
+    unless Foswiki::Func::getContext()->{isadmin};
+
+  my $id = $request->param("uid");
+  throw Error::Simple($this->maketext("uid parameter missing")) unless $id;
+
+  my $mainUser = $this->findUser(
+    id => $id,
+    loginName => $id,
+    wikiName => $id
+  );
+  throw Error::Simple($this->maketext("Unknown user")) unless defined $mainUser;
+  #print STDERR "mainUser ".$mainUser->stringify."\n";
+
+  my $accounts = $request->param("accounts");
+  throw Error::Simple($this->maketext("accounts parameter missing")) unless $accounts;
+
+  my @accounts = ();
+  foreach my $name (split(/\s*,\s*/, $accounts)) {
+    $name =~ s/^\Q$Foswiki::cfg{UsersWebName}.\E//;
+    my $user = $this->findUser(wikiName => $name, loginName => $name, id => $name);
+
+    throw Error::Simple($this->maketext("User unknown: [_1]", $name)) unless $user;
+
+    next if $user->equals($mainUser);
+    push @accounts, $user;
+  }
+
+  throw Error::Simple($this->maketext("unknown accounts")) unless @accounts; 
+
+  # TODO: do the merge
+
+  return @accounts;
 }
 
 =begin TML
@@ -1800,23 +1863,23 @@ sub getCachedGroup {
 
 =begin TML
 
----++ ObjectMethod getObjectByID($id, $pid) -> $userOrGroup
+---++ ObjectMethod getObjectByID($id) -> $userOrGroup
 
 creates a user or group object for the given id. 
 
 =cut
 
 sub getObjectByID {
-  my ($this, $id, $pid) = @_;
+  my ($this, $id) = @_;
 
-  return $this->getUserByID($id, $pid) if $this->userExists(id => $id, pid => $pid);
-  return $this->getGroupByID($id, $pid) if $this->groupExists(id => $id, pid => $pid);
+  return $this->getUserByID($id) if $this->userExists(id => $id);
+  return $this->getGroupByID($id) if $this->groupExists(id => $id);
   return;
 }
 
 =begin TML
 
----++ ObjectMethod getUserByID(id, pid) -> $user
+---++ ObjectMethod getUserByID(id) -> $user
 
 creates a user object for the given id. note this object isn't loaded yet.
 note that this will even return a user object if there is no object
@@ -1826,13 +1889,12 @@ instead.
 =cut
 
 sub getUserByID {
-  my ($this, $id, $pid) = @_;
+  my ($this, $id) = @_;
 
   die "no id trying to get a user" unless defined $id;
 
   return Foswiki::PluggableAuth::User->new(
-    id => $id,
-    pid => $pid,
+    id => $id
   );
 }
 
@@ -2027,7 +2089,7 @@ will retrun the user with the given email address.
 Multiple parameters may be specified to query for either match:
 
 <verbatim>
-my $user $this->findUser(email=>'foo@bar.com', loginName => 'foo');
+my $user = $this->findUser(email=>'foo@bar.com', loginName => 'foo');
 </verbatim>
 
 will return the user which either matches the given email _or_ loginName.
@@ -2155,7 +2217,7 @@ sub addUser {
   my $stm = "INSERT INTO PluggableAuth_users (".join(", ", @fields).") VALUES(".join(", ", @q).")";
   $this->db->handler->do($stm, {}, @values);
 
-  my $user = $this->getUserByID($params{id}, $params{pid});
+  my $user = $this->getUserByID($params{id});
 
   $this->blockAllEvents;
   $user->createTopic;
@@ -2390,7 +2452,7 @@ sub getProviders {
   my ($this, $all) = @_;
 
   my $it = $this->eachProvider($all);
-  my @providers = sort { $a->prop("Name") cmp $b->prop("Name") } $it->all;
+  my @providers = sort { $a->prop("id") cmp $b->prop("id") } $it->all;
 
   return @providers;
 }

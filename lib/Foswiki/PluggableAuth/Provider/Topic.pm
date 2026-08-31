@@ -516,7 +516,7 @@ sub processLogin {
 sub checkGroupAccess {
   my ($this, $type, $group, $user) = @_;
 
-  return Foswiki::Func::checkAccessPermission($type, $user->prop("id"), undef, $group->prop("wikiName"), $Foswiki::cfg{UsersWebName});
+  return Foswiki::Func::checkAccessPermission(uc($type), $user->prop("id"), undef, $group->prop("wikiName"), $Foswiki::cfg{UsersWebName});
 }
 
 sub generateID {

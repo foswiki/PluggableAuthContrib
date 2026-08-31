@@ -1,7 +1,7 @@
 /*
 Foswiki - The Free and Open Source Wiki, http://foswiki.org/
 
-Copyright (C) 2022-2025 Michael Daum
+Copyright (C) 2022-2026 Michael Daum
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -46,6 +46,7 @@ As per the GPL, removal of this notice is prohibited.
     self.deleteButton = self.elem.find(".pauthDeleteUser"),
     self.activateButton = self.elem.find(".pauthActivateUser"),
     self.deactivateButton = self.elem.find(".pauthDeactivateUser"),
+    self.mergeUserButton = self.elem.find(".pauthMergeAccount"),
     self.table = self.elem.find(".pauthUsersTable table");
     self.dataTable = self.table.data("dt"),
     self.selectionElem = self.elem.find("input[name=id]");
@@ -81,6 +82,7 @@ As per the GPL, removal of this notice is prohibited.
           self.deactivateButton.addClass("jqButtonDisabled");
           self.resetButton.addClass("jqButtonDisabled");
           self.groupsButton.addClass("jqButtonDisabled");
+          self.mergeUserButton.addClass("jqButtonDisabled");
        } else if (selection.length === 1) {
           self.updateButton.removeClass("jqButtonDisabled");
           self.passwordButton.removeClass("jqButtonDisabled");
@@ -89,9 +91,11 @@ As per the GPL, removal of this notice is prohibited.
           self.deactivateButton.removeClass("jqButtonDisabled");
           self.resetButton.removeClass("jqButtonDisabled");
           self.groupsButton.removeClass("jqButtonDisabled");
+          self.mergeUserButton.removeClass("jqButtonDisabled");
        } else {
           self.updateButton.addClass("jqButtonDisabled");
           self.groupsButton.addClass("jqButtonDisabled");
+          self.mergeUserButton.addClass("jqButtonDisabled");
           self.passwordButton.addClass("jqButtonDisabled");
           self.deleteButton.removeClass("jqButtonDisabled");
           self.activateButton.removeClass("jqButtonDisabled");
@@ -275,6 +279,5 @@ As per the GPL, removal of this notice is prohibited.
         });
     });
   });
-
 
 })(jQuery);

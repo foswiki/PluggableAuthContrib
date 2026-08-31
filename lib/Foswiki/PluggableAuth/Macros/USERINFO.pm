@@ -55,10 +55,11 @@ sub handle {
 
   my $pauth = Foswiki::PluggableAuth->new();
   my $user = $pauth->getObjectByID($cUID);
-  return "" unless defined $user;
+  return "unknown user" unless defined $user;
 
   $user = $user->load;
-  return "" unless defined $user;
+
+  return "cannot load user" unless defined $user;
 
   my $showAll = Foswiki::Func::isTrue($params->{showall}, 0);
   return "" unless $showAll || $user->isEnabled();
@@ -83,7 +84,14 @@ sub handle {
     }
 
     $format =~ s#\$(id|pid|loginName|wikiName|displayName|email|firstName|middleName|lastName|initials|enabled)\b#$user?$user->prop($1)||"\0":"\0"#ge;
-    $format =~ s/\$registrationDate(?:\((.*?)\))?\b/$user?Foswiki::Time::formatTime($user->prop("registrationDate"), $1):"\0"/ge;
+
+    $format =~ s/\$username\b/$user->prop("loginName")/ge;
+    $format =~ s/\$wikiname\b/$user->prop("wikiName")/ge;
+    $format =~ s/\$wikiusername\b/$Foswiki::cfg{UsersWebName}.'.'.$user->prop("wikiName")/ge;
+    $format =~ s/\$emails\b/$user->prop("email")/ge;
+
+    $format =~ s/\$(?:registrationDate|registrationdate)(?:\((.*?)\))?\b/$user?Foswiki::Time::formatTime($user->prop("registrationDate"), $1):"\0"/ge;
+
     $format =~ s/\$loginDate\b/$loginDate/g;
     $format =~ s/\$picture\b/$picture/g;
     $format =~ s/\$twoFactorAuth\b/$twoFactorAuth/g;
@@ -91,13 +99,21 @@ sub handle {
     $format =~ s/\$twoFactorAuthConfigured\b/$user?($user->isTwoFactorAuthConfigured?1:0):0/ge;
   }
 
-  # prepare before calling origUSERINFO
-  $params->{format} = $format;
-  $params->{_DEFAULT} = $user->prop("wikiName"); # SMELL
+  my $result = $format;
 
-  my $result = Foswiki::origUSERINFO($session, $params);
+  if ($showAll && !$user->prop("enabled")) {
+    # bail out early for non-existing / non-enabled users
+    $result =~ s/\$(admin|isadmin)\b/false/g;
+    $result =~ s/\$groups\b//g;
+    $result = Foswiki::Func::decodeFormatTokens($result);
+  } else {
+    # call origUSERINFO
+    $params->{format} = $format;
+    $params->{_DEFAULT} = $user->prop("wikiName"); # SMELL
+    $result = Foswiki::origUSERINFO($session, $params);
+  }
+
   $result =~ s/\0//g;
-
   return $result;
 }
 

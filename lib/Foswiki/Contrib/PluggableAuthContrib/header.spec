@@ -34,6 +34,11 @@ $Foswiki::cfg{PluggableAuth}{CreateProviderGroups} = 0;
 # Try to get a profile image from gravatar in case there is no other picture available. 
 $Foswiki::cfg{PluggableAuth}{EnableGravatarFallback} = 0;
 
+
+# **BOOLEAN LABEL="Enable Merge Accounts"**
+# Enables a feature to log in from different providers to the same account.
+$Foswiki::cfg{PluggableAuth}{EnableMergeAccounts} = 0;
+
 # **NUMBER LABEL="Cache Expire" CHECK="undefok emptyok"**
 # Network in seconds for the cache to expire, e.g. a default of 3600 seconds means fresh results are fetched every hour.
 $Foswiki::cfg{PluggableAuth}{CacheExpire} = 3600;

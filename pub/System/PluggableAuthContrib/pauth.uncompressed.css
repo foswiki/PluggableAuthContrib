@@ -24,8 +24,8 @@ a.pauthProviderLink {
   transition: opacity 100ms;
 }
 a.pauthProviderLink:hover {
-  background-color:#999;
   opacity:1.0;
+  color:#fff;
 }
 a.pauthProviderLink.AuthZero {
   background-color:#eb5424;
@@ -48,9 +48,10 @@ a.pauthProviderLink.Yahoo {
 a.pauthProviderLink.LinkedIn {
   background-color:#0077b5;
 }
+a.pauthProviderLink.Microsoft:hover,
 a.pauthProviderLink.Microsoft {
-  background-color:#f65314;
   background-color:#ffbb00;
+  color:#333;
 }
 a.pauthProviderLink.Amazon {
   background-color:#FF9900;

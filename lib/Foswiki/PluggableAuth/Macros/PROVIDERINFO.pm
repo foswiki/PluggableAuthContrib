@@ -85,13 +85,6 @@ sub handle {
     next if defined $include && $provider->prop("Name") !~ /$include/;
     next if defined $exclude && $provider->prop("Name") =~ /$exclude/;
 
-    my @css = ();
-    my $fgColor = $provider->prop("ForegroundColor");
-    my $bgColor = $provider->prop("BackgroundColor");
-    push @css, "color:$fgColor" if $fgColor;
-    push @css, "background-color:$bgColor" if $bgColor;
-    my $style = @css ? "style='".join("; ", @css)."'" : "";
-
     my $line = $format;
     $line =~ s/\$name\b/$provider->prop("Name")/ge;
     $line =~ s/\$id\b/$provider->prop("id")/ge;
@@ -100,7 +93,6 @@ sub handle {
     $line =~ s/\$external\b/$provider->isExternalLogin?1:0/ge;
     $line =~ s/\$internal\b/$provider->isInternalLogin?1:0/ge;
     $line =~ s/\$allowed\b/$provider->isAllowedIpAddress?1:0/ge;
-    $line =~ s/\$style\b/$style/g;
     $line =~ s/\$index\b/$index/g;
     push @result, $line;
     $index++;

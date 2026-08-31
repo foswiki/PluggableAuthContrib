@@ -74,7 +74,7 @@ sub test_props {
 
   my $props = $this->{provider}->props;
 
-  $this->assert_equals(54, scalar(keys %$props));
+  $this->assert_equals(53, scalar(keys %$props));
   $this->assert($props->{Enabled});
   $this->assert($props->{PrefetchUsers});
   $this->assert($props->{ImportUsers});

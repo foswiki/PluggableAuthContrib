@@ -40,6 +40,7 @@ returns the database definition. This is then processed by Foswiki::DBI
 sub getDefinition {
   my $this = shift;
 
+  my $adminLogin = $Foswiki::cfg{AdminUserLogin} || 'admin';
   my $adminWikiName = $Foswiki::cfg{AdminUserWikiName} || 'AdminUser';
   my $adminEmail = $Foswiki::cfg{WebMasterEmail} || '';
   my $guestLogin = $Foswiki::cfg{DefaultUserLogin} || 'guest';

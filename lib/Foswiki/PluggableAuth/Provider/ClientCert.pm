@@ -69,13 +69,23 @@ sub processLogin {
   return if $this->prop("Visible") && !(defined $pid && $pid eq $this->prop("id"));
 
   my $envVar = $this->prop("EnvVariable");
-  return unless defined $envVar;
+  unless (defined $envVar) {
+    $this->writeDebug("EnvVariable not defined");
+    return;
+  }
+
+  $this->writeDebug("reading certificate from $envVar");
 
   my $email;
   my $user;
   my $pem = $ENV{$envVar};
 
-  return unless $pem;
+  unless ($pem) {
+    $this->writeDebug("no certificate found in $envVar");
+    return;
+  }
+
+  $this->writeDebug("processing certificate");
 
   my $cert = Crypt::OpenSSL::X509->new_from_string($pem);
 

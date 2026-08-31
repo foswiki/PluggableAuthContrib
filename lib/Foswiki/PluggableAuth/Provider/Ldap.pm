@@ -116,7 +116,20 @@ sub processLogin {
   $this->writeDebug("... checking password");
   if ($this->checkPassword($authName, $password)) {
 
-    my $user = $this->findAuthName($authName);
+    my $user = $this->findUser(loginName => $authName);
+    if (defined $user && $user->prop("loginName")) {
+      $user->load();
+
+      # try with suffix
+      if ($user->prop("pid") ne $this->prop("id")) {
+        my $suffix = lc($this->prop("id"));
+        $authName .= "_$suffix" unless $authName =~ /$suffix$/;
+        $user = $this->findUser($authName)->load;
+
+        throw Error::Simple($this->auth->maketext("Sorry, wrong account")) 
+          unless defined $user && $user->prop("loginName");
+      }
+    } 
 
     my $doPrefetch = $this->prop("PrefetchUsers");
     my $doSyncUser = $this->prop("SyncOnLogin");
@@ -188,7 +201,7 @@ sub getDnOfUser {
 sub getEntryOfUser {
   my ($this, $authNameOrUser) = @_;
 
-    $this->writeDebug("called getEntryOfUser($authNameOrUser)");
+  $this->writeDebug("called getEntryOfUser($authNameOrUser)");
 
   my $loginName;
   my $email;
@@ -208,6 +221,8 @@ sub getEntryOfUser {
   my $filter;
 
   if (defined $loginName) {
+    my $suffix = lc($this->prop("id"));
+    $loginName =~ s/_$suffix$//;
     $filter = $this->prop("LoginNameAttribute") . "=$loginName";
   } elsif (defined $email) {
     $filter = $this->prop("MailAttribute") . "=$email";
@@ -469,9 +484,6 @@ sub refresh {
   my $userInfos = $this->cacheUsers();
   $this->cacheGroups($userInfos);
 
-  # refresh topic groups ... disabled
-  #$this->auth->getProvider("Topic")->cacheGroups();
-
   return $this->SUPER::refresh();
 }
 
@@ -530,7 +542,7 @@ sub cacheUsers {
   $this->writeDebug("checking ldap users against existing users");
   foreach my $userInfo (values %userInfos) {
     my $user = $this->findUser(loginName => $userInfo->{loginName});
-    $user //= $this->auth->getUserByID($userInfo->{id}, $this->prop("id"));
+    $user //= $this->auth->getUserByID($userInfo->{id});
 
     if (defined $user && $user->prop("loginName")) {
       $user->load();
@@ -541,9 +553,10 @@ sub cacheUsers {
       } 
 
       my $suffix = lc($this->prop("id"));
-      $userInfo->{id} .= "_". $suffix unless $userInfo->{id} =~ /$suffix$/;
+      $userInfo->{id} .= "_$suffix" unless $userInfo->{id} =~ /$suffix$/;
+      $userInfo->{loginName} .= "_$suffix" unless $userInfo->{loginName} =~ /$suffix$/;
 
-      $user = $this->auth->getUserByID($userInfo->{id}, $this->prop("id"))->load;
+      $user = $this->auth->getUserByID($userInfo->{id})->load;
       if (defined $user && $user->prop("loginName")) {
         $this->writeDebug("... user already exists (2): ".$user->stringify);
         $this->updateUser($user, {enabled => 1});
@@ -1333,6 +1346,7 @@ sub indexUser {
   return unless $personAttributes && keys %$personAttributes;
 
   my $entry = $this->getEntryOfUser($user);
+
   unless ($entry) {
     $this->writeDebug("... disabling user in solr");
     $this->indexSolrField($doc, 'state', 'disabled');

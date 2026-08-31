@@ -133,7 +133,10 @@ sub updateLoginDate {
 sub enable {
   my $this = shift;
 
-  my $res = $this->SUPER::enable();
+  my $res = $this->update(
+    enabled => 1,
+    picture => $this->updatePicture() # just to make sure
+  );
 
   my $it = $this->eachGroup();
   while ($it->hasNext) {
@@ -177,6 +180,11 @@ sub update {
 
   my ($oldWeb, $oldTopic) = $this->getTopic();
 
+  if (!$params{picture} && $params{wikiName}) {
+    $params{picture} = $this->updatePicture();
+    $params{picture} =~ s/\b$oldTopic\b/$params{wikiName}/;
+  }
+
   my $res = $this->SUPER::update(%params);
   return unless $res;
 
@@ -195,16 +203,17 @@ sub update {
   my ($web, $topic) = $this->getTopic();
   return unless Foswiki::Func::topicExists($oldWeb, $oldTopic);
 
-  my $wikiName = Foswiki::Func::getWikiName();
   my $mustIndex = 1;
-  if (Foswiki::Func::checkAccessPermission("CHANGE", $wikiName, undef, $oldTopic, $oldWeb)) {
+  my $session = $Foswiki::Plugins::SESSION;
+  my $oldMeta = Foswiki::Meta->load($session, $oldWeb, $oldTopic);
+  my $newMeta = Foswiki::Meta->load($session, $web, $topic);
 
-    # move topic
-    if ($oldWeb ne $web || $oldTopic ne $topic) {
-      if (Foswiki::Func::topicExists($oldWeb, $oldTopic) && !Foswiki::Func::topicExists($web, $topic)) {
-        Foswiki::Func::moveTopic($oldWeb, $oldTopic, $web, $topic);
-        $mustIndex = 0;
-      }
+  # move topic
+  if (($oldWeb ne $web || $oldTopic ne $topic) && $oldMeta->haveAccess("CHANGE")) {
+    if ($oldMeta->existsInStore() && !$newMeta->existsInStore()) {
+      Foswiki::Func::moveTopic($oldWeb, $oldTopic, $web, $topic);
+      $oldMeta->move($newMeta);
+      $mustIndex = 0;
     }
 
     # update topic
@@ -224,19 +233,24 @@ sub update {
   # together with SolrPlugin will the user's profile page - and all of its attachment - be indexed a few dozen times
   # visiting pages with these rss and atom links.
 
-  my $session = $Foswiki::Plugins::SESSION;
   my $baseTopic = $session->{topicName};
   $mustIndex = 0 if $baseTopic =~ /^(WebAtom|WebRss)$/;
 
   # force reindex
   if ($mustIndex && Foswiki::Func::getContext()->{SolrPluginEnabled}) {
     require Foswiki::Plugins::SolrPlugin;
- 
+
     my $indexer = Foswiki::Plugins::SolrPlugin::getIndexer();
     $indexer->indexTopic($web, $topic);
   }
 
   return $res;
+}
+
+sub updatePicture {
+  my ($this, $url) = @_;
+
+  return $this->getProvider->updatePictureOfUser($this, $url);
 }
 
 sub checkPassword {

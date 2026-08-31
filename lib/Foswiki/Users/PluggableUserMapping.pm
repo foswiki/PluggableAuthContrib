@@ -48,31 +48,18 @@ sub new {
   my ($class, $session) = @_;
 
   my $this = bless($class->SUPER::new($session), $class);
+  $this->init();
+
+  return $this;
+}
+
+sub init {
+  my $this = shift;
 
   $this->{_login2cUID} = {};
   $this->{_isGroup} = {};
   $this->{_isInGroup} = {};
   $this->{_isUnknown} = {};
-
-  return $this;
-}
-
-=begin TML
-
----++ ObjectMethod auth()
-
-returns the Foswiki::PluggableAuth singleton object
-
-=cut
-
-sub auth {
-  my $this = shift;
-
-  unless ($this->{_auth}) {
-    $this->{_auth} = Foswiki::PluggableAuth->new();
-  }
-
-  return $this->{_auth};
 }
 
 =begin TML
@@ -82,6 +69,7 @@ sub auth {
 Complete processing after the client's HTTP request has been responded
 
 =cut
+
 
 sub finish {
   my $this = shift;
@@ -95,6 +83,21 @@ sub finish {
   undef $this->{_handlesUser};
 
   $this->SUPER::finish();
+}
+
+=begin TML
+
+---++ ObjectMethod auth()
+
+returns the Foswiki::PluggableAuth singleton object
+
+=cut
+
+sub auth {
+  my $this = shift;
+
+  $this->{_auth} //= Foswiki::PluggableAuth->new();
+  return $this->{_auth};
 }
 
 =begin TML
@@ -163,9 +166,6 @@ first, then login, then wikiname.
 sub handlesUser {
   my ($this, $cUID, $loginName, $wikiName) = @_;
 
-  return 0 if $loginName && $loginName =~ /^baseusermapping/i;
-  return 0 if $cUID && $cUID =~ /^baseusermapping/i;
-  return 0 if $wikiName && $wikiName =~ /^baseusermapping/i;
   return 0 unless $loginName || $cUID || $wikiName; 
 
   my $key = ($cUID // 'undef').'::'.($loginName//'undef').'::'.($wikiName//'undef');
@@ -556,7 +556,11 @@ sub isAdmin {
 
   my $sag = $Foswiki::cfg{SuperAdminGroup};
 
+  return 1 if $user eq 'BaseUserMapping_333';
+  return 1 if $user eq $Foswiki::cfg{AdminUserLogin};
+  return 1 if $user eq $Foswiki::cfg{AdminUserWikiName};
   return 1 if $user eq $sag;
+
   return $this->isInGroup($user, $sag);
 }
 

@@ -475,8 +475,7 @@ sub readTopic {
   my $this = shift;
 
   my ($web, $topic) = $this->getTopic();
-  my ($meta) = Foswiki::Func::readTopic($web, $topic);
-  return $meta;
+  return Foswiki::Meta->load($Foswiki::Plugins::SESSION, $web, $topic);
 }
 
 =begin TML

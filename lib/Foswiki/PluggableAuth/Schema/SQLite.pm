@@ -125,6 +125,8 @@ sub getDefinition {
       ('Base', '$adminGroup', '$adminGroup', 'Admin Group')"
   ], [
     "CREATE UNIQUE INDEX IF NOT EXISTS %prefix%idx_user_keys_type ON %prefix%user_keys (uid, type)",
+  ], [
+    "INSERT OR IGNORE INTO %prefix%group_members (gid, mid) VALUES ('AdminGroup', 'BaseUserMapping_333')"
   ]);
 
   return \@schema;

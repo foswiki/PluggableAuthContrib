@@ -358,8 +358,11 @@ sub tear_down {
 
   undef $this->{auth};
   unlink $this->{pauthDB} if -e $this->{pauthDB};
+  undef $Foswiki::PluggableAuth::SINGLETON;
+  undef $Foswiki::Users::PluggableAuthUserMapping::SINGLETON;
 
   $this->SUPER::tear_down();
+
 }
 
 sub assert_user {

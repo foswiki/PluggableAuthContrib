@@ -146,9 +146,33 @@
 %BUTTON{"%TRANSLATE{"Delete user"}%" icon="fa-trash-o" class="pauthDeleteUser pauthButton jqButtonDisabled" data_dialog="pauth::deleteuserdialog"}%
 %BUTTON{"%TRANSLATE{"Activate user"}%" icon="fa-toggle-on" class="pauthActivateUser pauthButton jqButtonDisabled" data_dialog="pauth::activateuserdialog"}%
 %BUTTON{"%TRANSLATE{"Deactivate user"}%" icon="fa-toggle-off" class="pauthDeactivateUser pauthButton jqButtonDisabled" data_dialog="pauth::deactivateuserdialog"}%
-</div>%TMPL:END%
+%TMPL:P{context="EnableMergeAccounts" then="pauth::buttons::mergeaccount"}%</div>%TMPL:END%
+
+%TMPL:DEF{"pauth::buttons::mergeaccount"}%%BUTTON{"%TRANSLATE{"Merge user"}%" icon="fa-random" class="pauthMergeAccount pauthButton jqButtonDisabled" data_dialog="pauth::mergeaccountdialog"}%%TMPL:END%
 
 %TMPL:DEF{"pauth::formend"}%</form>%TMPL:END%
+
+%TMPL:DEF{"pauth::mergeaccountdialog"}%<div class="jqUIDialog pauthDialog foswikiFormSteps" id="pauthMergeAccount" title="%TRANSLATE{"Merge user"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
+  <form class="jqAjaxForm jqValidate" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/mergeAccount" method="post" autocomplete="off" data-message="%TRANSLATE{"Merging ..."}%" data-onsubmit="false">
+      <input type="hidden" name="topic" value="%WEB%.%TOPIC%" />
+      <input type="hidden" name="uid" value="%URLPARAM{"uid"}%" />
+      <div class='foswikiFormStep'>
+        %TRANSLATE{"Merge accounts into [_1]" arg1="<b>%USERINFO{"%URLPARAM{"uid"}%" format="$displayName"}%" showall="on"}%</b>:
+      </div>
+      <div class='foswikiFormStep'>
+      %RENDERFOREDIT{
+        form="%SYSTEMWEB%.MoreFormfieldsPlugin"
+        field="User"
+        format="$edit"
+        User_type="user+multi"
+        User_name="accounts"
+        User_params="exclude=\"^(UnknownUser|AdminUser|RegistrationAgent|ProjectContributor|WikiGuest|%USERINFO{"%URLPARAM{"uid"}%" format="$wikiname" showall="on"}%)$\" showlogin=\"on\""
+      }%
+    </div>
+  </form>
+  <a class="jqUIDialogButton jqUIDialogSubmit" data-icon="ui-icon-circle-check">%TRANSLATE{"Merge"}%</a>
+  <a class="jqUIDialogButton jqUIDialogDestroy" data-icon="ui-icon-cancel">%TRANSLATE{"Abort"}%</a>
+</div>%TMPL:END%
 
 %TMPL:DEF{"pauth::adduserdialog"}%<div class="jqUIDialog pauthDialog" id="pauthAddUserDialog" title="%TRANSLATE{"Add User"}%" data-width="auto" data-auto-open="true" data-modal="on" data-draggable="true">
    <form class="jqAjaxForm jqValidate" action="%SCRIPTURLPATH{"jsonrpc"}%/PluggableAuth/addUser" method="post" autocomplete="off" data-message="%TRANSLATE{"Adding ..."}%" data-onsubmit="false">

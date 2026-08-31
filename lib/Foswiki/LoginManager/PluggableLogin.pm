@@ -180,7 +180,7 @@ sub renderSecondFactor {
     PATH_INFO => Foswiki::urlEncode(Foswiki::decode_utf8($path_info)),
     BANNER => $banner,
     ERROR => $error,
-    LOGINNAME => $uid,
+    UID => $uid,
   );
 
   $request->delete('validation_key', 'foswiki_origin', 'sudo', 'username', 'password', 'accesscode', 'state', 'scope', 'authuser', 'prompt');
@@ -455,7 +455,7 @@ sub initLogin {
 
 ---++ ObjectMethod processSecondFactor($request, $state)
 
-Process the second factor code as being provided by the url parameters =username= and =accesscode=.
+Process the second factor code as being provided by the url parameters =uid= and =accesscode=.
 An exception will be thrown if the user us unknown or the access code does not match.
 
 =cut
@@ -465,15 +465,15 @@ sub processSecondFactor {
 
   _writeDebug("called processSecondFactor()");
 
-  my $loginName = $request->param('username') || '';
+  my $id = $request->param('uid') || '';
   my $accessCode = $request->param('accesscode') || '';
 
-  unless ($loginName && $accessCode) {
+  unless ($id && $accessCode) {
     $this->setAuthLevel(0); # restart login process
     return 0;
   }
 
-  my $user = $this->auth->getUserByID($loginName);
+  my $user = $this->auth->getUserByID($id);
   throw Error::Simple($this->auth->maketext("Unknown user")) unless $user;
 
   _writeDebug("checking second factor");
@@ -557,8 +557,8 @@ sub finishLogin {
 
   _writeDebug("... logging in " . $user->stringify . ($user->isAdmin ? " (admin)" : ""));
 
-  my $loginName = $user->prop("loginName");
-  $this->userLoggedIn($loginName);
+  my $id = $user->prop("id");
+  $this->userLoggedIn($id);
   $user->updateLoginDate;
   $user->createTopic;
 
@@ -572,7 +572,7 @@ sub finishLogin {
       level => 'info',
       action => 'login',
       webTopic => $web . '.' . $topic,
-      extra => "AUTHENTICATION SUCCESS - $loginName - "
+      extra => "AUTHENTICATION SUCCESS - $id - "
     }
   );
 
@@ -661,14 +661,19 @@ sub loadSession {
     return;
   }
 
-  my $provider = $user->getProvider();
-
-  if ($user->isAdmin || ($provider && $provider->canSetPassword($user))) {
+  # enter contexts
+  if ($user->canSetPassword) {
     _writeDebug("... user=".$user->stringify." can set password");
     $session->enterContext('passwords_modifyable');
+    $session->enterContext('can_change_password');
+  }
+  if ($user->canSetEmail) {
+    _writeDebug("... user=".$user->stringify." can set email");
+    $session->enterContext('can_change_email');
   }
 
   # check two factor policy and force redirect to twofactorauth
+  my $provider = $user->getProvider();
   if ($provider && $provider->prop("TwoFactorAuthEnabled")) {
     #_writeDebug("entering 2fa for ".$provider->prop("id"));
 

@@ -256,7 +256,8 @@ sub _fingerPrint {
 
   foreach my $key (sort keys %$params) {
     my $val = $params->{$key} // '';
-    push @parts, "$key=".Encode::decode_utf8($val);
+    #push @parts, "$key=".Encode::decode_utf8($val); ## SMELL???
+    push @parts, "$key=$val";
   }
   
   return Digest::MD5::md5_hex(join("::", @parts));

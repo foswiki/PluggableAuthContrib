@@ -15,14 +15,6 @@ $Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{Module} = 'Foswiki::PluggableAu
 # **BOOLEAN LABEL="Visible" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{Visible} = 1;
 
-# **STRING LABEL="Foreground Color" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled} && {PluggableAuth}{Providers}{Dropbox}{Visible}" CHECK="undefok emptyok"**
-# foreground color of login button
-$Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{ForegroundColor} = '';
-
-# **STRING LABEL="Background Color" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled} && {PluggableAuth}{Providers}{Dropbox}{Visible}" CHECK="undefok emptyok"**
-# background color of login button
-$Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{BackgroundColor} = '';
-
 # **BOOLEAN LABEL="Synchronize on Login" DISPLAY_IF="{PluggableAuth}{Providers}{Dropbox}{Enabled}"**
 $Foswiki::cfg{PluggableAuth}{Providers}{Dropbox}{SyncOnLogin} = 1;
 
